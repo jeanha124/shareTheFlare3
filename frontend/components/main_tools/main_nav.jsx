@@ -12,11 +12,14 @@ const mainNav = (props) => (
         <div className="right">
           <input className="main-search" type="text" placeholder="Photos..." ></input>
           <Link to='/photos/upload'><i className="fas fa-cloud-upload-alt cloud"></i></Link>
-          <Link to='/account'><div id="avatar"></div></Link>
-          <button className="header-btn" onClick={props.logout}>Log Out</button>
+          <div id="avatar"></div>
+          <button onClick={props.logout}>Log Out</button>
         </div>
       </nav>
   </React.Fragment>
 );
 
+
 export default mainNav;
+
+// className = "header-btn"

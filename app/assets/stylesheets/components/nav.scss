@@ -116,7 +116,17 @@ html, body {
   align-items: center;
 }
 
+#avatar {
+  background-image: url("amber.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+}
 
+.account {
+  display: none;
+}
 
 @media only screen and (max-width: 1400px) {
   .login-signup, .content, .empty, .footer {

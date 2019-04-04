@@ -863,17 +863,14 @@ var mainNav = function mainNav(props) {
     to: "/photos/upload"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-cloud-upload-alt cloud"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/account"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "avatar"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "header-btn",
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: props.logout
   }, "Log Out"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (mainNav);
+/* harmony default export */ __webpack_exports__["default"] = (mainNav); // className = "header-btn"
 
 /***/ }),
 
