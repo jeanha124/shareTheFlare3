@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
   render() {
     let button, demoLog;                      
     button = this.props.otherForm;
-    demoLog = <button id="demo" onClick={this.demoLogin}>Demo Login</button>;
+    demoLog = <button id="demo" className="session-submit-demo" onClick={this.demoLogin}>Demo Login</button>;
 
 
 
@@ -68,7 +68,6 @@ class SessionForm extends React.Component {
             { this.renderErrors() }
             <br />
             <div className="login-form">
-              <br />
               <br />
               <input type="text"
                 placeholder="First Name"
@@ -121,11 +120,11 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
               <br />
+              <br />
               <input className="session-submit" type="submit" value={this.props.formType} />
             </div>
+            <h1 className="cred-sign-link">Already have an account? <span className="link-btn" onClick={this.props.clearModalErrors}>{button}</span></h1>
             <br />
-            <br />
-            <h1 className="cred-sign">Already have an account? <span className="link-btn" onClick={this.props.clearModalErrors}>{button}</span></h1>
           </form>
         </div>
       );
@@ -150,6 +149,7 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
               <br />
+              <br />
               <input type="password"
                 placeholder = "Password"
                 id="login-password"
@@ -159,12 +159,9 @@ class SessionForm extends React.Component {
               />
               <br />
               <br />
-              <br />
               <input className="session-submit" type="submit" value={this.props.formType} />
             </div>
-            <br />
-            <br />
-            <h1 className="cred-sign">Don 't have an account? <span className ="link-btn" onClick={this.props.clearModalErrors}>{button}</span></h1>
+            <h1 className="cred-sign-link">Don 't have an account? <span className ="link-btn" onClick={this.props.clearModalErrors}>{button}</span></h1>
             <br />
             {demoLog}
           </form>
