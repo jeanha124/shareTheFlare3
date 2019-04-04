@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
   render() {
     let button, demoLog;                      
     button = this.props.otherForm;
-    demoLog = <button id="demo" className="session-submit-demo" onClick={this.demoLogin}>Demo Login</button>;
+    demoLog = <button id="demo" className="session-submit-demo" onClick={this.demoLogin}>Demo Log In</button>;
 
 
 
