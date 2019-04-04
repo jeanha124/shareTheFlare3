@@ -865,9 +865,8 @@ var mainNav = function mainNav(props) {
     className: "fas fa-cloud-upload-alt cloud"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/account"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "prof-img",
-    alt: props.currentUser.display_name
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "avatar"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "header-btn",
     onClick: props.logout
