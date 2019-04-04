@@ -18,9 +18,6 @@ class Photo < ApplicationRecord
 
   has_one_attached :picture
 
-  has_one_attached :avatar
-  has_one_attached :cover_photo
-
 
   belongs_to :owner,
     foreign_key: :owner_id,
