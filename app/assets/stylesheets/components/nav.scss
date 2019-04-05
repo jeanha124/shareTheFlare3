@@ -124,8 +124,52 @@ html, body {
   height: 33px;
 }
 
-.account {
+#avatar:hover {
+  cursor: pointer;
+  
+}
+
+.profile-dropdown {
   display: none;
+  position: absolute;
+  color: black;
+  left: 1561px;
+  top: 55px;
+  padding: 33px 3px;
+  font-size: 16px;
+  white-space: nowrap;
+  background: #fff;
+  border-left: 1px solid darkgrey;
+  border-right: 1px solid darkgrey;
+  border-bottom: 1px solid darkgrey;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#hello-display {
+  font-weight: 700;
+  position: relative;
+  top: -28px;
+  left: 0px;
+  padding-bottom: 22px;
+  padding-right: 99px;
+  border-bottom: 1px solid darkgrey;
+}
+
+.nav-logout {
+  position: relative;
+  top: 26px;
+  font-size: 18px;
+  width: 100%;
+}
+.nav-logout:hover {
+  background: rgb(255, 255, 207);
+}
+
+#avatar:hover .profile-dropdown {
+  display: block;
 }
 
 @media only screen and (max-width: 1400px) {

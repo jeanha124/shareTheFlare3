@@ -13,7 +13,10 @@ const mainNav = (props) => (
           <input className="main-search" type="text" placeholder="Photos..." ></input>
           <Link to='/photos/upload'><i className="fas fa-cloud-upload-alt cloud"></i></Link>
           <div id="avatar"></div>
-          <button onClick={props.logout}>Log Out</button>
+          <ul className="profile-dropdown">
+            <h1 id="hello-display">Hello, {props.currentUser.display_name}!</h1>
+            <button className="nav-logout" onClick={props.logout}>Log Out</button>
+          </ul>
         </div>
       </nav>
   </React.Fragment>

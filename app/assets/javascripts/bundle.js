@@ -865,9 +865,14 @@ var mainNav = function mainNav(props) {
     className: "fas fa-cloud-upload-alt cloud"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "avatar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "profile-dropdown"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    id: "hello-display"
+  }, "Hello, ", props.currentUser.display_name, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "nav-logout",
     onClick: props.logout
-  }, "Log Out"))));
+  }, "Log Out")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (mainNav); // className = "header-btn"
