@@ -19,7 +19,7 @@ class Upload extends React.Component {
             <li><Link to='/'><h1 className="photo-logo">Share the Flare</h1></Link></li>
             <li><Link to={`/photos/~/${this.currentUser.display_name}`}><span className="photostream-photo">Your Photostream</span></Link></li>
           </ul>
-          <div className="dUser">Demo User</div>
+          <div classname="avatar"></div>
         </nav>
         <Switch>
           <Route exact path='/photos/upload' component={BeforeUpload} />

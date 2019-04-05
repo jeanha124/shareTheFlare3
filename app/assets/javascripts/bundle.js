@@ -864,7 +864,7 @@ var mainNav = function mainNav(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-cloud-upload-alt cloud"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "avatar"
+    className: "avatar"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "profile-dropdown"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -2201,8 +2201,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "photostream-photo"
       }, "Your Photostream")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dUser"
-      }, "Demo User")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        classname: "avatar"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/photos/upload",
         component: _before_upload__WEBPACK_IMPORTED_MODULE_2__["default"]

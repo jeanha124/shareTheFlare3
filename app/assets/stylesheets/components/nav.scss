@@ -116,7 +116,7 @@ html, body {
   align-items: center;
 }
 
-#avatar {
+.avatar {
   background-image: url("amber.jpg");
   background-size: cover;
   border-radius: 50%;
@@ -124,7 +124,7 @@ html, body {
   height: 33px;
 }
 
-#avatar:hover {
+.avatar:hover {
   cursor: pointer;
   
 }
@@ -168,7 +168,7 @@ html, body {
   background: rgb(255, 255, 207);
 }
 
-#avatar:hover .profile-dropdown {
+.avatar:hover .profile-dropdown {
   display: block;
 }
 
