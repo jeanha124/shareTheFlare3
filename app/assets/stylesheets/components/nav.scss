@@ -129,23 +129,25 @@ html, body {
   
 }
 
+.avatar-drop {
+  position: relative;
+  display: inline-block;
+}
+
 .profile-dropdown {
   display: none;
   position: absolute;
-  color: black;
-  left: 1561px;
-  top: 55px;
-  padding: 33px 3px;
-  font-size: 16px;
-  white-space: nowrap;
-  background: #fff;
-  border-left: 1px solid darkgrey;
-  border-right: 1px solid darkgrey;
-  border-bottom: 1px solid darkgrey;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  overflow: hidden;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+}
+
+.profile-dropdown > li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 #hello-display {

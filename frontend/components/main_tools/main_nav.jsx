@@ -12,11 +12,13 @@ const mainNav = (props) => (
         <div className="right">
           <input className="main-search" type="text" placeholder="Photos..." ></input>
           <Link to='/photos/upload'><i className="fas fa-cloud-upload-alt cloud"></i></Link>
-          <div className="avatar"></div>
-          <ul className="profile-dropdown">
-            <h1 id="hello-display">Hello, {props.currentUser.display_name}!</h1>
-            <button className="nav-logout" onClick={props.logout}>Log Out</button>
-          </ul>
+          <div className="avatar-drop">
+            <div className="avatar" onClick={props.drop}></div>
+            <ul id="dropdown" className="profile-dropdown">
+              <li><h1 id="hello-display">Hello, {props.currentUser.display_name}!</h1></li>
+              <li><button className="nav-logout" onClick={props.logout}>Log Out</button></li>
+            </ul>
+          </div>
         </div>
       </nav>
   </React.Fragment>

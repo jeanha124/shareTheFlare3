@@ -864,15 +864,19 @@ var mainNav = function mainNav(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-cloud-upload-alt cloud"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "avatar"
+    className: "avatar-drop"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "avatar",
+    onClick: props.drop
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    id: "dropdown",
     className: "profile-dropdown"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "hello-display"
-  }, "Hello, ", props.currentUser.display_name, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Hello, ", props.currentUser.display_name, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "nav-logout",
     onClick: props.logout
-  }, "Log Out")))));
+  }, "Log Out")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (mainNav); // className = "header-btn"
@@ -905,6 +909,9 @@ var mdp = function mdp(dispatch) {
   return {
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+    },
+    drop: function drop() {
+      return document.getElementById('dropdown').classList.toggle('show');
     }
   };
 };
