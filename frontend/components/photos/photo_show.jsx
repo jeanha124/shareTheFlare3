@@ -66,9 +66,9 @@ class PhotoShow extends React.Component {
               </nav>
               <img className="avatar" src="https://s3.amazonaws.com/share-the-flare-dev/shareTheFlare.png"/>
               <br />
-              <span>{this.props.photo.title}</span>
+              <span className="content-show">{this.props.photo.title}</span>
               <br />
-              <span>{this.props.photo.description}</span>
+              <span className="content-show">{this.props.photo.description}</span>
             </div> 
           </content>
           <content>
