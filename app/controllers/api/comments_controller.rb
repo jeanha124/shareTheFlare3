@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   
   def index
   end
-  end
+  
   def create
     @comment = Comment.new(comment_params)
     if @comment.save 
