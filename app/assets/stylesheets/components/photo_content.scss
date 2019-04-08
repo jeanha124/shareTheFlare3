@@ -42,13 +42,15 @@
 }
 
 .new-photo {
-  width: 83%;
-  height: 26%;
+  width: 22%;
+  height: 27%;
   border: 1px solid #2d2a2a;
   background: #231e1e;
   border-radius: 4px;
-  grid-column: 3;
-  grid-row: 2;
+  z-index: 1;
+  position: fixed;
+  left: 171px;
+  top: 97px;
 }
 
 .new-photo:hover {
