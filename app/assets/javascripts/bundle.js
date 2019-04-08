@@ -2670,7 +2670,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // import Slider from 'react-slick';
 
 var Splash =
 /*#__PURE__*/
@@ -2688,6 +2688,40 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      // const items = ["https://s3.amazonaws.com/share-the-flare-dev/bench2.jpg", "https://s3.amazonaws.com/share-the-flare-dev/amanda.jpg", "https://s3.amazonaws.com/share-the-flare-dev/amber.jpg"];
+      // let settings = {
+      //   dots: false,
+      //   infinity: true,
+      //   autoplay: true,
+      //   arrows: false,
+      // };
+      // const content1 = {
+      //   margin: 'auto',
+      //   paddingBottom: '12px',
+      //   width: '560px',
+      //   color: 'white',
+      //   fontSize: '60px',
+      //   textShadow: '1px 1px black',
+      // };
+      // const content2 = {
+      //   margin: 'auto',
+      //   paddingBottom: '15px',
+      //   color: 'white',
+      //   fontWeight: '500',
+      //   width: '500px',
+      //   fontSize: '26px',
+      //   textAlign: 'center',
+      //   textShadow: '1px 1px black',
+      // };
+      // const contentSignup = {
+      //   display: 'black',
+      //   margin: '0 auto',
+      //   fontSize: '24px',
+      //   background: 'whitesmoke',
+      //   color: 'black',
+      //   borderRadius: '5px',
+      //   padding: '16px 58px'
+      // };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "splash-auth"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2727,7 +2761,17 @@ function (_React$Component) {
   }]);
 
   return Splash;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // return (
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // class CarouselPhoto extends React.Component {
+//   render() {
+//     const { item } = this.props;
+//     return (
+//       <React.Fragment>
+//         <img src={`${item}`} style={{width: '100%', maxHeight: '1150px'}}/>
+//       </React.Fragment>
+//     );
+//   }
+// }
+// return (
 //   this.props.currentUser ? mainNav() : sessionLinks()
 //   );
 
