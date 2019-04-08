@@ -31,13 +31,13 @@ class Photo < ApplicationRecord
   #   through: :photo_albums,
   #   source: :photo
 
-  def ensure_photo
-    unless self.avatar.attached?
-      errors[:photo] << "Avatar must be attached"
-    end
-    unless self.cover_photo.attached?
-      errors[:photo] << "Cover Photo must be attached"
-    end
-  end
+  # def ensure_photo
+  #   unless self.avatar.attached?
+  #     errors[:photo] << "Avatar must be attached"
+  #   end
+  #   unless self.cover_photo.attached?
+  #     errors[:photo] << "Cover Photo must be attached"
+  #   end
+  # end
 
 end
