@@ -19,6 +19,10 @@
   color: blue;
 }
 
+.photo-logo:hover {
+  color: lightblue;
+}
+
 .photo-nav-ul {
   display: flex;
   justify-content: space-between;
@@ -29,6 +33,9 @@
   text-align: end;
 }
 
+.photostream-photo:hover {
+  color: lightgrey;
+}
 .dUser {
   grid-column: 4;
 }
