@@ -2203,7 +2203,9 @@ function (_React$Component) {
         to: "/"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "photo-logo"
-      }, "Share the Flare"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Share the ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "flare"
+      }, "Flare")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/photos/~/".concat(this.currentUser.display_name)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "photostream-photo"

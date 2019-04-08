@@ -16,7 +16,7 @@ class Upload extends React.Component {
       <React.Fragment>
         <nav className="photo-nav">
           <ul className="photo-nav-ul">
-            <li><Link to='/'><h1 className="photo-logo">Share the Flare</h1></Link></li>
+            <li><Link to='/'><h1 className="photo-logo">Share the <span id="flare">Flare</span></h1></Link></li>
             <li><Link to={`/photos/~/${this.currentUser.display_name}`}><span className="photostream-photo">Your Photostream</span></Link></li>
           </ul>
           <div className="avatar-drop">
