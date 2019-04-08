@@ -2208,8 +2208,19 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "photostream-photo"
       }, "Your Photostream")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        classname: "avatar"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        className: "avatar-drop"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "avatar",
+        onClick: this.props.drop
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        id: "dropdown",
+        className: "profile-dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "hello-display"
+      }, "Hello, ", this.props.currentUser.display_name, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "nav-logout",
+        onClick: this.props.logout
+      }, "Log Out"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/photos/upload",
         component: _before_upload__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -2253,6 +2264,9 @@ var mdp = function mdp(dispatch) {
   return {
     logout: function logout() {
       return dispatch(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"]);
+    },
+    drop: function drop() {
+      return document.getElementById('dropdown').classList.toggle('show');
     }
   };
 };

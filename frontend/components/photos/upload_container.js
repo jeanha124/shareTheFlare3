@@ -10,7 +10,8 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    logout: () => dispatch(logout)
+    logout: () => dispatch(logout),
+    drop: () => document.getElementById('dropdown').classList.toggle('show')
   };
 };
 
