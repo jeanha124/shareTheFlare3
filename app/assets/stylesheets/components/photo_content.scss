@@ -34,16 +34,15 @@
 
 .content-new {
   background: #231e1e;
-  height: 900px;
+  height: 1085px;
+  max-height: 100%;
   color: white;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 24px;
+  display: flex;
 }
 
 .new-photo {
-  width: 22%;
-  height: 27%;
+  width: 307px;
+  height: 413px;
   border: 1px solid #2d2a2a;
   background: #231e1e;
   border-radius: 4px;
@@ -107,16 +106,13 @@
 
 
 .back {
-  position: relative;
-  top: 50px;
-  left: 25px;
 }
 
 .curr-photo {
   margin: 2px;
-  position: relative;
   flex-grow: 1;
-  background-color: blue;
+  max-width: 400px;
+  max-height: 100%;
 }
 
 .curr-photo-img {
@@ -132,9 +128,9 @@
   float: right;
   Cursor: pointer;
   height: 30px;
-  padding: 2px;
-  font-size: 30px;
-  color: grey;
+  padding: 0 2px 0 0;
+  font-size: 18px;
+  color: #f1f5f6;
 }
 
 .edit-input {
@@ -155,13 +151,4 @@
 }
 
 .edit-btns {
-  position: relative;
-  left: -22%;
-}
-
-.comment-list {
-  position: relative;
-  left: 37px;
-  bottom: -29px;
-  background: #f6f6f6;
 }

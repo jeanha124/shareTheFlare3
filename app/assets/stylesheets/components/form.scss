@@ -5,14 +5,14 @@
   padding: 5px;
 }
 .login-form-box {
-  position: absolute;
+  
   border: 1px solid silver;
   border-radius: 4px;
   box-sizing: border-box;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
   0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background: #fff;
-  top: 30%;
+  
   margin: 50px 335px;
   padding: 28px 5px 105px;
   width: 400px;
@@ -21,10 +21,8 @@
   font-weight: 700;
 }
 .login-input {
-  position: relative;
   padding: 0px 8px;
   border-bottom: 1px solid lightgray;
-  left: 4%;
 }
 #login-email, #login-password {
   padding: 1.7rem 1rem .45rem 1rem;
@@ -45,8 +43,7 @@
   color: #fff;
   padding: 17px 150px;
   border-radius: 5px;
-  position: absolute;
-  left: 6%;
+  
 }
 
 .session-submit:hover {
@@ -59,9 +56,6 @@
   color: #fff;
   padding: 17px 22px;
   border-radius: 5px;
-  position: relative;
-  top: 75px;
-  left: 31%;
 }
 
 .session-submit-demo:hover {
@@ -70,8 +64,6 @@
 }
 
 .header-name {
-  position: absolute;
-  top: 9px;
   font-size: 26px;
   font-weight: 700;
 }
@@ -83,8 +75,6 @@
   color: white;
   font-weight: 500; 
   padding: 8px 20px;
-  position: absolute;
-  top: 15%;    
 }
 
 #demo {

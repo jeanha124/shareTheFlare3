@@ -1273,6 +1273,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1304,37 +1306,31 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DuringUpload).call(this, props));
     _this.state = _this.props.photo;
-    _this.handleTitle = _this.handleTitle.bind(_assertThisInitialized(_this));
-    _this.handleDescription = _this.handleDescription.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(DuringUpload, [{
-    key: "handleTitle",
-    value: function handleTitle(e) {
-      this.setState({
-        title: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "handleDescription",
-    value: function handleDescription(e) {
-      this.setState({
-        description: e.currentTarget.value
-      });
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
     }
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      var _this2 = this;
+      var _this3 = this;
 
       var file = e.currentTarget.files[0];
       var fileReader = new FileReader();
 
       fileReader.onloadend = function () {
-        return _this2.setState({
+        return _this3.setState({
           photoFile: file,
           photoUrl: fileReader.result
         });
@@ -1356,8 +1352,6 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
-
       e.preventDefault();
       var formData = new FormData();
       formData.append('photo[title]', this.state.title);
@@ -1369,56 +1363,48 @@ function (_React$Component) {
       }
 
       this.props.action(formData).then(function () {
-        return _this3.props.history.push("/photos/~/".concat(_this3.props.currentUser.display_name));
-      });
+        this.props.history.push("/photos/~/".concat(this.state.display_name));
+      }.bind(this));
+    }
+  }, {
+    key: "stopEnter",
+    value: function stopEnter(e) {
+      e.preventDefault();
     }
   }, {
     key: "render",
     value: function render() {
-      var prev, submit, inputTitle, inputDescription, fileF;
+      var prev, submit, inputTitle, inputDescription;
       prev = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: this.state.photoUrl
+        src: this.state.photoUrl,
+        style: {
+          maxHeight: '300px',
+          maxWidth: '300px'
+        }
       }) : null;
       submit = this.handleSubmit;
       inputTitle = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "photo-title",
         value: this.state.title,
-        onChange: this.handleTitle,
+        onChange: this.update('title'),
         placeholder: "Add title"
       });
       inputDescription = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "photo-description",
         value: this.state.description,
-        onChange: this.handleDescription,
+        onChange: this.update('description'),
         placeholder: "Add a description"
-      });
-      fileF = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        onChange: this.handleFile,
-        className: "form-file"
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-new"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "change-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "add-add",
-        className: "btn"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/photos/upload/new"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-folder-plus plus-fol"
-      }), "Add")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "add-del"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "delete"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-times-circle ex-but"
-      }), "Delete"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "upload1"
-      }, "Upload Photo"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "upload1",
+        onClick: submit
+      }, this.props.formType)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "inner-sidebar"
@@ -1426,14 +1412,16 @@ function (_React$Component) {
         className: "sidebar-ul"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Editing 1 photo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Tags"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Albums")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "new-photo",
-        onSubmit: submit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, fileF, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, prev), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        onSubmit: this.stopEnter.bind(this)
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleFile,
+        className: "form-file"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, prev), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "photo-title"
       }, inputTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "photo-description"
-      }, inputDescription)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "sub"
-      }, this.props.formType))));
+      }, inputDescription)))));
     }
   }]);
 
