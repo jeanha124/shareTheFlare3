@@ -24,6 +24,7 @@ class SessionForm extends React.Component {
   }
   demoLogin(e) {
     e.preventDefault();
+    debugger
     const demoUser = {email: 'demo@email.com', password:'hunter2'};
     if (this.props.formType === 'login'){
       this.props.processForm(demoUser).then(this.props.closeModal);

@@ -8,12 +8,12 @@
     "test": "test"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.3.1",
     "babel-loader": "^8.0.2",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "react": "^16.5.0",
     "react-compose": "^2.0.0",
     "react-dom": "^16.5.0",

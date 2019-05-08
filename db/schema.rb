@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_182317) do
+ActiveRecord::Schema.define(version: 2019_04_30_185502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,24 @@ ActiveRecord::Schema.define(version: 2018_12_05_182317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_photos_on_owner_id"
+  end
+
+  create_table "tag_joins", force: :cascade do |t|
+    t.integer "photo_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_tag_joins_on_photo_id"
+    t.index ["tag_id"], name: "index_tag_joins_on_tag_id"
+  end
+
+  create_table "tag_photos", force: :cascade do |t|
+    t.integer "photo_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_tag_photos_on_photo_id"
+    t.index ["tag_id"], name: "index_tag_photos_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
