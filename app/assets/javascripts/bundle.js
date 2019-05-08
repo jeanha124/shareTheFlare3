@@ -2442,7 +2442,6 @@ function (_React$Component) {
     key: "demoLogin",
     value: function demoLogin(e) {
       e.preventDefault();
-      debugger;
       var demoUser = {
         email: 'demo@email.com',
         password: 'hunter2'
