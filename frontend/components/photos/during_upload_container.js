@@ -7,6 +7,7 @@ const msp = state => {
     title: '',
     description: '',
     currentUserId: state.entities.users[state.session.id].id,
+    display_name: state.entities.users[state.session.id].display_name,
     photoUrl: null,
     photoFile: null,
   };
