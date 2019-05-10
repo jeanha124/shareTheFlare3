@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const mainNav = (props) => (
   <React.Fragment>
-      <nav className="left-nav">
+      <nav className="left-nav absolute">
         <div className="left">
           <Link to='/'><h1 className="main-logo">Share The Flare</h1></Link>
           <Link to={`/photos/~/${props.currentUser.display_name}`}><h2 className="you">You</h2></Link>

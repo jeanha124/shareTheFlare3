@@ -548,14 +548,16 @@ function (_React$Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "sub-nav"
+        className: "sub-nav absolute"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "activity active"
       }, "All Activity")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-background",
         style: {
           color: '#212124',
-          backgroundColor: "#f2f5f6"
+          backgroundColor: "#f2f5f6",
+          position: "relative",
+          top: "101px"
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-div"
@@ -659,12 +661,6 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "activity"
         }, "All Activity"));
-      } else if (this.props.navType === 'explore') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-          className: "sub-nav"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "explore1"
-        }, "Explore"));
       } else if (this.props.navType === 'you') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "profile-nav"
@@ -684,7 +680,6 @@ function (_React$Component) {
   return LoggedInHomePageNav;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-;
 /* harmony default export */ __webpack_exports__["default"] = (LoggedInHomePageNav);
 
 /***/ }),
@@ -741,7 +736,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mainNav = function mainNav(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "left-nav"
+    className: "left-nav absolute"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

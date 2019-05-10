@@ -8,12 +8,6 @@ class LoggedInHomePageNav extends React.Component {
           <h1 className="activity">All Activity</h1>
         </nav>
       );
-    } else if (this.props.navType === 'explore') {
-      return (
-        <nav className="sub-nav">
-          <h1 className="explore1">Explore</h1>
-        </nav>
-      );
     } else if (this.props.navType === 'you'){
       return (
         <ul className="profile-nav">
@@ -25,6 +19,6 @@ class LoggedInHomePageNav extends React.Component {
       );
     }
   }
-};
+}
 
 export default LoggedInHomePageNav;

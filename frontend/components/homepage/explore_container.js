@@ -1,17 +1,17 @@
-import { connect } from 'react-redux';
-import Explore from './explore';
-import { receiveAllPhotos } from '../../actions/photo_actions';
+// import { connect } from 'react-redux';
+// import Explore from './explore';
+// import { receiveAllPhotos } from '../../actions/photo_actions';
 
-const msp = state => {
-  return {
-    currentUser: state.entities.users[state.session.id]
-  };
-};
+// const msp = state => {
+//   return {
+//     currentUser: state.entities.users[state.session.id]
+//   };
+// };
 
-const mdp = dispatch => {
-  return {
-    receiveAllPhotos: () => dispatch(receiveAllPhotos())
-  };
-};
+// const mdp = dispatch => {
+//   return {
+//     receiveAllPhotos: () => dispatch(receiveAllPhotos())
+//   };
+// };
 
-export default connect(msp, mdp)(Explore);
+// export default connect(msp, mdp)(Explore);
