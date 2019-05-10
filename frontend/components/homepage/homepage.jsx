@@ -21,8 +21,10 @@ class Homepage extends React.Component {
       <nav className="sub-nav">
           <h1 className="activity">All Activity</h1>
       </nav>
-      <div className="photo-div">
-        <ul className="photo-index">{photos}</ul>
+      <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
+        <div className="photo-div">
+          <ul className="photo-index">{photos}</ul>
+        </div>
       </div>
       <Footer />
     </React.Fragment>

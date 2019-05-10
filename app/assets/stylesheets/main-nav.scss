@@ -13,7 +13,7 @@
 
 .left {
   display: flex;
-  width: 500px;
+  width: 592px;
   justify-content: space-around;
 }
 
@@ -24,13 +24,11 @@
 }
 
 .sub-nav {
-  display: grid;
+  display: flex;
   background: white;
   color: black;
   height: 50px;
   border-bottom: 1px solid #ccc;
-  grid-gap: 20px;
-  grid-template-columns: 284px 1fr auto;
   justify-items: end;
   align-items: center;
 }

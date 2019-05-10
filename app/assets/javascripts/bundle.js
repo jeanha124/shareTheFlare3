@@ -552,10 +552,16 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "activity"
       }, "All Activity")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-background",
+        style: {
+          color: '#212124',
+          backgroundColor: "#f2f5f6"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"
-      }, photos)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, photos))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
