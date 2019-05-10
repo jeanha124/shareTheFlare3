@@ -548,7 +548,7 @@ function (_React$Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "sub-nav absolute"
+        className: "sub-nav absolute z-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "activity active"
       }, "All Activity")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -655,13 +655,7 @@ function (_React$Component) {
   _createClass(LoggedInHomePageNav, [{
     key: "render",
     value: function render() {
-      if (this.props.navType === 'activity') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-          className: "sub-nav"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-          className: "activity"
-        }, "All Activity"));
-      } else if (this.props.navType === 'you') {
+      if (this.props.navType === 'you') {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "profile-nav"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -736,7 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mainNav = function mainNav(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "left-nav absolute"
+    className: "left-nav absolute z-index-2"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "left"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
