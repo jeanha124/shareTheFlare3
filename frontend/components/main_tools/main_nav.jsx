@@ -7,7 +7,6 @@ const mainNav = (props) => (
         <div className="left">
           <Link to='/'><h1 className="main-logo">Share The Flare</h1></Link>
           <Link to={`/photos/~/${props.currentUser.display_name}`}><h2 className="you">You</h2></Link>
-          <Link to='/explore'><h2 className="explore">Explore</h2></Link>
         </div>
         <div className="right">
           <input className="main-search" type="text" placeholder="Photos..." ></input>

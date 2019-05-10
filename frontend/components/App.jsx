@@ -6,7 +6,6 @@ import Splash from './splash/splash_container';
 // import HomepageContainer from './homepage/homepage_container';
 import Upload from './photos/upload_container';
 import Homepage from './homepage/homepage_container';
-import Explore from './homepage/explore_container';
 import PhotoIndex from './photos/photo_index_container';
 import PhotoShow from './photos/photo_show_container';
 import UserNavContainer from './users/user_nav_container';
@@ -23,7 +22,6 @@ class App extends React.Component {
         <Modal />
         <AuthRoute exact path='/' component={Splash} />
         <ProtectedRoute exact path='/' component={Homepage} />
-        <ProtectedRoute exact path='/explore' component={Explore} />
         <ProtectedRoute path='/photos/upload' component={Upload} />
         <ProtectedRoute exact path='/photos/~/:display_name' component={PhotoIndex} />
         <ProtectedRoute exact path='/photos/~/:display_name/:photoId' component={PhotoShow} />

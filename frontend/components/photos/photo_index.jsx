@@ -30,11 +30,13 @@ class PhotoIndex extends React.Component {
   //   }
   // }
   render() {
-    const photos = this.props.photos.map(photo => {
-      if (photo.owner_id === this.props.currentUser.id){
-        return <PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>;
+    let photos = [];
+    this.props.photos.map(photo => {
+      if (photo.owner_id === this.props.currentUser.id) {
+        photos.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
       }
     });
+    const latestPhotos = photos.reverse();
     return (
       <React.Fragment>
         <MainNav />
@@ -51,7 +53,7 @@ class PhotoIndex extends React.Component {
             <li id="faves">Faves</li>
         </ul>
         <div className="photo-div">
-          <ul className="photo-index">{photos}</ul>
+          <ul className="photo-index">{latestPhotos}</ul>
         </div>
         <Footer />
       </React.Fragment>
