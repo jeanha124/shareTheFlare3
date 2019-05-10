@@ -59,13 +59,18 @@
 }
 
 .activity {
-  
+  padding: 16px 20px;
+  margin: 0 240px;
 }
 .explore1 {
 
 }
 .you-drop {
   display: none;
+}
+
+.active {
+  border-bottom: 4px solid #198fff;
 }
 
 .profile-nav {

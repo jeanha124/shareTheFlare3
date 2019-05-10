@@ -19,7 +19,7 @@ class Homepage extends React.Component {
     <React.Fragment>
       <MainNav />
       <nav className="sub-nav">
-          <h1 className="activity">All Activity</h1>
+          <h1 className="activity active">All Activity</h1>
       </nav>
       <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
         <div className="photo-div">
