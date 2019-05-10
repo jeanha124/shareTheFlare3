@@ -113,6 +113,33 @@ html, body {
   z-index: 2;
 }
 
+.avatar {
+  background-image: url("amber.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+}
+
+.user-profile-photo {
+  background-image: url("amber.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  bottom: 60px;
+  left: 201px;
+}
+
+.user-profile-photo-show {
+  background-image: url("amber.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
 .footer {
   display: flex;
   background: black;

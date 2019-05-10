@@ -15,6 +15,9 @@
 .cover {
     background: url(/assets/great_wall-c072fe9fbd3c32b4e596097e4dcdc84deb7d4a29acc9c4f3292b9c3a2c5f982e.jpg) no-repeat center bottom fixed;
     height: 276px;
+    position: relative;
+    top: 50px;
+    z-index: -1;
 }
 
 .photo-cover {
@@ -22,6 +25,10 @@
 
 
 .fullName, .displayname {
+    position: relative;
+    top: 20px;
+    left: 122px;
+    width: 150px;
 }
 
 .fullName {

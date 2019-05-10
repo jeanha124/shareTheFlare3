@@ -88,6 +88,8 @@
   align-items: center;
   grid-template-rows: repeat(5, 50px);
   border-top: 1px solid #ccc;
+  position: relative;
+  top: -50px;
 }
 
 #about {
