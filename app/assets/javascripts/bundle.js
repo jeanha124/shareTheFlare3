@@ -555,9 +555,7 @@ function (_React$Component) {
         className: "body-background",
         style: {
           color: '#212124',
-          backgroundColor: "#f2f5f6",
-          position: "relative",
-          top: "101px"
+          backgroundColor: "#f2f5f6"
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-div"
