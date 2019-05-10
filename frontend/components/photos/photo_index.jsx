@@ -41,19 +41,21 @@ class PhotoIndex extends React.Component {
       <React.Fragment>
         <MainNav />
         <div className="cover">
+          <div className="user-profile-photo">
+            <h1 className="fullName">{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</h1>
+            <h3 className="displayname">{`${this.props.currentUser.display_name}`}</h3>
+          </div>
         </div>
-                <div className="user-profile-photo">
-                <h1 className="fullName">{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</h1>
-                <h3 className="displayname">{`${this.props.currentUser.display_name}`}</h3>
-                </div>
         <ul className="profile-nav">
             <li id="about">About</li>
-            <li id="photostream">Photostream</li>
+            <li id="photostream" className="active">Photostream</li>
             <li id="albums">Albums</li>
             <li id="faves">Faves</li>
         </ul>
-        <div className="photo-div">
-          <ul className="photo-index">{latestPhotos}</ul>
+        <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
+          <div className="photo-div">
+            <ul className="photo-index">{latestPhotos}</ul>
+          </div>
         </div>
         <Footer />
       </React.Fragment>

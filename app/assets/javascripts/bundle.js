@@ -1487,27 +1487,34 @@ function (_React$Component) {
       var latestPhotos = photos.reverse();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cover"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "fullName"
       }, "".concat(this.props.currentUser.fname, " ").concat(this.props.currentUser.lname)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "displayname"
-      }, "".concat(this.props.currentUser.display_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "".concat(this.props.currentUser.display_name)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "profile-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "about"
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "photostream"
+        id: "photostream",
+        className: "active"
       }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "albums"
       }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "faves"
       }, "Faves")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-background",
+        style: {
+          color: '#212124',
+          backgroundColor: "#f2f5f6"
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "photo-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"
-      }, latestPhotos)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, latestPhotos))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 

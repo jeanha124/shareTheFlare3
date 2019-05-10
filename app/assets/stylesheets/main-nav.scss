@@ -81,15 +81,9 @@
   color: black;
   height: 50px;
   border-bottom: 1px solid #ccc;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(20, 1fr);
-  justify-items: end;
+  display: flex;
   align-items: center;
-  grid-template-rows: repeat(5, 50px);
   border-top: 1px solid #ccc;
-  position: relative;
-  top: -50px;
 }
 
 #about {
