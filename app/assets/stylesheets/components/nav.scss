@@ -66,9 +66,9 @@ html, body {
   color: grey;
 }
 .content {
-  display: block;
-  max-width: 50%;
-  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .content-h1 {

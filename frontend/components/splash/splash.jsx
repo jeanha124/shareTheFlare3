@@ -45,7 +45,7 @@ class Splash extends React.Component {
     return (
     <React.Fragment>
       <nav className="splash-auth">
-        <Link to='/'><h1 className="logo" style={{color: '#fff'}}>Share The Flare</h1></Link>
+        <Link to='/'><h1 className="logo" style={{color: '#fff', margin: "0 30px"}}>Share The Flare</h1></Link>
         <div className="splash-losi">
           <button className="login" onClick= { () => this.props.openModal('login') }>Log In</button>
           <button className="signup" onClick= { () => this.props.openModal('signup') }>Sign Up</button>
