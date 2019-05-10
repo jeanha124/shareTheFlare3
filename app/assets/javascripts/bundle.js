@@ -658,17 +658,23 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.navType === 'you') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "profile-nav"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "nav-ul"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "about"
+          id: "about",
+          className: "marg"
         }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "photostream"
+          id: "photostream",
+          className: "marg"
         }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "albums"
+          id: "albums",
+          className: "marg"
         }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "faves"
-        }, "Faves"));
+          id: "faves",
+          className: "marg"
+        }, "Faves")));
       }
     }
   }]);

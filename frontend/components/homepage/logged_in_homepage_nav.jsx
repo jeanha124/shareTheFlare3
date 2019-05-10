@@ -4,12 +4,14 @@ class LoggedInHomePageNav extends React.Component {
   render(){
     if (this.props.navType === 'you'){
       return (
-        <ul className="profile-nav">
-            <li id="about">About</li>
-            <li id="photostream">Photostream</li>
-            <li id="albums">Albums</li>
-            <li id="faves">Faves</li>
-        </ul>
+        <div className="profile-nav">
+          <ul className="nav-ul">
+              <li id="about" className="marg">About</li>
+              <li id="photostream" className="marg">Photostream</li>
+              <li id="albums" className="marg">Albums</li>
+              <li id="faves" className="marg">Faves</li>
+          </ul>
+        </div>
       );
     }
   }
