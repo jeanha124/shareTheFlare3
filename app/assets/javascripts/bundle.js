@@ -420,7 +420,11 @@ function (_React$Component) {
     value: function render() {
       var path = window.location.hash;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "main-container"
+        className: "main-container",
+        style: {
+          display: 'flex',
+          flexDirection: 'column'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modals_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__["AuthRoute"], {
         exact: true,
         path: "/",

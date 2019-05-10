@@ -18,7 +18,7 @@ class App extends React.Component {
   render () {
     const path = window.location.hash;
     return (
-      <div className="main-container">
+      <div className="main-container" style={{display: 'flex', flexDirection: 'column'}}>
         <Modal />
         <AuthRoute exact path='/' component={Splash} />
         <ProtectedRoute exact path='/' component={Homepage} />
