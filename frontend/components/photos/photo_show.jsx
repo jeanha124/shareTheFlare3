@@ -3,9 +3,6 @@ import { Link} from 'react-router-dom';
 import { Redirect } from 'react-router';
 import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
-import Comment from './comment_container';
-import CommentList from './comment_list_container';
-import Tag from './tag_container';
 
 class PhotoShow extends React.Component {
   constructor(props){
@@ -125,11 +122,11 @@ class PhotoShow extends React.Component {
         <React.Fragment>
           <MainNav />
           <div className="pic-container">
-          <img className='superfun-image'
-          src= {
-            `${this.props.photo.photoUrl}`
-          }
-          />
+            <img className='superfun-image'
+            src= {
+              `${this.props.photo.photoUrl}`
+            }
+            />
           </div>
           <content>
             <div>
