@@ -5,11 +5,13 @@ export const fetchComments = id => {
   });
 };
 
-export const createComment = comment => {
+export const createComment = (comment, photoID) => {
   return $.ajax({
     method:'POST',
-    url: `api/comments`,
-    data: {comment}
+    url: `api/photos/${photoID}/comments`,
+    data: comment,
+    processData: false,
+    contentType: false,
   });
 };
 

@@ -6,10 +6,10 @@ class LoggedInHomePageNav extends React.Component {
       return (
         <div className="profile-nav">
           <ul className="nav-ul">
-              <li id="about" className="marg">About</li>
-              <li id="photostream" className="marg">Photostream</li>
-              <li id="albums" className="marg">Albums</li>
-              <li id="faves" className="marg">Faves</li>
+              <li className="about marg">About</li>
+              <li className="photostream marg">Photostream</li>
+              <li className="albums marg">Albums</li>
+              <li className="faves marg">Faves</li>
           </ul>
         </div>
       );

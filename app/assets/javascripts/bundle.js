@@ -172,7 +172,7 @@ var closeModal = function closeModal() {
 /*!*******************************************!*\
   !*** ./frontend/actions/photo_actions.js ***!
   \*******************************************/
-/*! exports provided: RECEIVE_ALL_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO, receiveAllPhotos, receivePhoto, createPhoto, updatePhoto, deletePhoto */
+/*! exports provided: RECEIVE_ALL_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO, RECEIVE_COMMENT, REMOVE_COMMENT, receiveAllPhotos, receivePhoto, createPhoto, updatePhoto, deletePhoto, createComment, deleteComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -180,16 +180,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_PHOTOS", function() { return RECEIVE_ALL_PHOTOS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_PHOTO", function() { return RECEIVE_PHOTO; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_PHOTO", function() { return REMOVE_PHOTO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT", function() { return RECEIVE_COMMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_COMMENT", function() { return REMOVE_COMMENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllPhotos", function() { return receiveAllPhotos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePhoto", function() { return receivePhoto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPhoto", function() { return createPhoto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePhoto", function() { return updatePhoto; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePhoto", function() { return deletePhoto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
 /* harmony import */ var _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/photo_api_util */ "./frontend/util/photo_api_util.js");
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
+
 
 var RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 var RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 var REMOVE_PHOTO = 'REMOVE_PHOTO';
+var RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+var REMOVE_COMMENT = 'REMOVE_COMMENT';
 var receiveAllPhotos = function receiveAllPhotos() {
   return function (dispatch) {
     return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllPhotos"]().then(function (photos) {
@@ -202,10 +210,10 @@ var receiveAllPhotos = function receiveAllPhotos() {
 };
 var receivePhoto = function receivePhoto(id) {
   return function (dispatch) {
-    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPhoto"](id).then(function (photo) {
+    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchPhoto"](id).then(function (payload) {
       return dispatch({
         type: RECEIVE_PHOTO,
-        photo: photo
+        payload: payload
       });
     });
   };
@@ -236,6 +244,26 @@ var deletePhoto = function deletePhoto(photoId) {
       return dispatch({
         type: REMOVE_PHOTO,
         photoId: photoId
+      });
+    });
+  };
+};
+var createComment = function createComment(comment, photoID) {
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["createComment"](comment, photoID).then(function (payload) {
+      return dispatch({
+        type: RECEIVE_PHOTO,
+        payload: payload
+      });
+    });
+  };
+};
+var deleteComment = function deleteComment(commentId) {
+  return function (dispatch) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["deleteComment"](commentId).then(function (comment) {
+      return dispatch({
+        type: REMOVE_COMMENT,
+        commentId: commentId
       });
     });
   };
@@ -663,17 +691,13 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "nav-ul"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "about",
-          className: "marg"
+          className: "about marg"
         }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "photostream",
-          className: "marg"
+          className: "photostream marg"
         }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "albums",
-          className: "marg"
+          className: "albums marg"
         }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          id: "faves",
-          className: "marg"
+          className: "faves marg"
         }, "Faves")));
       }
     }
@@ -1663,6 +1687,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tag_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tag_container */ "./frontend/components/photos/tag_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1703,10 +1729,12 @@ function (_React$Component) {
       edit: false
     };
     _this.toggleEdit = _this.toggleEdit.bind(_assertThisInitialized(_this));
-    _this.updateTitle = _this.updateTitle.bind(_assertThisInitialized(_this));
-    _this.updateDescription = _this.updateDescription.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    _this.addComment = _this.addComment.bind(_assertThisInitialized(_this));
+    _this.removeableComment = _this.removeableComment.bind(_assertThisInitialized(_this));
+    _this.deleteComment = _this.deleteComment.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1716,18 +1744,13 @@ function (_React$Component) {
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
     }
   }, {
-    key: "updateTitle",
-    value: function updateTitle(e) {
-      this.setState({
-        title: e.currentTarget.value
-      });
-    }
-  }, {
-    key: "updateDescription",
-    value: function updateDescription(e) {
-      this.setState({
-        description: e.currentTarget.value
-      });
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
     }
   }, {
     key: "handleSubmit",
@@ -1737,11 +1760,42 @@ function (_React$Component) {
       this.toggleEdit();
     }
   }, {
+    key: "addComment",
+    value: function addComment(e) {
+      e.preventDefault();
+      var comment = new FormData();
+      comment.append('comment[body]', this.state.body);
+      this.props.createComment(comment, this.props.photo.id).then(this.setState({
+        body: ''
+      }));
+    }
+  }, {
     key: "handleDelete",
     value: function handleDelete(e) {
       e.preventDefault();
       this.props.deletePhoto(this.props.match.params.photoId);
       this.props.history.push("/photos/~/".concat(this.props.currentUser.display_name));
+    }
+  }, {
+    key: "deleteComment",
+    value: function deleteComment(e, i) {
+      e.preventDefault();
+      var selectMessage = this.props.comments.find(function (el) {
+        return el.id === parseInt(e.currentTarget.id);
+      });
+      this.props.deleteComment(selectMessage.id);
+    }
+  }, {
+    key: "removeableComment",
+    value: function removeableComment(e, i) {
+      if (this.props.currentUser && e === this.props.currentUser.id) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onClick: this.deleteComment,
+          id: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-trash"
+        }));
+      }
     }
   }, {
     key: "toggleEdit",
@@ -1759,6 +1813,22 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
+      var commentList = this.props.comments.map(function (comment) {
+        if (comment.photo_id === _this3.props.photo.id) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "user-comment",
+            key: "".concat(comment.id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "commenter"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, comment.display_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "comment-delete",
+            id: "".concat(comment.commenter_id)
+          }, _this3.removeableComment(comment.commenter_id, comment.id))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, comment.body));
+        }
+      });
+
       if (this.state.edit === false) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
@@ -1785,7 +1855,23 @@ function (_React$Component) {
           className: "content-show"
         }, this.props.photo.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "content-show"
-        }, this.props.photo.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("content", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_list_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tag_container__WEBPACK_IMPORTED_MODULE_7__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+        }, this.props.photo.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "comments-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "comment-list"
+        }, commentList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "comment-form",
+          onSubmit: this.addComment
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          className: "comment-body",
+          placeholder: "Add a Comment",
+          onChange: this.update('body'),
+          value: this.state.body
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "submit-btn",
+          type: "submit",
+          value: "Comment"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
@@ -1799,12 +1885,12 @@ function (_React$Component) {
           className: "edit-input",
           type: "text",
           value: this.props.photo.title,
-          onChange: this.updateTitle
+          onChange: this.update('title')
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "edit-input",
           type: "text",
           value: this.props.photo.description,
-          onChange: this.updateDescription
+          onChange: this.update('description')
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "edit-update",
           onClick: this.handleSubmit
@@ -1846,7 +1932,8 @@ var msp = function msp(state, ownProps) {
   var photoId = parseInt(ownProps.match.params.photoId) || 0;
   return {
     currentUser: state.entities.users[state.session.id],
-    photo: state.entities.photos[photoId] || {} // comments: getComments(state.entities.comments, photoId),
+    photo: state.entities.photos[photoId] || {},
+    comments: Object.values(state.entities.comments) // comments: getComments(state.entities.comments, photoId),
     // tags: getTags(state.entities.tags, photoId),
 
   };
@@ -1862,6 +1949,12 @@ var mdp = function mdp(dispatch) {
     },
     deletePhoto: function deletePhoto(id) {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deletePhoto"])(id));
+    },
+    createComment: function createComment(comment, photoID) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["createComment"])(comment, photoID));
+    },
+    deleteComment: function deleteComment(id) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deleteComment"])(id));
     }
   };
 };
@@ -2813,27 +2906,42 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!***********************************************!*\
   !*** ./frontend/reducers/comments_reducer.js ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// import merge from 'lodash/merge';
-// // import { RECEIVE_PHOTO, RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/photo_actions';
-// const commentsReducer = (state = {}, action) => {
-//   Object.freeze(state);
-//   switch(action.type) {
-//     case RECEIVE_PHOTO:
-//       return merge({}, state, action.comments);
-//     case RECEIVE_COMMENT:
-//       return merge({}, state, {[action.comment.id]: action.comment});
-//     case REMOVE_COMMENT:
-//       let newState = merge({}, state);
-//       delete newState[action.id];
-//       return newState;
-//     default:
-//       return state;   
-//   }
-// };
-// export default commentsReducer;
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var commentsReducer = function commentsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PHOTO"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.payload.comments);
+
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_COMMENT"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.comment.id, action.comment));
+
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_COMMENT"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state);
+      delete newState[action.id];
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
 
 /***/ }),
 
@@ -2850,7 +2958,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _photos_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photos_reducer */ "./frontend/reducers/photos_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
-/* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_comments_reducer__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _tags_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tags_reducer */ "./frontend/reducers/tags_reducer.js");
 /* harmony import */ var _tags_reducer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_tags_reducer__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -2861,7 +2968,7 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   photos: _photos_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3___default.a,
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
   tags: _tags_reducer__WEBPACK_IMPORTED_MODULE_4___default.a
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
@@ -2946,7 +3053,7 @@ var photosReducer = function photosReducer() {
       return action.photos;
 
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_PHOTO"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, action.photo.id, action.photo));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, action.payload.photos.id, action.payload.photos));
 
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_PHOTO"]:
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state);
@@ -3293,13 +3400,13 @@ var fetchComments = function fetchComments(id) {
     url: "api/comments"
   });
 };
-var createComment = function createComment(comment) {
+var createComment = function createComment(comment, photoID) {
   return $.ajax({
     method: 'POST',
-    url: "api/comments",
-    data: {
-      comment: comment
-    }
+    url: "api/photos/".concat(photoID, "/comments"),
+    data: comment,
+    processData: false,
+    contentType: false
   });
 };
 var deleteComment = function deleteComment(id) {

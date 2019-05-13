@@ -14,30 +14,47 @@ class PhotoShow extends React.Component {
       edit: false
     };
     this.toggleEdit = this.toggleEdit.bind(this);
-    this.updateTitle = this.updateTitle.bind(this);
-    this.updateDescription = this.updateDescription.bind(this);
+    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.addComment =this.addComment.bind(this);
+    this.removeableComment = this.removeableComment.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
   componentDidMount(){
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
   }
-  updateTitle(e) {
-    this.setState({title: e.currentTarget.value});
-  }
-  updateDescription(e) {
-    this.setState({description: e.currentTarget.value});
+  update(field) {
+    return e => this.setState({[field]: e.currentTarget.value});
   }
   handleSubmit(e) {
     e.preventDefault();
     this.props.updatePhoto(this.state);
     this.toggleEdit();
   }
+  addComment(e) {
+    e.preventDefault();
+    let comment = new FormData();
+    comment.append('comment[body]', this.state.body);
+    this.props.createComment(comment, this.props.photo.id).then(this.setState({body: ''}));
+  }
   handleDelete(e) {
     e.preventDefault();
     this.props.deletePhoto(this.props.match.params.photoId);
     this.props.history.push(`/photos/~/${this.props.currentUser.display_name}`);
   }
+  deleteComment(e, i) {
+    e.preventDefault();
+    const selectMessage = this.props.comments.find(el => el.id === parseInt(e.currentTarget.id));
+    this.props.deleteComment(selectMessage.id);
+  }
+
+  removeableComment(e, i) {
+    if (this.props.currentUser && e === this.props.currentUser.id) {
+      return <div onClick={this.deleteComment} id={i}><i className="fas fa-trash"></i></div>;
+    }  
+  }
+
   toggleEdit(){
     if (this.state.edit === false){
       this.setState({edit: true});
@@ -46,6 +63,21 @@ class PhotoShow extends React.Component {
     }
   }
   render(){
+    let commentList = this.props.comments.map(comment => {
+      if (comment.photo_id === this.props.photo.id) {
+        return <div className='user-comment' key={`${comment.id}`}>
+          <div className='commenter'>
+            <div>
+              {comment.display_name}
+            </div>
+            <div className='comment-delete' id={`${comment.commenter_id}`}>
+              {this.removeableComment(comment.commenter_id, comment.id)}
+            </div>
+          </div>
+          <div>{comment.body}</div>
+        </div>
+      }
+    });
     if (this.state.edit === false){
       return (
         <React.Fragment>
@@ -71,11 +103,15 @@ class PhotoShow extends React.Component {
               <span className="content-show">{this.props.photo.description}</span>
             </div> 
           </content>
-          <content>
-          <CommentList />
-          <Comment />
-          <Tag />
-          </content>
+          <div className='comments-container'>
+            <div className='comment-list'>
+              {commentList}
+            </div>
+            <form className='comment-form' onSubmit={this.addComment}>
+              <textarea className='comment-body' placeholder='Add a Comment' onChange={this.update('body')} value={this.state.body} />
+              <input className='submit-btn' type='submit' value='Comment' />
+            </form>
+          </div>
           <Footer />
         </React.Fragment>
       );
@@ -98,14 +134,14 @@ class PhotoShow extends React.Component {
                     className="edit-input"
                     type="text"
                     value={this.props.photo.title}
-                    onChange={this.updateTitle} />
+                    onChange={this.update('title')} />
                </label>
                <label><p>Description</p>
                   <input
                     className="edit-input"
                     type="text"
                     value={this.props.photo.description}
-                    onChange={this.updateDescription} />
+                    onChange={this.update('description')} />
                </label>
                <button className="edit-update" onClick={this.handleSubmit}>Update</button>
             </div>

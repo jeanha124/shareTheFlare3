@@ -5,6 +5,7 @@
     json.title photo.title
     json.description photo.description
     json.owner_id photo.owner_id
+    json.comments photo.comments
     json.created_at photo.created_at
     json.photoUrl url_for(photo.picture)
     # json.avatarURL url_for(photo.avatar)

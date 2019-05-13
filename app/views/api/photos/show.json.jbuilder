@@ -1,6 +1,7 @@
 # json.partial! 'api/photos/photo', photo: @photo
 # json.set! @photo.id do
     # json.partial! 'api/photos/photo', photo: photo
+  json.photos do  
     json.id @photo.id
     json.title @photo.title
     json.description @photo.description
@@ -9,15 +10,16 @@
     json.photoUrl url_for(@photo.picture)
     # json.avatarURL url_for(@photo.avatar)
     # json.cover_photoURL url_for(@photo.cover_photo)
-  # end
+  end
 
-# json.comments do
-#   @comments.each do |comment|
-#     json.set! comment.id do
-#       json.extract! comment, :commenter_id, :body
-#     end
-#   end
-# end
+json.comments do
+  @photo.comments.each do |comment|
+    json.set! comment.id do
+      json.extract! comment, :id, :commenter_id, :body, :photo_id, :created_at
+      json.display_name comment.commenter.display_name
+    end
+  end
+end
 
 # json.tags do
 #   @tags.each do |tag|
