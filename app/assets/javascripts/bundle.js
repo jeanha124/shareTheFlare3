@@ -1937,7 +1937,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var photoId = parseInt(ownProps.match.params.photoId) || 0;
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
