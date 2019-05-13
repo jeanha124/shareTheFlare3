@@ -1,11 +1,6 @@
 // Place all the styles related to the Api::Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.comment-list {
-  position: relative;
-  top: -40px;
-  left: 90px;
-}
 
 .comment-body {
   width: 400px;
@@ -18,6 +13,10 @@
   color: white;
   padding: 12px 32px;
   border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background: #41a0f8;
 }
 
 .user-comment {
@@ -35,7 +34,9 @@
 }
 
 .comment-form {
-  width: 600px;
+  display: flex;
+  flex-direction: column;
+  width: 139px;
   height: 200px;
 }
 

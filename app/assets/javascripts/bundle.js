@@ -1837,21 +1837,28 @@ function (_React$Component) {
           className: "back"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-arrow-left"
-        }), " Back to Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        }), " Back to Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "pads center"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "superfun-image",
           src: "".concat(this.props.photo.photoUrl)
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("content", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "edit-btns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-trash edit-btn",
           onClick: this.handleDelete
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "center-content"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "user-profile-photo-show"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.fname, " ", this.props.currentUser.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "description-para"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-edit edit-btn",
           onClick: this.toggleEdit
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "avatar",
-          src: "https://s3.amazonaws.com/share-the-flare-dev/shareTheFlare.png"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "content-show"
         }, this.props.photo.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "content-show"
@@ -1871,7 +1878,7 @@ function (_React$Component) {
           className: "submit-btn",
           type: "submit",
           value: "Comment"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
@@ -1930,12 +1937,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var photoId = parseInt(ownProps.match.params.photoId) || 0;
+  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
-    comments: Object.values(state.entities.comments) // comments: getComments(state.entities.comments, photoId),
-    // tags: getTags(state.entities.tags, photoId),
-
+    comments: Object.values(state.entities.comments)
   };
 };
 

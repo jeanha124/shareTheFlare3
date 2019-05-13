@@ -84,33 +84,38 @@ class PhotoShow extends React.Component {
           <MainNav />
           <div className="pic-container">
             <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link>
-            <img className='superfun-image'
-            src= {
-              `${this.props.photo.photoUrl}`
-            }
-            />
-          </div>
-          <content>
-            <div>
-              <nav className="edit-btns">
-                <i className="fas fa-trash edit-btn" onClick={this.handleDelete}></i>
-                <i className="fas fa-edit edit-btn" onClick={this.toggleEdit}></i>
-              </nav>
-              <img className="avatar" src="https://s3.amazonaws.com/share-the-flare-dev/shareTheFlare.png"/>
-              <br />
-              <span className="content-show">{this.props.photo.title}</span>
-              <br />
-              <span className="content-show">{this.props.photo.description}</span>
-            </div> 
-          </content>
-          <div className='comments-container'>
-            <div className='comment-list'>
-              {commentList}
+            <div className='pads center'>
+              <img className='superfun-image'
+              src= {
+                `${this.props.photo.photoUrl}`
+              }
+              />
             </div>
-            <form className='comment-form' onSubmit={this.addComment}>
-              <textarea className='comment-body' placeholder='Add a Comment' onChange={this.update('body')} value={this.state.body} />
-              <input className='submit-btn' type='submit' value='Comment' />
-            </form>
+          </div>
+          <nav className="edit-btns">
+            <i className="fas fa-trash edit-btn" onClick={this.handleDelete}></i>
+          </nav>
+          <div className="center-content">
+            <div className="user-info">
+              <img className="user-profile-photo-show"/>
+              <br />
+              <h1>{this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
+              <p className="description-para">
+                <i className="fas fa-edit edit-btn" onClick={this.toggleEdit}></i>
+                <span className="content-show">{this.props.photo.title}</span>
+                <br />
+                <span className="content-show">{this.props.photo.description}</span>
+              </p>
+            </div>
+            <div className='comments-container'>
+              <div className='comment-list'>
+                {commentList}
+              </div>
+              <form className='comment-form' onSubmit={this.addComment}>
+                <textarea className='comment-body' placeholder='Add a Comment' onChange={this.update('body')} value={this.state.body} />
+                <input className='submit-btn' type='submit' value='Comment' />
+              </form>
+            </div>
           </div>
           <Footer />
         </React.Fragment>

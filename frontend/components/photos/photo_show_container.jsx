@@ -11,12 +11,11 @@ import {
 
 const msp = (state, ownProps) => {
   const photoId = parseInt(ownProps.match.params.photoId) || 0;
+  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
     comments: Object.values(state.entities.comments),
-    // comments: getComments(state.entities.comments, photoId),
-    // tags: getTags(state.entities.tags, photoId),
   };
 };
 

@@ -48,3 +48,15 @@
   position: relative;
   left: 91px;
 }
+
+.invis-button {
+  display: block;
+  background-color: #198fff;
+  padding: 10px 25px;
+  border-radius: 4px;
+  color: white;
+}
+
+.invis-button:hover {
+  background-color: #43a3fc;
+}
