@@ -10,7 +10,11 @@ class Api::AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params);
     @album.owner_id = current_user.id;
+    photo_ids = JSON.parse(params[:photo_ids])
     if @album.save
+      photo_ids.each do |photo_id|
+        PhotoAlbum.create(photo_id: photo_id, album_id: @album.id)
+      end
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -23,8 +27,11 @@ class Api::AlbumsController < ApplicationController
 
   def update
     @album = current_user.albums.find(params[:id]);
-    @album.update(album_params);
-    if @album
+    photo_ids = JSON.parse(params[:photo_id])
+    if @album.update(album_params)
+      photo_ids.each do |photo_id|
+        PhotoAlbum.create(photo_id: photo_id, album_id: @album.id)
+      end
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -35,7 +42,6 @@ class Api::AlbumsController < ApplicationController
     @album = current_user.albums.find(params[:id]);
     @album.destroy;
     render :show
-    
   end
 
 
