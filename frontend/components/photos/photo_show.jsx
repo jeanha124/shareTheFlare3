@@ -19,7 +19,6 @@ class PhotoShow extends React.Component {
     this.deleteComment = this.deleteComment.bind(this);
   }
   componentDidMount(){
-    debugger
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
   }
   update(field) {
@@ -77,12 +76,11 @@ class PhotoShow extends React.Component {
       }
     });
     if (this.state.edit === false){
-      debugger
       return (
         <React.Fragment>
           <MainNav />
           <div className="pic-container">
-            <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link>
+            {/* <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link> */}
             <div className='pads center'>
               <img className='superfun-image'
               src= {
@@ -90,11 +88,11 @@ class PhotoShow extends React.Component {
               }
               />
             </div>
-          </div>
           <nav className="edit-btns">
             <i className="fas fa-trash edit-btn" onClick={this.handleDelete}></i>
           </nav>
-          <div className="center-content">
+          </div>
+          <div className="center-content center">
             <div className="user-info">
               <img className="user-profile-photo-show"/>
               <br />

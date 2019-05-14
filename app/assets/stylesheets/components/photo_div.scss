@@ -79,6 +79,11 @@ div.pads {
     display: flex;
 }
 
+.description-para:hover {
+    background-color: lightgray;
+}
+
 .center {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }

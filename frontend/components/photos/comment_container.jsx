@@ -32,7 +32,6 @@ class Comment extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     const photoId = this.props.match.params.photoId;
     const comment = merge({}, this.state, {body: this.state.body, photo_id: photoId, commenter_id: this.props.currentUser.id});
     this.props.receiveComment(comment).then(this.setState({body: ''}));
