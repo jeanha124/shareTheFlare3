@@ -19,6 +19,7 @@ class PhotoShow extends React.Component {
     this.deleteComment = this.deleteComment.bind(this);
   }
   componentDidMount(){
+    debugger
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
   }
   update(field) {
@@ -76,6 +77,7 @@ class PhotoShow extends React.Component {
       }
     });
     if (this.state.edit === false){
+      debugger
       return (
         <React.Fragment>
           <MainNav />

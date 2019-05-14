@@ -2,6 +2,7 @@
 # json.set! @photo.id do
     # json.partial! 'api/photos/photo', photo: photo
   json.photos do  
+    debugger
     json.id @photo.id
     json.title @photo.title
     json.description @photo.description

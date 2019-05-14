@@ -1424,6 +1424,7 @@ function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
     }
   }, {
@@ -1513,6 +1514,7 @@ function (_React$Component) {
       });
 
       if (this.state.edit === false) {
+        debugger;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
