@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { receiveAlbums } from '../../actions/album_actions';
 
@@ -39,4 +40,4 @@ class AlbumIndex extends React.Component {
 }
 
 
-export default connect(msp, mdp)(AlbumIndex);
+export default withRouter(connect(msp, mdp)(AlbumIndex));
