@@ -58,7 +58,7 @@ class DuringUpload extends React.Component {
               <div className="inner-sidebar">
                 <ul className="sidebar-ul">
                   <p>Editing 1 photo:</p>
-                  <li>Title</li>
+                  <input type='text' className='photo-title' value={this.state.title} onChange={this.update('title')} placeholder='Title'/>
                   <li>Tags</li>
                   <li>Albums</li>
                 </ul>

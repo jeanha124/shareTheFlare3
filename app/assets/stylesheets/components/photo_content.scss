@@ -48,7 +48,7 @@
   border-radius: 4px;
   z-index: 1;
   position: fixed;
-  left: 171px;
+  left: 230px;
   top: 97px;
 }
 
@@ -93,18 +93,25 @@
   text-align: center;
 }
 
-.sidebar li:hover {
+.sidebar li:hover, .sidebar input:hover {
   background: black;
   
 }
 
 .sidebar-ul p {
   border-bottom: 1px solid #272525;
-  padding: 20px 0;
+  padding: 15px 0;
   text-align: center;
 }
 
+.inner-sidebar {
+  background-color: black;
+}
 
+.sidebar {
+  background-color: black;
+  padding: 20px;
+}
 .back {
 }
 

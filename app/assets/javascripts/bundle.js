@@ -1084,7 +1084,13 @@ function (_React$Component) {
         className: "inner-sidebar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "sidebar-ul"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Editing 1 photo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Tags"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Albums")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Editing 1 photo:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "photo-title",
+        value: this.state.title,
+        onChange: this.update('title'),
+        placeholder: "Title"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Tags"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Albums")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "new-photo",
         onSubmit: this.stopEnter.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
