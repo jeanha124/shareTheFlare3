@@ -708,19 +708,9 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.props.navType === 'you') {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "profile-nav"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "nav-ul"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "about marg"
-        }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "photostream marg"
-        }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "albums marg"
-        }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "faves marg"
-        }, "Faves")));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Faves"));
       }
     }
   }]);
@@ -1290,14 +1280,17 @@ function (_React$Component) {
       }, "".concat(this.props.currentUser.display_name)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "profile-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "about"
+        id: "about",
+        className: "padding"
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         id: "photostream",
-        className: "active"
+        className: "padding active"
       }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "albums"
+        id: "albums",
+        className: "padding"
       }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        id: "faves"
+        id: "faves",
+        className: "padding"
       }, "Faves")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-background",
         style: {

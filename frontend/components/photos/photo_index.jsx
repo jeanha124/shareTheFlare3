@@ -47,10 +47,10 @@ class PhotoIndex extends React.Component {
           </div>
         </div>
         <ul className="profile-nav">
-            <li id="about">About</li>
-            <li id="photostream" className="active">Photostream</li>
-            <li id="albums">Albums</li>
-            <li id="faves">Faves</li>
+            <li id="about" className="padding">About</li>
+            <li id="photostream" className="padding active">Photostream</li>
+            <li id="albums" className="padding">Albums</li>
+            <li id="faves" className="padding">Faves</li>
         </ul>
         <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
           <div className="photo-div">
