@@ -1,32 +1,36 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { createAlbum } from '../../actions/album_actions';
-// import { receivePhotos } from '../../actions/photo_actions';
+import { withRouter } from 'react-router-dom';
+import { receiveAlbum, updateAlbum } from '../../actions/album_actions';
 import { getUserPhotos } from '../../reducers/selectors';
+import { receiveAllUsers } from '../../actions/user_actions';
+import { receivePhotos } from '../../actions/photo_actions';
 
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   return {
     currentUser: currentUser,
+    album: state.entities.albums[ownProps.match.params.albumID],
     photos: getUserPhotos(state, currentUser.id),
+    allPhotos: receivePhotos(),
   };
 };
 
 const mdp = dispatch => {
   return {
-    createAlbum: (album) => dispatch(createAlbum(album)),
+    
   };
 };
 
 
-class AlbumForm extends React.Component {
+
+class AlbumUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.picture = [];
     this.state = {
-      title: 'New Album',
-      description: '',
-      picture: [],
+      title: this.props.album.title,
+      description: this.props.album.description,
+      picture: this.picture,
     };
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
@@ -39,7 +43,6 @@ class AlbumForm extends React.Component {
     e.preventDefault();
     let formData = new FormData();
     formData.append('album[title]', this.state.title);
-    formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
     this.props.createAlbum(formData).then(action => this.props.history.push(`/albums/${action.album.id}`));
   }
@@ -77,4 +80,4 @@ class AlbumForm extends React.Component {
   }
 }
 
-export default connect(msp, mdp)(AlbumForm);
+export default connect(msp, mdp)(AlbumUpdate);
