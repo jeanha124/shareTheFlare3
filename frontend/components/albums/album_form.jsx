@@ -1,23 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createAlbum } from '../../actions/album_actions';
-// import { receivePhotos } from '../../actions/photo_actions';
-import { getUserPhotos } from '../../reducers/selectors';
-
-const msp = (state, ownProps) => {
-  const currentUser = state.entities.users[state.session.id];
-  return {
-    currentUser: currentUser,
-    photos: getUserPhotos(state, currentUser.id),
-  };
-};
-
-const mdp = dispatch => {
-  return {
-    createAlbum: (album) => dispatch(createAlbum(album)),
-  };
-};
-
+import MainNav from '../main_tools/main_nav_container';
+import Footer from '../main_tools/footer';
 
 class AlbumForm extends React.Component {
   constructor(props) {
@@ -27,6 +10,7 @@ class AlbumForm extends React.Component {
       title: 'New Album',
       description: '',
       picture: [],
+      disabled: false,
     };
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
@@ -49,7 +33,7 @@ class AlbumForm extends React.Component {
     if (!this.picture.includes(id)) {
       this.picture.push(id);
     } else {
-      this.picture.splice(this.picture.indexOf(id), 1)
+      this.picture.splice(this.picture.indexOf(id), 1);
     }
     this.setState({ picture: this.picture });
   }
@@ -57,14 +41,21 @@ class AlbumForm extends React.Component {
     const photoArray = this.props.photos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
       <img className='album-photo' src={photo.photoUrl} />
     </li>);
+    let disabled = this.state.disabled ? 'disabled' : '';
     return (
       <div className='album-create'>
+        <MainNav />
         <div className='album-create-content'>
           <form className='album-form' onClick={this.save}>
+            <div className='album-preview-photo'>
+              <img className='album-preview'/>
+            </div>
             <input className='album-title' type='text' placeholder='new album' onChange={this.update('title')}/>
             <textarea className='album-description' onChange={this.update('body')}/>
-            <input className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='save' type='submit' />
-            <button className='album-cancel'>Cancel</button>
+            <div className='album-btns'>
+              <input id='save' className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='SAVE' type='submit' disabled={disabled}/>
+              <button className='album-cancel'>CANCEL</button>
+            </div>
           </form>
           <div className='album-container'>
             <ul className='album-photos'>
@@ -72,9 +63,10 @@ class AlbumForm extends React.Component {
             </ul>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-export default connect(msp, mdp)(AlbumForm);
+export default AlbumForm;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
 import Footer from '../main_tools/footer';
 import MainNav from '../main_tools/main_nav_container';
@@ -56,6 +57,10 @@ class PhotoIndex extends React.Component {
           <div className="photo-div">
             <ul className="photo-index">{latestPhotos}</ul>
           </div>
+        </div>
+        <div className='album-div'>
+          <Link to={`/${this.props.currentUser.display_name}/new_album`}>+ New Album</Link>
+          <ul className='album-index'></ul>
         </div>
         <Footer />
       </React.Fragment>

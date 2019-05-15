@@ -9,7 +9,7 @@ import Homepage from './homepage/homepage_container';
 import PhotoIndex from './photos/photo_index_container';
 import PhotoShow from './photos/photo_show_container';
 import UserNavContainer from './users/user_nav_container';
-
+import AlbumForm from './albums/album_form_container';
 
 import PhotoFormNav2 from './photos/photo_form_nav2';
 import PhotoShowContainer from './photos/photo_show_container';
@@ -25,6 +25,7 @@ class App extends React.Component {
         <ProtectedRoute path='/photos/upload' component={Upload} />
         <ProtectedRoute exact path='/photos/~/:display_name' component={PhotoIndex} />
         <ProtectedRoute exact path='/photos/~/:display_name/:photoId' component={PhotoShow} />
+        <ProtectedRoute exact path='/:display_name/new_album' component={AlbumForm} />
       </div>
     );
   }

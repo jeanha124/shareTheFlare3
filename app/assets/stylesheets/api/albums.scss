@@ -1,3 +1,99 @@
 // Place all the styles related to the Api::Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.album-photo {
+
+}
+
+.album-create {
+
+}
+
+div.album-create-content {
+  margin: 50px 0 0 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.album-preview-photo {
+  border: 1px solid lightgray;
+  width: 125px;
+  height: 125px;
+  margin: 0 0 32px 0;
+  border-radius: 10px;
+}
+
+.album-preview {
+  width: 100px;
+  height: 100px;
+  margin: 12px 0 0 12px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.album-form {
+  width: 300px;
+  margin: 28px 0 106px 33px;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-title {
+  border: 1px inset #e9e9ae;
+  font-size: 28px;
+  border-radius: 5px;
+  background-color: #ffffd3;
+}
+
+.album-description {
+  margin: 18px 0 0 0;
+  border: 1px inset #e9e9ae;
+  height: 700px;
+  background-color: #ffffd3;
+}
+
+.album-no-save {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(189, 186, 186);
+  background-color: rgb(228, 228, 228);
+  padding: 5px 10px;
+  margin: 11px 0 0 3px;
+  border-radius: 5px;
+}
+
+.album-save {
+  background-color: #0063dc;
+  color: white;
+}
+
+.album-cancel {
+  background-color: #ddd;
+  color: #666;
+  margin: 11px 0 0 6px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.album-container {
+  background-color: #f0f0f0;
+  margin: 36px 0 0 30px;
+  border: 1px inset #f3f5f6;
+  height: 1000px;
+  width: 1300px;
+}
+
+.album-photos {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  margin: 16px 0 0 18px;
+}
+
+.album-btns {
+  display: flex;
+}
