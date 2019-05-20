@@ -1,6 +1,7 @@
 import React from 'react';
 import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
+import PhotoIndexItem from '../photos/photo_index_item';
 
 class AlbumForm extends React.Component {
   constructor(props) {
@@ -38,9 +39,15 @@ class AlbumForm extends React.Component {
     this.setState({ picture: this.picture });
   }
   render() {
-    const photoArray = this.props.photos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
-      <img className='album-photo' src={photo.photoUrl} />
-    </li>);
+    let photos = [];
+    this.props.photos.map(photo => {
+      if (photo.owner_id === this.props.currentUser.id) {
+        photos.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
+      }
+    });
+    // const photoArray = this.props.photos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
+    //   <img className='album-photo' src={photo.photoUrl} />
+    // </li>);
     let disabled = this.state.disabled ? 'disabled' : '';
     return (
       <div className='album-create'>
@@ -59,7 +66,7 @@ class AlbumForm extends React.Component {
           </form>
           <div className='album-container'>
             <ul className='album-photos'>
-              {photoArray}
+              {photos}
             </ul>
           </div>
         </div>

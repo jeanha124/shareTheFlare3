@@ -4,19 +4,21 @@ import { createAlbum } from '../../actions/album_actions';
 import { getUserPhotos } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
 import AlbumForm from './album_form';
+import { receiveAllPhotos } from '../../actions/photo_actions';
 
 
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   return {
     currentUser: currentUser,
-    photos: getUserPhotos(state, currentUser.id),
+    photos: Object.values(state.entities.photos),
   };
 };
 
 const mdp = dispatch => {
   return {
-    createAlbum: (album) => dispatch(createAlbum(album))
+    createAlbum: (album) => dispatch(createAlbum(album)),
+    receiveAllPhotos: () => dispatch(receiveAllPhotos()),
   };
 };
 

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { receiveAlbum, updateAlbum } from '../../actions/album_actions';
 import { getUserPhotos } from '../../reducers/selectors';
