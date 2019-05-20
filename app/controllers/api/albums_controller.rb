@@ -47,7 +47,7 @@ class Api::AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:owner_id, :title, :description, photo_ids: []);
+    params.require(:album).permit(:owner_id, :title, :description, photo_ids: [:id, :picture]);
   end
 
 end
