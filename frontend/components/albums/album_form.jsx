@@ -20,6 +20,9 @@ class AlbumForm extends React.Component {
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
+  componentDidMount() {
+    this.props.receiveAllPhotos();
+  }
   save(e) {
     e.preventDefault();
     let formData = new FormData();
@@ -39,15 +42,23 @@ class AlbumForm extends React.Component {
     this.setState({ picture: this.picture });
   }
   render() {
-    let photos = [];
+    // let photos = [];
+    // this.props.photos.map(photo => {
+    //   if (photo.owner_id === this.props.currentUser.id) {
+    //     photos.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
+    //   }
+    // });
+    const photoArray = [];
     this.props.photos.map(photo => {
       if (photo.owner_id === this.props.currentUser.id) {
-        photos.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
+       photoArray.push(
+         <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
+            <img className='album-photo' src={photo.photoUrl} />
+          </li> 
+         ); 
       }
     });
-    // const photoArray = this.props.photos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
-    //   <img className='album-photo' src={photo.photoUrl} />
-    // </li>);
+
     let disabled = this.state.disabled ? 'disabled' : '';
     return (
       <div className='album-create'>
@@ -55,7 +66,7 @@ class AlbumForm extends React.Component {
         <div className='album-create-content'>
           <form className='album-form' onClick={this.save}>
             <div className='album-preview-photo'>
-              <img className='album-preview'/>
+              <img className='album-preview' />
             </div>
             <input className='album-title' type='text' placeholder='new album' onChange={this.update('title')}/>
             <textarea className='album-description' onChange={this.update('body')}/>
@@ -66,7 +77,7 @@ class AlbumForm extends React.Component {
           </form>
           <div className='album-container'>
             <ul className='album-photos'>
-              {photos}
+              {photoArray}
             </ul>
           </div>
         </div>

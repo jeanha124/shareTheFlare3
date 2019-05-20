@@ -610,6 +610,11 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.receiveAllPhotos();
+    }
+  }, {
     key: "save",
     value: function save(e) {
       var _this3 = this;
@@ -644,20 +649,25 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      var photos = [];
+      // let photos = [];
+      // this.props.photos.map(photo => {
+      //   if (photo.owner_id === this.props.currentUser.id) {
+      //     photos.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
+      //   }
+      // });
+      var photoArray = [];
       this.props.photos.map(function (photo) {
         if (photo.owner_id === _this4.props.currentUser.id) {
-          photos.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photos_photo_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            key: photo.id,
-            currentUser: _this4.props.currentUser,
-            photo: photo,
-            receivePhoto: _this4.props.receivePhoto
-          }));
+          photoArray.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            className: _this4.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not',
+            id: photo.id,
+            onClick: _this4.togglePicture
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "album-photo",
+            src: photo.photoUrl
+          })));
         }
-      }); // const photoArray = this.props.photos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
-      //   <img className='album-photo' src={photo.photoUrl} />
-      // </li>);
-
+      });
       var disabled = this.state.disabled ? 'disabled' : '';
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create"
@@ -692,7 +702,7 @@ function (_React$Component) {
         className: "album-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-photos"
-      }, photos))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, photoArray))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -2772,9 +2782,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.jsx");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2786,13 +2798,16 @@ var albumsReducer = function albumsReducer() {
 
   switch (action.type) {
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUMS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.albums);
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.albums);
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, action.album.id, action.album));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, _defineProperty({}, action.album.id, action.album));
+
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PHOTOS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.photos);
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_ALBUM"]:
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state);
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
       delete newState[action.albumID];
       return newState;
 
