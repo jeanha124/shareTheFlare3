@@ -17,7 +17,7 @@ class Api::AlbumsController < ApplicationController
       # debugger
       photo_ids.each do |photo_id|
         # debugger
-        p photo_id
+        # p photo_id
         # debugger
         @album.photo_albums.create(photo_id: photo_id.to_i)
       end
