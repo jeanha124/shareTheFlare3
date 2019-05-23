@@ -3,16 +3,13 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './../modals/modal';
 import { Switch, Route } from 'react-router-dom';
 import Splash from './splash/splash_container';
-// import HomepageContainer from './homepage/homepage_container';
 import Upload from './photos/upload_container';
 import Homepage from './homepage/homepage_container';
 import PhotoIndex from './photos/photo_index_container';
 import PhotoShow from './photos/photo_show_container';
-import UserNavContainer from './users/user_nav_container';
 import AlbumForm from './albums/album_form_container';
+import AlbumShow from './albums/album_show';
 
-import PhotoFormNav2 from './photos/photo_form_nav2';
-import PhotoShowContainer from './photos/photo_show_container';
 
 class App extends React.Component {
   render () {
@@ -26,34 +23,10 @@ class App extends React.Component {
         <ProtectedRoute exact path='/photos/~/:display_name' component={PhotoIndex} />
         <ProtectedRoute exact path='/photos/~/:display_name/:photoId' component={PhotoShow} />
         <ProtectedRoute exact path='/:display_name/new_album' component={AlbumForm} />
+        <ProtectedRoute exact path='/albums/:albumId' component={AlbumShow} />
       </div>
     );
   }
 }
 
 export default App;
-
-{/* <ProtectedRoute exact path='/photos/upload' component={Upload} /> */}
-
-{/* <Modal />
-    <AuthRoute exact path='/' component={GreetingContainer} />
-    <AuthRoute exact path='/' component={Launch} />
-  <Switch>
-    <ProtectedRoute path='/photos/upload' component={PhotoNavContainer} />
-    <ProtectedRoute path='/' component={GreetingContainer} />
-  </Switch>
-  <Switch>
-    <ProtectedRoute path='/photos/upload/new' component={PhotoFormNav2} />
-    <ProtectedRoute path='/photos/upload' component={PhotoFormNav} />
-    <ProtectedRoute path='/explore' component={ExploreNavContainer} />
-    <ProtectedRoute exact path='/photos/:display_name' component={UserNavContainer} />
-    <ProtectedRoute exact path="/" component={LoggedInHomepageNavContainer} />
-  </Switch>
-  <Switch>
-    <ProtectedRoute path='/photos/upload/new' component={CreatePhotoFormContainer} />
-    <ProtectedRoute path='/photos/upload' component={UploadIndexContainer} />
-    <ProtectedRoute path='/photos/:display_name/:id' component={PhotoShowContainer} />
-    <ProtectedRoute path='/photos/:display_name' component={PhotoIndexContainer} />
-
-    <ProtectedRoute path='/' component={ActivityPhotosContainer} />
-  </Switch> */}
