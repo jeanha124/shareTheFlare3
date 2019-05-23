@@ -633,12 +633,12 @@ function (_React$Component) {
     value: function save(e) {
       var _this3 = this;
 
-      debugger;
+      // debugger
       e.preventDefault();
-      var formData = new FormData();
-      debugger;
-      formData.append('album[title]', this.state.title);
-      debugger;
+      var formData = new FormData(); // debugger
+
+      formData.append('album[title]', this.state.title); // debugger
+
       formData.append('album[description]', this.state.description);
       formData.append('album[photo_ids]', this.state.picture);
       this.props.createAlbum(formData).then(function (action) {
@@ -816,10 +816,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 var msp = function msp(state, ownProps) {
-  var user, photos;
+  var album = state.entities.albums[ownProps.match.params.albumID] || 0;
   return {
     currentUser: state.entities.users[state.session.id],
-    album: state.entities.albums[ownProps.match.params.albumID] || 0
+    album: album,
+    photos: album.photos
   };
 };
 
@@ -853,7 +854,8 @@ function (_React$Component) {
     value: function render() {
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
-          description = _this$props$album.description;
+          description = _this$props$album.description,
+          photos = _this$props$album.photos;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -862,7 +864,7 @@ function (_React$Component) {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"
-      })));
+      }, photos)));
     }
   }]);
 
@@ -2820,8 +2822,8 @@ var albumsReducer = function albumsReducer() {
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, _defineProperty({}, action.album.id, action.album));
 
-    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_PHOTOS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.photos);
+    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PHOTO"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, _defineProperty({}, action.album.photos.id, action.photo));
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_ALBUM"]:
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);

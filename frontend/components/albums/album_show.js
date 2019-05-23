@@ -5,12 +5,11 @@ import { receiveAlbum, deleteAlbum } from '../../actions/album_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
-  let user, photos;
-   
+  const album = state.entities.albums[ownProps.match.params.albumID] || 0;
   return {
     currentUser: state.entities.users[state.session.id],
-    album: state.entities.albums[ownProps.match.params.albumID] || 0,
-
+    album,
+    photos: album.photos, 
   };
 };
 
@@ -28,7 +27,7 @@ class AlbumShow extends React.Component {
     super(props);
   }
   render() {
-    const {title, description} = this.props.album;
+    const {title, description, photos} = this.props.album;
 
     return (
       <div className="album-show">
@@ -38,12 +37,12 @@ class AlbumShow extends React.Component {
         </div>
         <div className="album-contain">
           <ul className="album-divs">
-            
+            {photos}
           </ul>
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default withRouter(connect(msp, mdp)(AlbumShow));

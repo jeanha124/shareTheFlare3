@@ -13,12 +13,13 @@ class Api::AlbumsController < ApplicationController
     # debugger
     photo_ids = params[:album][:photo_ids].split(',')
     # debugger
-    if @album.save!
+    if @album.save
       # debugger
       photo_ids.each do |photo_id|
-        debugger
-        pa = PhotoAlbum.new(photo_id: photo_id, album_id: @album.id)
-        pa.save
+        # debugger
+        p photo_id
+        # debugger
+        @album.photo_albums.create(photo_id: photo_id.to_i)
       end
       # debugger
       render :show

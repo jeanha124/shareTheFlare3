@@ -24,12 +24,12 @@ class AlbumForm extends React.Component {
     this.props.receiveAllPhotos();
   }
   save(e) {
-    debugger
+    // debugger
     e.preventDefault();
     let formData = new FormData();
-    debugger
+    // debugger
     formData.append('album[title]', this.state.title);
-    debugger
+    // debugger
     formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
     this.props.createAlbum(formData).then(action => this.props.history.push(`/albums/${action.album.id}`));

@@ -1,7 +1,9 @@
 class Api::PhotoAlbumsController < ApplicationController
   def create
+    debugger
     @pa = PhotoAlbum.new(photo_album_params)
-    if @pa.save!
+    if @pa.save
+      debugger
       render json: {}
     else
       render json: @pa.errors.full_messages, status: 422
