@@ -7,29 +7,10 @@ import MainNav from '../main_tools/main_nav_container';
 class PhotoIndex extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //avatar: null,
-    //   avatarURL : this.props.currentUser.avatar
-    // };
-    // this.handleFile = this.handleFile.bind(this);
   }
   componentDidMount(){
     this.props.receiveAllPhotos();
   }
-  // handleFile(e, field){
-  //   const file = e.currentTarget.files[0];
-  //   const fileReader = new FileReader();
-  //   fileReader.onloadend = () => {
-  //     this.setState({[field]: file, [field + "URL"]: fileReader.result }, () => {
-  //       const formData = new FormData();
-  //       formData.append('user[avatar]', this.state.avatar);
-  //       this.props.updateUser(formData, this.props.currentUser.id);
-  //     });
-  //   };
-  //   if (file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // }
   render() {
     let photos = [];
     this.props.photos.map(photo => {
@@ -38,6 +19,7 @@ class PhotoIndex extends React.Component {
       }
     });
     const latestPhotos = photos.reverse();
+    const path = this.props.location.pathname;
     return (
       <React.Fragment>
         <MainNav />
@@ -48,7 +30,7 @@ class PhotoIndex extends React.Component {
           </div>
         </div>
         <ul className="profile-nav">
-            <li id="about" className="padding">About</li>
+            <li id="about" className={"padding"}>About</li>
             <li id="photostream" className="padding active">Photostream</li>
             <li id="albums" className="padding">Albums</li>
             <li id="faves" className="padding">Faves</li>
@@ -70,7 +52,3 @@ class PhotoIndex extends React.Component {
 
 export default PhotoIndex;
 
-
-/*<Link to={`/photos/${this.props.currentUser.display_name}/edit`}>Edit</Link>*/
-                // <img className="avatar" src={this.state.avatarURL} alt="Select an Avatar" />
-                // <input type="file" style={{display: "none"}} onChange={(e) => this.handleFile(e, "avatar")} />

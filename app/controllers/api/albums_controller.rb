@@ -8,13 +8,19 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(album_params);
+    @album = Album.new(album_params)
     @album.owner_id = current_user.id;
-    photo_ids = JSON.parse(params[:photo_ids])
-    if @album.save
+    # debugger
+    photo_ids = params[:album][:photo_ids].split(',')
+    # debugger
+    if @album.save!
+      # debugger
       photo_ids.each do |photo_id|
-        PhotoAlbum.create(photo_id: photo_id, album_id: @album.id)
+        debugger
+        pa = PhotoAlbum.new(photo_id: photo_id, album_id: @album.id)
+        pa.save
       end
+      # debugger
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -27,11 +33,12 @@ class Api::AlbumsController < ApplicationController
 
   def update
     @album = current_user.albums.find(params[:id]);
-    photo_ids = JSON.parse(params[:photo_id])
+    photo_ids = params[:album][:photo_ids].split(',')
+    @album.photo_ids = photo_ids
     if @album.update(album_params)
-      photo_ids.each do |photo_id|
-        PhotoAlbum.create(photo_id: photo_id, album_id: @album.id)
-      end
+      # photo_ids.map do |photo_id|
+      #   PhotoAlbum.create(photo_id: photo_id, album_id: @album.id)
+      # end
       render :show
     else
       render json: @album.errors.full_messages, status: 422
@@ -47,7 +54,7 @@ class Api::AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:owner_id, :title, :description, photo_ids: [:id, :picture]);
+    params.require(:album).permit(:owner_id, :title, :description, photo_ids: []);
   end
 
 end

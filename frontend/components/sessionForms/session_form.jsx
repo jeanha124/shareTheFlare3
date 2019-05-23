@@ -20,7 +20,6 @@ class SessionForm extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
   componentDidMount() {
-    console.log('I\'m alive');
   }
   demoLogin(e) {
     e.preventDefault();

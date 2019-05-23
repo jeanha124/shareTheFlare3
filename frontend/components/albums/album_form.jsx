@@ -24,9 +24,12 @@ class AlbumForm extends React.Component {
     this.props.receiveAllPhotos();
   }
   save(e) {
+    debugger
     e.preventDefault();
     let formData = new FormData();
+    debugger
     formData.append('album[title]', this.state.title);
+    debugger
     formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
     this.props.createAlbum(formData).then(action => this.props.history.push(`/albums/${action.album.id}`));
@@ -69,7 +72,7 @@ class AlbumForm extends React.Component {
               <img className='album-preview' />
             </div>
             <input className='album-title' type='text' placeholder='new album' onChange={this.update('title')}/>
-            <textarea className='album-description' onChange={this.update('body')}/>
+            <textarea className='album-description' onChange={this.update('description')}/>
             <div className='album-btns'>
               <input id='save' className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='SAVE' type='submit' disabled={disabled}/>
               <button className='album-cancel'>CANCEL</button>

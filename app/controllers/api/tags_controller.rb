@@ -12,12 +12,11 @@ class Api::TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Tag.find(params[:id])
-    if @tag.destroy
+    @tag = TagPhotos.find(params[:id])
+    @redirect = @tag.photo_id
+    @tag.destroy
+    @photo = Photo.find(@redirect)
       render :show
-    else
-      render json: @tag.errors.full_messages, status: 422
-    end
   end
 
 

@@ -21,10 +21,10 @@ json.comments do
   end
 end
 
-# json.tags do
-#   @tags.each do |tag|
-#     json.set! tag.id do
-#       json.extract! tag, :id, :title
-#     end
-#   end
-# end
+json.tags do
+  @photo.tags.each do |tag|
+    json.set! tag.id do
+      json.extract! tag, :id, :title
+    end
+  end
+end

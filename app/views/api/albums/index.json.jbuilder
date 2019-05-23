@@ -1,6 +1,5 @@
 @albums.each do |album|
   json.set! album.id do
-    json.extract! album, :id, :title, :owner_id, :created_at, :updated_at
-    json.set! :photoIds, album.photos.pluck(:id)
+    json.partial! 'api/albums/album', album: album
   end
 end

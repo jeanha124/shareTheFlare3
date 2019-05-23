@@ -17,6 +17,8 @@ class PhotoShow extends React.Component {
     this.addComment =this.addComment.bind(this);
     this.removeableComment = this.removeableComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
+    this.addTag = this.addTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
   componentDidMount(){
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
@@ -37,8 +39,7 @@ class PhotoShow extends React.Component {
   }
   handleDelete(e) {
     e.preventDefault();
-    this.props.deletePhoto(this.props.match.params.photoId);
-    this.props.history.push(`/photos/~/${this.props.currentUser.display_name}`);
+    this.props.deletePhoto(this.props.match.params.photoId).then(this.props.history.push(`/photos/~/${this.props.currentUser.display_name}`));
   }
   deleteComment(e, i) {
     e.preventDefault();
@@ -51,7 +52,17 @@ class PhotoShow extends React.Component {
       return <div onClick={this.deleteComment} id={i}><i className="fas fa-trash"></i></div>;
     }  
   }
-
+  addTag(e) {
+    e.preventDefault();
+    let tag = new FormData();
+    tag.append('tag[title]', this.state.t_title);
+    this.props.createTag(this.props.photo.id).then(this.setState({title: ''}));
+  }
+  deleteTag(e) {
+    e.preventDefault();
+    const delTag = this.props.tags.find(el => el.id === parseInt(e.currentTarget.id));
+    this.props.deleteTag(delTag.id);
+  }
   toggleEdit(){
     if (this.state.edit === false){
       this.setState({edit: true});
@@ -75,6 +86,16 @@ class PhotoShow extends React.Component {
         </div>
       }
     });
+    // let tagList = this.props.tags.map(tag => {
+    //   if (tag.photo_id === this.props.photo.id) {
+    //     return <div className='tag-input' key={`${tag.id}`}>
+    //       <div className='tag-body'>{tag.title}</div>
+    //       <div className='tag-delete' id={`${tag.author.id}`}>
+    //         {this.deleteTag}
+    //       </div>
+    //     </div>
+    //   }
+    // }); 
     if (this.state.edit === false){
       return (
         <React.Fragment>
@@ -113,6 +134,15 @@ class PhotoShow extends React.Component {
                 <input className='submit-btn' type='submit' value='Comment' />
               </form>
             </div>
+          </div>
+          <div className='tags-container'>
+              <div className='tag-list'>
+                {/* {tagList} */}
+              </div>
+              <form className='tag-form' onSubmit={this.addTag}>
+                <input type='text' placeholder='tags' onChange={this.update('title')} value={this.state.t_title} />
+                <input className='text-btn' type='submit' value='Tag' />
+              </form>
           </div>
           <Footer />
         </React.Fragment>

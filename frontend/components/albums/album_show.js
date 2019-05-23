@@ -26,7 +26,15 @@ class AlbumShow extends React.Component {
   render() {
     return (
       <div className="album-show">
+        <div className="album-cover">
+          <h1>{this.props.album.title}</h1>
+          <h2>{this.props.album.description}</h2>
+        </div>
+        <div className="album-contain">
+          <ul className="album-divs">
 
+          </ul>
+        </div>
       </div>
     );
   };

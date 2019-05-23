@@ -6,6 +6,8 @@ import {
   deletePhoto,
   createComment,
   deleteComment,
+  createTag,
+  deleteTag
 } from '../../actions/photo_actions';
 // import { getComments, getTags } from '../../reducers/selectors';
 
@@ -25,6 +27,8 @@ const mdp = dispatch => {
     deletePhoto: id => dispatch(deletePhoto(id)), 
     createComment: (comment, photoID) => dispatch(createComment(comment, photoID)),
     deleteComment: id => dispatch(deleteComment(id)),
+    createTag: id => dispatch(createTag(id)),
+    deleteTag: id => dispatch(deleteTag(id)),
   };
 };
 
