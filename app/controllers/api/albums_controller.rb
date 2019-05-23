@@ -1,15 +1,15 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all;
+    @albums = Album.all
   end
 
   def new
-    @album = Album.new;
+    @album = Album.new
   end
 
   def create
     @album = Album.new(album_params)
-    @album.owner_id = current_user.id;
+    @album.owner_id = current_user.id
     # debugger
     photo_ids = params[:album][:photo_ids].split(',')
     # debugger
