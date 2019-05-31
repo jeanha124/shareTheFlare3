@@ -739,13 +739,12 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.jsx");
-/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _album_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./album_form */ "./frontend/components/albums/album_form.jsx");
-/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _album_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./album_form */ "./frontend/components/albums/album_form.jsx");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
 
  // import { receivePhotos } from '../../actions/photo_actions';
-
+// import { getUserPhotos } from '../../reducers/selectors';
 
 
 
@@ -765,12 +764,12 @@ var mdp = function mdp(dispatch) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_1__["createAlbum"])(album));
     },
     receiveAllPhotos: function receiveAllPhotos() {
-      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_5__["receiveAllPhotos"])());
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_album_form__WEBPACK_IMPORTED_MODULE_4__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_album_form__WEBPACK_IMPORTED_MODULE_3__["default"])));
 
 /***/ }),
 
@@ -3032,30 +3031,6 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
   ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
-
-/***/ }),
-
-/***/ "./frontend/reducers/selectors.js":
-/*!****************************************!*\
-  !*** ./frontend/reducers/selectors.js ***!
-  \****************************************/
-/*! exports provided: getUserPhotos */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserPhotos", function() { return getUserPhotos; });
-var getUserPhotos = function getUserPhotos(state, userID) {
-  var userPhotos = [];
-
-  for (var id in state.entities.photos) {
-    if (state.entities.photos[id].user_id === userID) {
-      userPhotos.push(state.entities.photos[id]);
-    }
-  }
-
-  return userPhotos;
-};
 
 /***/ }),
 

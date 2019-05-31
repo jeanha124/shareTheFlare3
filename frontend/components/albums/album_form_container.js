@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createAlbum } from '../../actions/album_actions';
 // import { receivePhotos } from '../../actions/photo_actions';
-import { getUserPhotos } from '../../reducers/selectors';
+// import { getUserPhotos } from '../../reducers/selectors';
 import { withRouter } from 'react-router-dom';
 import AlbumForm from './album_form';
 import { receiveAllPhotos } from '../../actions/photo_actions';
