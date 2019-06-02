@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { receivePhotos } from '../../actions/photo_actions';
+import { receiveAllPhotos } from '../../actions/photo_actions';
 import { receiveAlbum, deleteAlbum } from '../../actions/album_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const mdp = dispatch => {
   return {
     receiveAlbum: id => dispatch(receiveAlbum(id)),
     deleteAlbum: () => dispatch(deleteAlbum()),
-    receivePhotos: () => dispatch(receivePhotos()),
+    receivePhotos: () => dispatch(receiveAllPhotos()),
   };
 };
 

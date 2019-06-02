@@ -8,14 +8,15 @@ class AlbumForm extends React.Component {
     super(props);
     this.picture = [];
     this.state = {
-      title: 'New Album',
+      title: '',
       description: '',
       picture: [],
-      disabled: false,
+      disabled: true,
     };
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
     this.togglePicture = this.togglePicture.bind(this);
+    this.disabled = this.disabled.bind(this);
   }
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
@@ -32,7 +33,12 @@ class AlbumForm extends React.Component {
     // debugger
     formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
-    this.props.createAlbum(formData).then(action => this.props.history.push(`/albums/${action.album.id}`));
+    this.disabled(formData);
+  }
+  disabled(e) {
+    if (this.state.picture.length > 0 && this.state.title != ''){
+      this.props.createAlbum(e).then(action => this.props.history.push(`/albums/${action.album.id}`));
+    }
   }
   togglePicture(e) {
     e.preventDefault();

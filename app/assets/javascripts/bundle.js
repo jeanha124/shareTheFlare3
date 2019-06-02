@@ -601,14 +601,15 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumForm).call(this, props));
     _this.picture = [];
     _this.state = {
-      title: 'New Album',
+      title: '',
       description: '',
       picture: [],
-      disabled: false
+      disabled: true
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.save = _this.save.bind(_assertThisInitialized(_this));
     _this.togglePicture = _this.togglePicture.bind(_assertThisInitialized(_this));
+    _this.disabled = _this.disabled.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -629,8 +630,6 @@ function (_React$Component) {
   }, {
     key: "save",
     value: function save(e) {
-      var _this3 = this;
-
       // debugger
       e.preventDefault();
       var formData = new FormData(); // debugger
@@ -639,9 +638,18 @@ function (_React$Component) {
 
       formData.append('album[description]', this.state.description);
       formData.append('album[photo_ids]', this.state.picture);
-      this.props.createAlbum(formData).then(function (action) {
-        return _this3.props.history.push("/albums/".concat(action.album.id));
-      });
+      this.disabled(formData);
+    }
+  }, {
+    key: "disabled",
+    value: function disabled(e) {
+      var _this3 = this;
+
+      if (this.state.picture.length > 0 && this.state.title != '') {
+        this.props.createAlbum(e).then(function (action) {
+          return _this3.props.history.push("/albums/".concat(action.album.id));
+        });
+      }
     }
   }, {
     key: "togglePicture",
@@ -830,7 +838,7 @@ var mdp = function mdp(dispatch) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["deleteAlbum"])());
     },
     receivePhotos: function receivePhotos() {
-      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receivePhotos"])());
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receiveAllPhotos"])());
     }
   };
 };
