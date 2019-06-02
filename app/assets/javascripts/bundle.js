@@ -646,10 +646,14 @@ function (_React$Component) {
       var _this3 = this;
 
       if (this.state.picture.length > 0 && this.state.title != '') {
-        this.props.createAlbum(e).then(function (action) {
-          return _this3.props.history.push("/albums/".concat(action.album.id));
+        this.setState({
+          disabled: false
         });
       }
+
+      this.props.createAlbum(e).then(function (action) {
+        return _this3.props.history.push("/albums/".concat(action.album.id));
+      });
     }
   }, {
     key: "togglePicture",

@@ -37,8 +37,9 @@ class AlbumForm extends React.Component {
   }
   disabled(e) {
     if (this.state.picture.length > 0 && this.state.title != ''){
-      this.props.createAlbum(e).then(action => this.props.history.push(`/albums/${action.album.id}`));
+      this.setState({disabled: false}); 
     }
+    this.props.createAlbum(e).then(action => this.props.history.push(`/albums/${action.album.id}`));
   }
   togglePicture(e) {
     e.preventDefault();
