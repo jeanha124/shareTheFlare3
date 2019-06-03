@@ -1885,7 +1885,7 @@ function (_React$Component) {
           className: "user-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "user-profile-photo-show"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, photo.user.fname, " ", photo.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.fname, " ", this.props.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "description-para"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-edit edit-btn",
