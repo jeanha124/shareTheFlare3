@@ -1716,15 +1716,23 @@ function (_React$Component) {
       }, "".concat(this.props.currentUser.display_name)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "profile-nav"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "about",
+        className: "padding",
         exact: true,
         to: "/about"
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "photostream",
+        className: "padding",
         exact: true,
         to: "".concat(url)
       }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "albums",
+        className: "padding",
         exact: true,
         to: "/albums"
       }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "faves",
+        className: "padding",
         exact: true,
         to: "/faves"
       }, "Faves")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {

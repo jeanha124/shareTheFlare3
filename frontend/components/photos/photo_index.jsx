@@ -32,10 +32,10 @@ class PhotoIndex extends React.Component {
           </div>
         </div>
         <ul className="profile-nav">
-          <NavLink exact to={`/about`}>About</NavLink>
-          <NavLink exact to={`${url}`}>Photostream</NavLink>
-          <NavLink exact to={`/albums`}>Albums</NavLink>
-          <NavLink exact to={`/faves`}>Faves</NavLink>
+          <NavLink id="about" className="padding" exact to={`/about`}>About</NavLink>
+          <NavLink id="photostream" className="padding" exact to={`${url}`}>Photostream</NavLink>
+          <NavLink id="albums" className="padding" exact to={`/albums`}>Albums</NavLink>
+          <NavLink id="faves" className="padding" exact to={`/faves`}>Faves</NavLink>
             {/* <li id="about" className={"padding"}>About</li>
             <li id="photostream" className="padding active">Photostream</li>
             <li id="albums" className="padding">Albums</li>
