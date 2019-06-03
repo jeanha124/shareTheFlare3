@@ -9,6 +9,7 @@ import {
   createTag,
   deleteTag
 } from '../../actions/photo_actions';
+import { receiveAllUsers } from '../../actions/user_actions';
 // import { getComments, getTags } from '../../reducers/selectors';
 
 const msp = (state, ownProps) => {
@@ -19,7 +20,6 @@ const msp = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
     comments: Object.values(state.entities.comments),
-    user: user,
   };
 };
 
@@ -32,6 +32,7 @@ const mdp = dispatch => {
     deleteComment: id => dispatch(deleteComment(id)),
     createTag: id => dispatch(createTag(id)),
     deleteTag: id => dispatch(deleteTag(id)),
+    fetchAllUsers: () => dispatch(receiveAllUsers),
   };
 };
 

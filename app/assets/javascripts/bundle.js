@@ -1981,6 +1981,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _photo_show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./photo_show */ "./frontend/components/photos/photo_show.jsx");
 /* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
  // import { getComments, getTags } from '../../reducers/selectors';
@@ -1992,8 +1994,7 @@ var msp = function msp(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
-    comments: Object.values(state.entities.comments),
-    user: user
+    comments: Object.values(state.entities.comments)
   };
 };
 
@@ -2019,6 +2020,9 @@ var mdp = function mdp(dispatch) {
     },
     deleteTag: function deleteTag(id) {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deleteTag"])(id));
+    },
+    fetchAllUsers: function fetchAllUsers() {
+      return dispatch(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAllUsers"]);
     }
   };
 };
