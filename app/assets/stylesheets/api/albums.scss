@@ -120,19 +120,42 @@ div.album-create-content {
 }
 
 .album-show {
-  background: lightblue;
-  height: 700px;
+  height: 100%;
   width: 100%;
 }
 
 .album-cover {
-  background: lightgrey;
+  display: flex;
+  background: lightgray;
+  opacity: 0.5;
+  margin: 50px 0 0 0;
+  flex-direction: column;
+  justify-content: center;
   height: 400px;
   width: 100%;
 }
 
+.album-cover > h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+.album-cover > h2 {
+  font-size: 30px;
+  text-align: center;
+}
 .album-contain {
-  background: lightblue;
-  height: 300px;
+  height: 100%;
   width: 100%;
+}
+
+.album-divs {
+  display: flex;
+  padding: 2px;
+  flex-wrap: wrap;
+
+  &::after {
+    content: '';
+    flex-grow: 999999999;
+  }
 }

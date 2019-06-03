@@ -93,7 +93,7 @@ class PhotoShow extends React.Component {
     //       <div className='tag-delete' id={`${tag.author.id}`}>
     //         {this.deleteTag}
     //       </div>
-    //     </div>
+    //     </div>;
     //   }
     // }); 
     if (this.state.edit === false){

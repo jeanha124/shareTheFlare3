@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_PHOTO, RECEIVE_TAGS, RECEIVE_TAG, REMOVE_TAG } from '../actions/photo_actions';
+import { RECEIVE_PHOTO, RECEIVE_TAG, REMOVE_TAG } from '../actions/photo_actions';
 
 const tagsReducer =(state = {}, action) => {
   Object.freeze(state);
@@ -10,7 +10,7 @@ const tagsReducer =(state = {}, action) => {
       return merge({}, state, {[action.tag.id]: action.tag });
     case REMOVE_TAG:
       let newState = merge({}, state);
-      delete newState(newState[action.id]);
+      delete newState[action.id];
       return newState;
     default:  
       return state;

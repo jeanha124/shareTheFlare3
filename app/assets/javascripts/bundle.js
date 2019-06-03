@@ -800,6 +800,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _photos_photo_index_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../photos/photo_index_container */ "./frontend/components/photos/photo_index_container.js");
+/* harmony import */ var _photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../photos/photo_index_item */ "./frontend/components/photos/photo_index_item.jsx");
+/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -824,12 +828,16 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
+
+
 var msp = function msp(state, ownProps) {
-  var album = state.entities.albums[ownProps.match.params.albumID] || 0;
+  var album = state.entities.albums[ownProps.match.params.albumId];
   return {
     currentUser: state.entities.users[state.session.id],
     album: album,
-    photos: state.entities.photos[ownProps.match.params.photo]
+    photos: album.photos
   };
 };
 
@@ -843,6 +851,9 @@ var mdp = function mdp(dispatch) {
     },
     receivePhotos: function receivePhotos() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receiveAllPhotos"])());
+    },
+    receivePhoto: function receivePhoto(id) {
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receivePhoto"])(id));
     }
   };
 };
@@ -859,13 +870,31 @@ function (_React$Component) {
   }
 
   _createClass(AlbumShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.receiveAlbum(this.props.match.params.albumId);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
-          description = _this$props$album.description,
-          photos = _this$props$album.photos;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          description = _this$props$album.description;
+      var images = [];
+      this.props.photos.map(function (photo) {
+        if (photo.owner_id === _this.props.currentUser.id) {
+          images.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            key: photo.id,
+            currentUser: _this.props.currentUser,
+            photo: photo,
+            receivePhoto: _this.props.receivePhoto
+          }));
+        }
+      });
+      debugger;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-cover"
@@ -873,7 +902,7 @@ function (_React$Component) {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"
-      }, photos)));
+      }, images))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -1861,7 +1890,7 @@ function (_React$Component) {
       //       <div className='tag-delete' id={`${tag.author.id}`}>
       //         {this.deleteTag}
       //       </div>
-      //     </div>
+      //     </div>;
       //   }
       // }); 
 
@@ -3156,7 +3185,7 @@ var tagsReducer = function tagsReducer() {
 
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_TAG"]:
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state);
-      delete newState(newState[action.id]);
+      delete newState[action.id];
       return newState;
 
     default:
