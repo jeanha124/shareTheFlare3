@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],
     album,
-    photos: album.photos, 
+    photos: state.entities.photos[ownProps.match.params.photo], 
   };
 };
 
