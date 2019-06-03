@@ -1751,6 +1751,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
+      this.props.fetchAllUsers();
     }
   }, {
     key: "update",

@@ -22,6 +22,7 @@ class PhotoShow extends React.Component {
   }
   componentDidMount(){
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
+    this.props.fetchAllUsers();
   }
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
