@@ -1986,8 +1986,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var photoId = parseInt(ownProps.match.params.photoId) || 0;
-  var userId = state.entities.photos[photoId].owner.id;
-  var user = state.entities.users[userId];
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
@@ -2019,7 +2017,7 @@ var mdp = function mdp(dispatch) {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["deleteTag"])(id));
     },
     fetchAllUsers: function fetchAllUsers() {
-      return dispatch(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAllUsers"]);
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAllUsers"])());
     }
   };
 };
