@@ -117,7 +117,7 @@ class PhotoShow extends React.Component {
             <div className="user-info">
               <img className="user-profile-photo-show"/>
               <br />
-              <h1>{this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
+              <h1>{this.props.photo.user.fname} {this.props.photo.user.lname}</h1>
               <p className="description-para">
                 <i className="fas fa-edit edit-btn" onClick={this.toggleEdit}></i>
                 <span className="content-show">{this.props.photo.title}</span>
