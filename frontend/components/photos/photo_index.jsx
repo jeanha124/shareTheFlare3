@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Route } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
 import Footer from '../main_tools/footer';
 import MainNav from '../main_tools/main_nav_container';
+import AlbumIndex from '../albums/album_index';
 
 class PhotoIndex extends React.Component {
   constructor(props){
@@ -20,6 +21,7 @@ class PhotoIndex extends React.Component {
     });
     const latestPhotos = photos.reverse();
     const path = this.props.location.pathname;
+    const {match: {url}} = this.props;
     return (
       <React.Fragment>
         <MainNav />
@@ -30,20 +32,21 @@ class PhotoIndex extends React.Component {
           </div>
         </div>
         <ul className="profile-nav">
-            <li id="about" className={"padding"}>About</li>
+          <NavLink exact to={`/about`}>About</NavLink>
+          <NavLink exact to={`${url}`}>Photostream</NavLink>
+          <NavLink exact to={`/albums`}>Albums</NavLink>
+          <NavLink exact to={`/faves`}>Faves</NavLink>
+            {/* <li id="about" className={"padding"}>About</li>
             <li id="photostream" className="padding active">Photostream</li>
             <li id="albums" className="padding">Albums</li>
-            <li id="faves" className="padding">Faves</li>
+            <li id="faves" className="padding">Faves</li> */}
         </ul>
-        <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
+        <Route exact path={`${url}`} render={() => <div className="body-background" style={{color: '#212124', backgroundColor: "#f2f5f6"}}>
           <div className="photo-div">
             <ul className="photo-index">{latestPhotos}</ul>
           </div>
-        </div>
-        <div className='album-div'>
-          <Link to={`/${this.props.currentUser.display_name}/new_album`}>+ New Album</Link>
-          <ul className='album-index'></ul>
-        </div>
+        </div>} />
+        <Route exact path={`/albums`} render={() => <AlbumIndex {...this.props} />} />
         <Footer />
       </React.Fragment>
     );

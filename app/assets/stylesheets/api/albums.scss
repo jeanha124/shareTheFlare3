@@ -11,6 +11,9 @@
 
 }
 
+.create-album {
+  float: right;
+}
 div.album-create-content {
   margin: 50px 0 0 0;
   height: 100%;
@@ -149,7 +152,8 @@ div.album-create-content {
   width: 100%;
 }
 
-.album-divs {
+.album-divs,
+.album-index-content {
   display: flex;
   padding: 2px;
   flex-wrap: wrap;
@@ -158,4 +162,26 @@ div.album-create-content {
     content: '';
     flex-grow: 999999999;
   }
+}
+
+.album-item {
+  width: 400px;
+  height: 300px;
+}
+
+.album-image {
+  width: 300px;
+  height: 200px;
+}
+
+.album-title2 {
+  font-size: 22px;
+}
+
+.album-content {
+  margin: 50px 0 0 0;
+}
+
+.album-index-content {
+  justify-content: center;
 }
