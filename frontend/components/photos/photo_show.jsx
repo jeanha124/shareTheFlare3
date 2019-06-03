@@ -97,6 +97,7 @@ class PhotoShow extends React.Component {
     //   }
     // }); 
     if (this.state.edit === false){
+      const photo = this.props.photo;
       return (
         <React.Fragment>
           <MainNav />
@@ -105,7 +106,7 @@ class PhotoShow extends React.Component {
             <div className='pads center'>
               <img className='superfun-image'
               src= {
-                `${this.props.photo.photoUrl}`
+                `${photo.photoUrl}`
               }
               />
             </div>
@@ -117,12 +118,12 @@ class PhotoShow extends React.Component {
             <div className="user-info">
               <img className="user-profile-photo-show"/>
               <br />
-              <h1>{this.props.photo.user.fname} {this.props.photo.user.lname}</h1>
+              <h1>{photo.user.fname} {photo.user.lname}</h1>
               <p className="description-para">
                 <i className="fas fa-edit edit-btn" onClick={this.toggleEdit}></i>
-                <span className="content-show">{this.props.photo.title}</span>
+                <span className="content-show">{photo.title}</span>
                 <br />
-                <span className="content-show">{this.props.photo.description}</span>
+                <span className="content-show">{photo.description}</span>
               </p>
             </div>
             <div className='comments-container'>
@@ -148,13 +149,14 @@ class PhotoShow extends React.Component {
         </React.Fragment>
       );
     } else {
+       const photo = this.props.photo;
       return (
         <React.Fragment>
           <MainNav />
           <div className="pic-container">
             <img className='superfun-image'
             src= {
-              `${this.props.photo.photoUrl}`
+              `${photo.photoUrl}`
             }
             />
           </div>
@@ -165,14 +167,14 @@ class PhotoShow extends React.Component {
                   <input
                     className="edit-input"
                     type="text"
-                    value={this.props.photo.title}
+                    value={photo.title}
                     onChange={this.update('title')} />
                </label>
                <label><p>Description</p>
                   <input
                     className="edit-input"
                     type="text"
-                    value={this.props.photo.description}
+                    value={photo.description}
                     onChange={this.update('description')} />
                </label>
                <button className="edit-update" onClick={this.handleSubmit}>Update</button>
