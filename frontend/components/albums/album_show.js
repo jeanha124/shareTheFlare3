@@ -30,9 +30,23 @@ const mdp = dispatch => {
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
+    this.edit = this.edit.bind(this);
+    this.delete = this.delete.bind(this);
   }
   componentDidMount(){
     this.props.receiveAlbum(this.props.match.params.albumId);
+  }
+  delete(e) {
+    e.preventDefault();
+    this.props.deleteAlbum(this.props.match.params.albumId).then(this.props.history.push('/albums'));
+  }
+  edit(e) {
+    if (this.props.currentUser.id === this.props.album.owner_id){
+      return <div className="edit-album">
+        <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}></Link>
+        <i className="fas fa-trash delete-album" onClick={this.delete}></i>
+      </div>;
+    }
   }
   render() {
     const {title, description} = this.props.album;
@@ -47,6 +61,7 @@ class AlbumShow extends React.Component {
       <React.Fragment>
         <MainNav />
         <div className="album-show">
+          {this.edit}
           <div className="album-cover">
             <h1>{title}</h1>
             <h2>{description}</h2>

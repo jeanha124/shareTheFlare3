@@ -814,9 +814,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -864,9 +864,14 @@ function (_React$Component) {
   _inherits(AlbumShow, _React$Component);
 
   function AlbumShow(props) {
+    var _this;
+
     _classCallCheck(this, AlbumShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(AlbumShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumShow).call(this, props));
+    _this.edit = _this.edit.bind(_assertThisInitialized(_this));
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(AlbumShow, [{
@@ -875,28 +880,49 @@ function (_React$Component) {
       this.props.receiveAlbum(this.props.match.params.albumId);
     }
   }, {
+    key: "delete",
+    value: function _delete(e) {
+      e.preventDefault();
+      this.props.deleteAlbum(this.props.match.params.albumId).then(this.props.history.push('/albums'));
+    }
+  }, {
+    key: "edit",
+    value: function edit(e) {
+      if (this.props.currentUser.id === this.props.album.owner_id) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit-album"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Link, {
+          className: "edit-album-page",
+          to: "/albums/".concat(this.props.album.id, "/edit")
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-trash delete-album",
+          onClick: this["delete"]
+        }));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
           description = _this$props$album.description;
       var images = [];
       this.props.photos.map(function (photo) {
-        if (photo.owner_id === _this.props.currentUser.id) {
+        if (photo.owner_id === _this2.props.currentUser.id) {
           images.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
             key: photo.id,
-            currentUser: _this.props.currentUser,
+            currentUser: _this2.props.currentUser,
             photo: photo,
-            receivePhoto: _this.props.receivePhoto
+            receivePhoto: _this2.props.receivePhoto
           }));
         }
       });
       debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-cover"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
