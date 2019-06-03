@@ -2815,12 +2815,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/album_actions */ "./frontend/actions/album_actions.jsx");
-/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/photo_actions */ "./frontend/actions/photo_actions.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
+ // import { RECEIVE_PHOTO } from '../actions/photo_actions';
 
 
 
@@ -2831,16 +2830,15 @@ var albumsReducer = function albumsReducer() {
 
   switch (action.type) {
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUMS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.albums);
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, action.albums);
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALBUM"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, _defineProperty({}, action.album.id, action.album));
-
-    case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PHOTO"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, _defineProperty({}, action.album.photos.id, action.photo));
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, _defineProperty({}, action.album.id, action.album));
+    // case RECEIVE_PHOTO:
+    //   return merge({}, {[action.album.photos.id]: action.photo});  
 
     case _actions_album_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_ALBUM"]:
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state);
       delete newState[action.albumID];
       return newState;
 
