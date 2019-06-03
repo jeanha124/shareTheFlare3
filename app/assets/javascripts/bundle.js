@@ -1041,8 +1041,8 @@ function (_React$Component) {
             receivePhoto: _this2.props.receivePhoto
           }));
         }
-      });
-      debugger;
+      }); // debugger
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
       }, this.edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

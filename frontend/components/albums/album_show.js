@@ -56,7 +56,7 @@ class AlbumShow extends React.Component {
         images.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
       }
     });
-    debugger
+    // debugger
     return (
       <React.Fragment>
         <MainNav />
