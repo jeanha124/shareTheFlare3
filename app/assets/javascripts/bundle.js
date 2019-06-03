@@ -1986,10 +1986,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var photoId = parseInt(ownProps.match.params.photoId) || 0;
+  var userId = state.entities.photos[photoId].owner.id;
+  var user = state.entities.users[userId];
   return {
     currentUser: state.entities.users[state.session.id],
     photo: state.entities.photos[photoId] || {},
-    comments: Object.values(state.entities.comments)
+    comments: Object.values(state.entities.comments),
+    user: user
   };
 };
 
