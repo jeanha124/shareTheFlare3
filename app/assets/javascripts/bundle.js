@@ -1014,7 +1014,7 @@ function (_React$Component) {
       if (this.props.currentUser.id === this.props.album.owner_id) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "edit-album"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Link, {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
           className: "edit-album-page",
           to: "/albums/".concat(this.props.album.id, "/edit")
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1047,7 +1047,9 @@ function (_React$Component) {
         className: "album-show"
       }, this.edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-cover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: '/albums'
+      }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"

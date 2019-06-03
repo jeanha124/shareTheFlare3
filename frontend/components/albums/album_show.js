@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { receiveAllPhotos, receivePhoto } from '../../actions/photo_actions';
 import { receiveAlbum, deleteAlbum } from '../../actions/album_actions';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import PhotoIndex from '../photos/photo_index_container';
 import PhotoIndexItem from '../photos/photo_index_item';
 import MainNav from '../main_tools/main_nav_container';
@@ -66,6 +66,7 @@ class AlbumShow extends React.Component {
             <h1>{title}</h1>
             <h2>{description}</h2>
           </div>
+          <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">
             <ul className="album-divs">
               {images}
