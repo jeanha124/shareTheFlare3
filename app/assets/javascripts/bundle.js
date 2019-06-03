@@ -1751,7 +1751,6 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
-      this.props.fetchAllUsers();
     }
   }, {
     key: "update",
@@ -1867,14 +1866,13 @@ function (_React$Component) {
       // }); 
 
       if (this.state.edit === false) {
-        var photo = this.props.photo;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pads center"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "superfun-image",
-          src: "".concat(photo.photoUrl)
+          src: "".concat(this.props.photo.photoUrl)
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "edit-btns"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1886,16 +1884,16 @@ function (_React$Component) {
           className: "user-info"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "user-profile-photo-show"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.user.fname, " ", this.props.user.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.currentUser.fname, " ", this.props.currentUser.lname), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "description-para"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-edit edit-btn",
           onClick: this.toggleEdit
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "content-show"
-        }, photo.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }, this.props.photo.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "content-show"
-        }, photo.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, this.props.photo.description))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comments-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "comment-list"
@@ -1929,24 +1927,23 @@ function (_React$Component) {
           value: "Tag"
         }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
       } else {
-        var _photo = this.props.photo;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "superfun-image",
-          src: "".concat(_photo.photoUrl)
+          src: "".concat(this.props.photo.photoUrl)
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("content", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "avatar",
           src: "https://s3.amazonaws.com/share-the-flare-dev/shareTheFlare.png"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "edit-input",
           type: "text",
-          value: _photo.title,
+          value: this.props.photo.title,
           onChange: this.update('title')
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "edit-input",
           type: "text",
-          value: _photo.description,
+          value: this.props.photo.description,
           onChange: this.update('description')
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "edit-update",

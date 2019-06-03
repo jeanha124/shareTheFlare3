@@ -22,7 +22,6 @@ class PhotoShow extends React.Component {
   }
   componentDidMount(){
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
-    this.props.fetchAllUsers();
   }
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
@@ -98,7 +97,6 @@ class PhotoShow extends React.Component {
     //   }
     // }); 
     if (this.state.edit === false){
-      const photo = this.props.photo;
       return (
         <React.Fragment>
           <MainNav />
@@ -107,7 +105,7 @@ class PhotoShow extends React.Component {
             <div className='pads center'>
               <img className='superfun-image'
               src= {
-                `${photo.photoUrl}`
+                `${this.props.photo.photoUrl}`
               }
               />
             </div>
@@ -119,12 +117,12 @@ class PhotoShow extends React.Component {
             <div className="user-info">
               <img className="user-profile-photo-show"/>
               <br />
-              <h1>{this.props.user.fname} {this.props.user.lname}</h1>
+              <h1>{this.props.currentUser.fname} {this.props.currentUser.lname}</h1>
               <p className="description-para">
                 <i className="fas fa-edit edit-btn" onClick={this.toggleEdit}></i>
-                <span className="content-show">{photo.title}</span>
+                <span className="content-show">{this.props.photo.title}</span>
                 <br />
-                <span className="content-show">{photo.description}</span>
+                <span className="content-show">{this.props.photo.description}</span>
               </p>
             </div>
             <div className='comments-container'>
@@ -150,14 +148,13 @@ class PhotoShow extends React.Component {
         </React.Fragment>
       );
     } else {
-       const photo = this.props.photo;
       return (
         <React.Fragment>
           <MainNav />
           <div className="pic-container">
             <img className='superfun-image'
             src= {
-              `${photo.photoUrl}`
+              `${this.props.photo.photoUrl}`
             }
             />
           </div>
@@ -168,14 +165,14 @@ class PhotoShow extends React.Component {
                   <input
                     className="edit-input"
                     type="text"
-                    value={photo.title}
+                    value={this.props.photo.title}
                     onChange={this.update('title')} />
                </label>
                <label><p>Description</p>
                   <input
                     className="edit-input"
                     type="text"
-                    value={photo.description}
+                    value={this.props.photo.description}
                     onChange={this.update('description')} />
                </label>
                <button className="edit-update" onClick={this.handleSubmit}>Update</button>
