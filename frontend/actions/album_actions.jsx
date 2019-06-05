@@ -22,11 +22,11 @@ export const receiveAlbum = id => dispatch => {
   });
 };
 
-export const createAlbum = formData => dispatch => {
-  return AlbumApiUtil.createAlbum(formData).then(album => {
+export const createAlbum = album => dispatch => {
+  return AlbumApiUtil.createAlbum(album).then(formData => {
     return dispatch({
       type: RECEIVE_ALBUM,
-      album
+      formData
     });
   });
 };

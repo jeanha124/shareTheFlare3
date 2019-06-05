@@ -11,12 +11,12 @@ class AlbumForm extends React.Component {
       title: '',
       description: '',
       picture: [],
-      disabled: true,
+      disabled: false,
     };
     this.update = this.update.bind(this);
     this.save = this.save.bind(this);
     this.togglePicture = this.togglePicture.bind(this);
-    this.disabled = this.disabled.bind(this);
+    // this.disabled = this.disabled.bind(this);
   }
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
@@ -25,7 +25,6 @@ class AlbumForm extends React.Component {
     this.props.receiveAllPhotos();
   }
   save(e) {
-    // debugger
     e.preventDefault();
     let formData = new FormData();
     // debugger
@@ -33,14 +32,14 @@ class AlbumForm extends React.Component {
     // debugger
     formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
-    this.disabled(formData);
+    // this.disabled(formData);
+    this.props.createAlbum(formData).then(() => this.props.history.push(`/albums/${this.props.album.id}`).bind(this));
   }
-  disabled(e) {
-    if (this.state.picture.length > 0 && this.state.title != ''){
-      this.setState({disabled: false}); 
-    }
-    this.props.createAlbum(e).then(action => this.props.history.push(`/albums/${action.album.id}`));
-  }
+  // disabled(e) {
+  //   if (this.state.picture.length > 0 && this.state.title != ''){
+  //     this.setState({disabled: false}); 
+  //   }
+  // }
   togglePicture(e) {
     e.preventDefault();
     let id = parseInt(e.currentTarget.id);
@@ -70,18 +69,21 @@ class AlbumForm extends React.Component {
     });
 
     let disabled = this.state.disabled ? 'disabled' : '';
+    debugger
     return (
       <div className='album-create'>
         <MainNav />
         <div className='album-create-content'>
-          <form className='album-form' onClick={this.save}>
+          <form className='album-form' >
             <div className='album-preview-photo'>
               <img className='album-preview' />
             </div>
             <input className='album-title' type='text' placeholder='new album' onChange={this.update('title')}/>
             <textarea className='album-description' onChange={this.update('description')}/>
             <div className='album-btns'>
-              <input id='save' className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='SAVE' type='submit' disabled={disabled}/>
+              <input id='save' onClick={this.save} className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='SAVE' type='submit' />
+              <button onClick={() => this.save}>Callback</button>
+              <input type='submit' value='test-submit' />
               <button className='album-cancel'>CANCEL</button>
             </div>
           </form>

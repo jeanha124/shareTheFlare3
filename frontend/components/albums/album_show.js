@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { receiveAllPhotos, receivePhoto } from '../../actions/photo_actions';
 import { receiveAlbum, deleteAlbum } from '../../actions/album_actions';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, Route } from 'react-router-dom';
 import PhotoIndex from '../photos/photo_index_container';
 import PhotoIndexItem from '../photos/photo_index_item';
 import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
+import AlbumUpdate from './album_update';
 
 const msp = (state, ownProps) => {
   const album = state.entities.albums[ownProps.match.params.albumId];
@@ -49,7 +50,7 @@ class AlbumShow extends React.Component {
     }
   }
   render() {
-    const {title, description} = this.props.album;
+    const {title, description, id} = this.props.album;
     const images = [];
     this.props.photos.map(photo => {
       if (photo.owner_id === this.props.currentUser.id) {
@@ -65,6 +66,7 @@ class AlbumShow extends React.Component {
           <div className="album-cover">
             <h1>{title}</h1>
             <h2>{description}</h2>
+          <Link to={`/albums/${id}/edit`}></Link>
           </div>
           <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">
@@ -73,6 +75,7 @@ class AlbumShow extends React.Component {
             </ul>
           </div>
         </div>
+        <Route exact path={`/albums/${id}/edit`} render={<AlbumUpdate {...this.props}/>}/>
         <Footer />
       </React.Fragment>
     );

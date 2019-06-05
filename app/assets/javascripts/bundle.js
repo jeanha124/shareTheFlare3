@@ -128,12 +128,12 @@ var receiveAlbum = function receiveAlbum(id) {
     });
   };
 };
-var createAlbum = function createAlbum(formData) {
+var createAlbum = function createAlbum(album) {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](formData).then(function (album) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (formData) {
       return dispatch({
         type: RECEIVE_ALBUM,
-        album: album
+        formData: formData
       });
     });
   };
@@ -610,12 +610,12 @@ function (_React$Component) {
       title: '',
       description: '',
       picture: [],
-      disabled: true
+      disabled: false
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.save = _this.save.bind(_assertThisInitialized(_this));
-    _this.togglePicture = _this.togglePicture.bind(_assertThisInitialized(_this));
-    _this.disabled = _this.disabled.bind(_assertThisInitialized(_this));
+    _this.togglePicture = _this.togglePicture.bind(_assertThisInitialized(_this)); // this.disabled = this.disabled.bind(this);
+
     return _this;
   }
 
@@ -636,31 +636,25 @@ function (_React$Component) {
   }, {
     key: "save",
     value: function save(e) {
-      // debugger
+      var _this3 = this;
+
       e.preventDefault();
       var formData = new FormData(); // debugger
 
       formData.append('album[title]', this.state.title); // debugger
 
       formData.append('album[description]', this.state.description);
-      formData.append('album[photo_ids]', this.state.picture);
-      this.disabled(formData);
-    }
-  }, {
-    key: "disabled",
-    value: function disabled(e) {
-      var _this3 = this;
+      formData.append('album[photo_ids]', this.state.picture); // this.disabled(formData);
 
-      if (this.state.picture.length > 0 && this.state.title != '') {
-        this.setState({
-          disabled: false
-        });
-      }
-
-      this.props.createAlbum(e).then(function (action) {
-        return _this3.props.history.push("/albums/".concat(action.album.id));
+      this.props.createAlbum(formData).then(function () {
+        return _this3.props.history.push("/albums/".concat(_this3.props.album.id)).bind(_this3);
       });
-    }
+    } // disabled(e) {
+    //   if (this.state.picture.length > 0 && this.state.title != ''){
+    //     this.setState({disabled: false}); 
+    //   }
+    // }
+
   }, {
     key: "togglePicture",
     value: function togglePicture(e) {
@@ -702,13 +696,13 @@ function (_React$Component) {
         }
       });
       var disabled = this.state.disabled ? 'disabled' : '';
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "album-form",
-        onClick: this.save
+        className: "album-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-preview-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -725,10 +719,17 @@ function (_React$Component) {
         className: "album-btns"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         id: "save",
+        onClick: this.save,
         className: this.state.picture.length === 0 ? 'album-no-save' : 'album-save',
         value: "SAVE",
+        type: "submit"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick() {
+          return _this4.save;
+        }
+      }, "Callback"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        disabled: disabled
+        value: "test-submit"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "album-cancel"
       }, "CANCEL"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -872,10 +873,45 @@ function (_React$Component) {
       var filteredAlbums = albums.filter(function (album) {
         return album.photos.length > 0;
       }).reverse();
+      var url = this.props.match.url;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "album-content"
+        className: "cover"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-profile-photo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "fullName"
+      }, "".concat(this.props.currentUser.fname, " ").concat(this.props.currentUser.lname)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "displayname"
+      }, "".concat(this.props.currentUser.display_name)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "profile-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "about",
+        className: "padding",
+        exact: true,
+        to: "/about"
+      }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "photostream",
+        className: "padding",
+        exact: true,
+        to: "photos/~/".concat(this.props.currentUser.display_name)
+      }, "Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "albums",
+        className: "padding",
+        exact: true,
+        to: "".concat(url)
+      }, "Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+        id: "faves",
+        className: "padding",
+        exact: true,
+        to: "/faves"
+      }, "Faves")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          backgroundColor: '#f2f5f6'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "album-content photo-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "back-to-stream",
         to: "/photos/~/".concat(this.props.currentUser.display_name)
@@ -891,13 +927,17 @@ function (_React$Component) {
           key: "".concat(album.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "album-title2"
-        }, album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }, album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "album-line1"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "album-line2"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/albums/".concat(album.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "album-image",
           src: album.photos[0].photoUrl
         })));
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
@@ -927,6 +967,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../photos/photo_index_item */ "./frontend/components/photos/photo_index_item.jsx");
 /* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
 /* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
+/* harmony import */ var _album_update__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./album_update */ "./frontend/components/albums/album_update.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -944,6 +985,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1030,7 +1072,8 @@ function (_React$Component) {
 
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
-          description = _this$props$album.description;
+          description = _this$props$album.description,
+          id = _this$props$album.id;
       var images = [];
       this.props.photos.map(function (photo) {
         if (photo.owner_id === _this2.props.currentUser.id) {
@@ -1047,13 +1090,19 @@ function (_React$Component) {
         className: "album-show"
       }, this.edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-cover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        to: "/albums/".concat(id, "/edit")
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
       }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"
-      }, images))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+      }, images))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+        exact: true,
+        path: "/albums/".concat(id, "/edit"),
+        render: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_update__WEBPACK_IMPORTED_MODULE_9__["default"], this.props)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -1061,6 +1110,184 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(AlbumShow)));
+
+/***/ }),
+
+/***/ "./frontend/components/albums/album_update.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/albums/album_update.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.jsx");
+/* harmony import */ var _actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/photo_actions */ "./frontend/actions/photo_actions.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var msp = function msp(state, ownProps) {
+  var currentUser = state.entities.users[state.session.id];
+  var album = state.entities.albums[ownProps.match.params.albumId];
+  return {
+    currentUser: currentUser,
+    album: album,
+    photos: album.photos,
+    allPhotos: Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"])()
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    receiveAlbum: function receiveAlbum(id) {
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAlbum"])(id));
+    },
+    receiveAllPhotos: function receiveAllPhotos() {
+      return dispatch(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"]);
+    },
+    updateAlbum: function updateAlbum(album, id) {
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["updateAlbum"])(album, id));
+    }
+  };
+};
+
+var AlbumUpdate =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(AlbumUpdate, _React$Component);
+
+  function AlbumUpdate(props) {
+    var _this;
+
+    _classCallCheck(this, AlbumUpdate);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumUpdate).call(this, props));
+    _this.picture = [];
+    _this.state = {
+      title: _this.props.album.title,
+      description: _this.props.album.description,
+      picture: _this.picture
+    };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.save = _this.save.bind(_assertThisInitialized(_this));
+    _this.togglePicture = _this.togglePicture.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(AlbumUpdate, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+      };
+    }
+  }, {
+    key: "save",
+    value: function save(e) {
+      var _this3 = this;
+
+      e.preventDefault();
+      var formData = new FormData();
+      formData.append('album[title]', this.state.title);
+      formData.append('album[photo_ids]', this.state.picture);
+      this.props.editAlbum(formData, this.props.album.id).then(function (action) {
+        return _this3.props.history.push("/albums/".concat(action.album.id));
+      });
+    }
+  }, {
+    key: "togglePicture",
+    value: function togglePicture(e) {
+      e.preventDefault();
+      var id = parseInt(e.currentTarget.id);
+
+      if (!this.picture.includes(id)) {
+        this.picture.push(id);
+      } else {
+        this.picture.splice(this.picture.indexOf(id), 1);
+      }
+
+      this.setState({
+        picture: this.picture
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var photoArray = this.props.photos.map(function (photo) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: _this4.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not',
+          id: photo.id,
+          onClick: _this4.togglePicture
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          className: "album-photo",
+          src: photo.photoUrl
+        }));
+      });
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "album-create"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "album-create-content"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+        className: "album-form",
+        onClick: this.save
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        className: "album-title",
+        type: "text",
+        placeholder: "new album",
+        onChange: this.update('title')
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+        className: "album-description",
+        onChange: this.update('body')
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        className: this.state.picture.length === 0 ? 'album-no-save' : 'album-save',
+        value: "save",
+        type: "submit"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "album-cancel"
+      }, "Cancel")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "album-container"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
+        className: "album-photos"
+      }, photoArray))));
+    }
+  }]);
+
+  return AlbumUpdate;
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(AlbumUpdate));
 
 /***/ }),
 

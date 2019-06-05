@@ -8,6 +8,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create
+    debugger
     @album = Album.new(album_params)
     @album.owner_id = current_user.id
     # debugger
@@ -55,6 +56,7 @@ class Api::AlbumsController < ApplicationController
 
   private
   def album_params
+    debugger
     params.require(:album).permit(:owner_id, :title, :description, photo_ids: []);
   end
 
