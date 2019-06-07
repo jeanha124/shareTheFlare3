@@ -23,10 +23,10 @@ export const receiveAlbum = id => dispatch => {
 };
 
 export const createAlbum = album => dispatch => {
-  return AlbumApiUtil.createAlbum(album).then(formData => {
+  return AlbumApiUtil.createAlbum(album).then(album => {
     return dispatch({
       type: RECEIVE_ALBUM,
-      formData
+      album
     });
   });
 };

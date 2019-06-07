@@ -130,10 +130,10 @@ var receiveAlbum = function receiveAlbum(id) {
 };
 var createAlbum = function createAlbum(album) {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (formData) {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["createAlbum"](album).then(function (album) {
       return dispatch({
         type: RECEIVE_ALBUM,
-        formData: formData
+        album: album
       });
     });
   };
@@ -647,7 +647,7 @@ function (_React$Component) {
       formData.append('album[photo_ids]', this.state.picture); // this.disabled(formData);
 
       this.props.createAlbum(formData).then(function () {
-        return _this3.props.history.push("/albums/".concat(_this3.props.album.id)).bind(_this3);
+        return _this3.props.history.push("/albums/".concat(_this3.props.album.id));
       });
     } // disabled(e) {
     //   if (this.state.picture.length > 0 && this.state.title != ''){

@@ -33,7 +33,7 @@ class AlbumForm extends React.Component {
     formData.append('album[description]', this.state.description);
     formData.append('album[photo_ids]', this.state.picture);
     // this.disabled(formData);
-    this.props.createAlbum(formData).then(() => this.props.history.push(`/albums/${this.props.album.id}`).bind(this));
+    this.props.createAlbum(formData).then(() => this.props.history.push(`/albums/${this.props.album.id}`));
   }
   // disabled(e) {
   //   if (this.state.picture.length > 0 && this.state.title != ''){
