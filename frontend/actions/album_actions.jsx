@@ -32,7 +32,7 @@ export const createAlbum = album => dispatch => {
 };
 
 export const updateAlbum = (album, id) => dispatch => {
-  return AlbumApiUtil.updateAlbum(album, id).then(() => {
+  return AlbumApiUtil.updateAlbum(album, id).then(album => {
     return dispatch({
       type: RECEIVE_ALBUM,
       album
@@ -41,7 +41,9 @@ export const updateAlbum = (album, id) => dispatch => {
 };
 
 export const deleteAlbum = albumId => dispatch => {
-  return AlbumApiUtil.deleteAlbum(albumId).then(() => {
+  debugger
+  return AlbumApiUtil.deleteAlbum(albumId).then(albumId => {
+    debugger
     return dispatch({
       type: REMOVE_ALBUM,
       albumId

@@ -140,7 +140,7 @@ var createAlbum = function createAlbum(album) {
 };
 var updateAlbum = function updateAlbum(album, id) {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["updateAlbum"](album, id).then(function () {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["updateAlbum"](album, id).then(function (album) {
       return dispatch({
         type: RECEIVE_ALBUM,
         album: album
@@ -150,7 +150,9 @@ var updateAlbum = function updateAlbum(album, id) {
 };
 var deleteAlbum = function deleteAlbum(albumId) {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function () {
+    debugger;
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function (albumId) {
+      debugger;
       return dispatch({
         type: REMOVE_ALBUM,
         albumId: albumId

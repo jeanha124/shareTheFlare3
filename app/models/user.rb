@@ -25,8 +25,12 @@ class User < ApplicationRecord
   has_many :photos,
     foreign_key: :owner_id,
     class_name: :Photo
-  has_many :albums
-  has_many :comments
+  has_many :albums,
+    foreign_key: :owner_id,
+    class_name: :Album
+  has_many :comments,
+    foreign_key: :commenter_id,
+    class_name: :Comment
   has_many :tags
   # has_one_attached :avatar
 

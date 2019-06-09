@@ -48,7 +48,9 @@ class Api::AlbumsController < ApplicationController
   end
 
   def destroy
+    debugger
     @album = current_user.albums.find(params[:id]);
+    debugger
     @album.destroy;
     render :show
   end
