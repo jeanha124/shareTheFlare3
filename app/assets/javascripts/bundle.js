@@ -639,15 +639,16 @@ function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      var formData = new FormData(); // debugger
+      var album = new FormData(); // debugger
 
-      formData.append('album[title]', this.state.title); // debugger
+      album.append('album[title]', this.state.title); // debugger
 
-      formData.append('album[description]', this.state.description);
-      formData.append('album[photo_ids]', this.state.picture); // this.disabled(formData);
+      album.append('album[description]', this.state.description);
+      album.append('album[photo_ids]', this.state.picture); // this.disabled(album);
+      // debugger
 
-      this.props.createAlbum(formData).then(function () {
-        return _this3.props.history.push("/albums/".concat(_this3.props.album.id));
+      this.props.createAlbum(album).then(function (res) {
+        return _this3.props.history.push("/albums/".concat(res.album.id));
       });
     } // disabled(e) {
     //   if (this.state.picture.length > 0 && this.state.title != ''){
@@ -695,8 +696,8 @@ function (_React$Component) {
           })));
         }
       });
-      var disabled = this.state.disabled ? 'disabled' : '';
-      debugger;
+      var disabled = this.state.disabled ? 'disabled' : ''; // debugger
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3776,11 +3777,11 @@ var fetchAlbum = function fetchAlbum(id) {
     url: "api/albums/".concat(id)
   });
 };
-var createAlbum = function createAlbum(formData) {
+var createAlbum = function createAlbum(album) {
   return $.ajax({
     method: 'POST',
     url: "api/albums",
-    data: formData,
+    data: album,
     processData: false,
     contentType: false
   });

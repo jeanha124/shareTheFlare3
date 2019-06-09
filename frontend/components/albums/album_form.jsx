@@ -26,14 +26,15 @@ class AlbumForm extends React.Component {
   }
   save(e) {
     e.preventDefault();
-    let formData = new FormData();
+    let album = new FormData();
     // debugger
-    formData.append('album[title]', this.state.title);
+    album.append('album[title]', this.state.title);
     // debugger
-    formData.append('album[description]', this.state.description);
-    formData.append('album[photo_ids]', this.state.picture);
-    // this.disabled(formData);
-    this.props.createAlbum(formData).then(() => this.props.history.push(`/albums/${this.props.album.id}`));
+    album.append('album[description]', this.state.description);
+    album.append('album[photo_ids]', this.state.picture);
+    // this.disabled(album);
+    // debugger
+    this.props.createAlbum(album).then(res => this.props.history.push(`/albums/${res.album.id}`));
   }
   // disabled(e) {
   //   if (this.state.picture.length > 0 && this.state.title != ''){
@@ -69,7 +70,7 @@ class AlbumForm extends React.Component {
     });
 
     let disabled = this.state.disabled ? 'disabled' : '';
-    debugger
+    // debugger
     return (
       <div className='album-create'>
         <MainNav />

@@ -15,11 +15,11 @@ export const fetchAlbum = id => {
   });
 };
 
-export const createAlbum = formData => {
+export const createAlbum = album => {
   return $.ajax({
     method: 'POST',
     url: `api/albums`,
-    data: formData,
+    data: album,
     processData: false,
     contentType: false
   });
