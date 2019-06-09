@@ -34,9 +34,9 @@ class Api::AlbumsController < ApplicationController
   end
 
   def update
-    debugger
+    # debugger
     @album = current_user.albums.find(params[:id])
-    debugger
+    # debugger
     photo_ids = params[:album][:photo_ids].split(',')
     @album.photo_ids = photo_ids
     if @album.update(album_params)
