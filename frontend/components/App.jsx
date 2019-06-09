@@ -10,6 +10,7 @@ import PhotoShow from './photos/photo_show_container';
 import AlbumForm from './albums/album_form_container';
 import AlbumShow from './albums/album_show';
 import AlbumIndex from './albums/album_index';
+import AlbumUpdate from './albums/album_update';
 
 class App extends React.Component {
   render () {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <ProtectedRoute exact path='/photos/~/:display_name' component={PhotoIndex} />
         <ProtectedRoute exact path='/photos/~/:display_name/:photoId' component={PhotoShow} />
         <ProtectedRoute exact path='/:display_name/new_album' component={AlbumForm} />
+        <ProtectedRoute exact path='/albums/:albumId/edit' component={AlbumUpdate} />
         <ProtectedRoute exact path='/albums/:albumId' component={AlbumShow} />
         <ProtectedRoute exact path='/albums' component={AlbumIndex} />
       </div>

@@ -465,6 +465,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _albums_album_form_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./albums/album_form_container */ "./frontend/components/albums/album_form_container.js");
 /* harmony import */ var _albums_album_show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./albums/album_show */ "./frontend/components/albums/album_show.js");
 /* harmony import */ var _albums_album_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./albums/album_index */ "./frontend/components/albums/album_index.jsx");
+/* harmony import */ var _albums_album_update__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./albums/album_update */ "./frontend/components/albums/album_update.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -482,6 +483,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -540,6 +542,10 @@ function (_React$Component) {
         exact: true,
         path: "/:display_name/new_album",
         component: _albums_album_form_container__WEBPACK_IMPORTED_MODULE_9__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__["ProtectedRoute"], {
+        exact: true,
+        path: "/albums/:albumId/edit",
+        component: _albums_album_update__WEBPACK_IMPORTED_MODULE_12__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__["ProtectedRoute"], {
         exact: true,
         path: "/albums/:albumId",
@@ -1169,21 +1175,23 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var msp = function msp(state, ownProps) {
   var currentUser = state.entities.users[state.session.id];
   var album = state.entities.albums[ownProps.match.params.albumId];
+  debugger;
   return {
     currentUser: currentUser,
     album: album,
     photos: album.photos,
-    allPhotos: Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"])()
+    allPhotos: currentUser.photos
   };
 };
 
 var mdp = function mdp(dispatch) {
+  debugger;
   return {
     receiveAlbum: function receiveAlbum(id) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAlbum"])(id));
     },
     receiveAllPhotos: function receiveAllPhotos() {
-      return dispatch(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"]);
+      return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_4__["receiveAllPhotos"])());
     },
     updateAlbum: function updateAlbum(album, id) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["updateAlbum"])(album, id));
@@ -1217,6 +1225,11 @@ function (_React$Component) {
   }
 
   _createClass(AlbumUpdate, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.receiveAllPhotos();
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -1236,7 +1249,7 @@ function (_React$Component) {
       album.append('album[title]', this.state.title);
       album.append('album[description]', this.state.description);
       album.append('album[photo_ids]', this.state.picture);
-      this.props.editAlbum(album, this.props.album.id).then(function (res) {
+      this.props.updateAlbum(album, this.props.album.id).then(function (res) {
         return _this3.props.history.push("/albums/".concat(res.album.id));
       });
     }
@@ -1304,7 +1317,7 @@ function (_React$Component) {
   return AlbumUpdate;
 }(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(AlbumUpdate));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(AlbumUpdate)));
 
 /***/ }),
 

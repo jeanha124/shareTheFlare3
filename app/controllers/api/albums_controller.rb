@@ -30,11 +30,13 @@ class Api::AlbumsController < ApplicationController
   end
   
   def show
-    @album = Album.find(params[:id]);
+    @album = Album.find(params[:id])
   end
 
   def update
-    @album = current_user.albums.find(params[:id]);
+    debugger
+    @album = current_user.albums.find(params[:id])
+    debugger
     photo_ids = params[:album][:photo_ids].split(',')
     @album.photo_ids = photo_ids
     if @album.update(album_params)
@@ -49,7 +51,7 @@ class Api::AlbumsController < ApplicationController
 
   def destroy
     # debugger
-    @album = current_user.albums.find(params[:id]);
+    @album = current_user.albums.find(params[:id])
     # debugger
     @album.destroy;
     render :show

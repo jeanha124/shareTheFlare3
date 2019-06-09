@@ -7,18 +7,20 @@ import { receiveAllPhotos } from '../../actions/photo_actions';
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   const album = state.entities.albums[ownProps.match.params.albumId];
+  debugger
   return {
     currentUser: currentUser,
     album,
     photos: album.photos,
-    allPhotos: receiveAllPhotos(),
+    allPhotos: currentUser.photos,
   };
 };
 
 const mdp = dispatch => {
+  debugger
   return {
     receiveAlbum: id => dispatch(receiveAlbum(id)),
-    receiveAllPhotos: () => dispatch(receiveAllPhotos),
+    receiveAllPhotos: () => dispatch(receiveAllPhotos()),
     updateAlbum: (album, id) => dispatch(updateAlbum(album, id)),
   };
 };
@@ -38,6 +40,9 @@ class AlbumUpdate extends React.Component {
     this.save = this.save.bind(this);
     this.togglePicture = this.togglePicture.bind(this);
   }
+  componentDidMount() {
+    this.props.receiveAllPhotos();
+  }
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
@@ -48,7 +53,7 @@ class AlbumUpdate extends React.Component {
     album.append('album[title]', this.state.title);
     album.append('album[description]', this.state.description);
     album.append('album[photo_ids]', this.state.picture);
-    this.props.editAlbum(album, this.props.album.id).then(res => this.props.history.push(`/albums/${res.album.id}`));
+    this.props.updateAlbum(album, this.props.album.id).then(res => this.props.history.push(`/albums/${res.album.id}`));
   }
   togglePicture(e) {
     e.preventDefault();
@@ -84,4 +89,4 @@ class AlbumUpdate extends React.Component {
   }
 }
 
-export default connect(msp, mdp)(AlbumUpdate);
+export default withRouter(connect(msp, mdp)(AlbumUpdate));
