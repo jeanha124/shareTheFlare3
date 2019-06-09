@@ -1014,8 +1014,11 @@ var mdp = function mdp(dispatch) {
     receiveAlbum: function receiveAlbum(id) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAlbum"])(id));
     },
-    deleteAlbum: function deleteAlbum() {
-      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["deleteAlbum"])());
+    deleteAlbum: function deleteAlbum(id) {
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["deleteAlbum"])(id));
+    },
+    editAlbum: function editAlbum(album, id) {
+      return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["updateAlbum"])(album, id));
     },
     receivePhotos: function receivePhotos() {
       return dispatch(Object(_actions_photo_actions__WEBPACK_IMPORTED_MODULE_2__["receiveAllPhotos"])());
@@ -1050,19 +1053,27 @@ function (_React$Component) {
   }, {
     key: "delete",
     value: function _delete(e) {
+      var _this2 = this;
+
       e.preventDefault();
-      this.props.deleteAlbum(this.props.album.id).then(this.props.history.push('/albums'));
+      this.props.deleteAlbum(this.props.album.id).then(function () {
+        return _this2.props.history.push('/albums');
+      });
     }
   }, {
     key: "edit",
-    value: function edit(e) {
+    value: function edit() {
+      // debugger
       if (this.props.currentUser.id === this.props.album.owner_id) {
+        // debugger
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "edit-album"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
           className: "edit-album-page",
           to: "/albums/".concat(this.props.album.id, "/edit")
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-edit album-edit"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-trash delete-album",
           onClick: this["delete"]
         }));
@@ -1071,7 +1082,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
@@ -1079,27 +1090,21 @@ function (_React$Component) {
           id = _this$props$album.id;
       var images = [];
       this.props.photos.map(function (photo) {
-        if (photo.owner_id === _this2.props.currentUser.id) {
+        if (photo.owner_id === _this3.props.currentUser.id) {
           images.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__["default"], {
             key: photo.id,
-            currentUser: _this2.props.currentUser,
+            currentUser: _this3.props.currentUser,
             photo: photo,
-            receivePhoto: _this2.props.receivePhoto
+            receivePhoto: _this3.props.receivePhoto
           }));
         }
       }); // debugger
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
-      }, this.edit, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-cover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-        to: "/albums/".concat(id, "/edit")
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-edit album-edit"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this["delete"]
-      }, "Delete")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), this.edit()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
       }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"

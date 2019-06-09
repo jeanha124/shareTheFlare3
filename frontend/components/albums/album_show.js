@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { receiveAllPhotos, receivePhoto } from '../../actions/photo_actions';
-import { receiveAlbum, deleteAlbum } from '../../actions/album_actions';
+import { receiveAlbum, deleteAlbum, updateAlbum } from '../../actions/album_actions';
 import { withRouter, Link, Route } from 'react-router-dom';
 import PhotoIndex from '../photos/photo_index_container';
 import PhotoIndexItem from '../photos/photo_index_item';
@@ -21,7 +21,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     receiveAlbum: id => dispatch(receiveAlbum(id)),
-    deleteAlbum: () => dispatch(deleteAlbum()),
+    deleteAlbum: id => dispatch(deleteAlbum(id)),
+    editAlbum: (album, id) => dispatch(updateAlbum(album, id)),
     receivePhotos: () => dispatch(receiveAllPhotos()),
     receivePhoto: id => dispatch(receivePhoto(id)),
   };
@@ -39,12 +40,14 @@ class AlbumShow extends React.Component {
   }
   delete(e) {
     e.preventDefault();
-    this.props.deleteAlbum(this.props.album.id).then(this.props.history.push('/albums'));
+    this.props.deleteAlbum(this.props.album.id).then(() => this.props.history.push('/albums'));
   }
-  edit(e) {
+  edit() {
+    // debugger
     if (this.props.currentUser.id === this.props.album.owner_id){
+      // debugger
       return <div className="edit-album">
-        <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}></Link>
+        <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}><i className="far fa-edit album-edit"></i></Link>
         <i className="fas fa-trash delete-album" onClick={this.delete}></i>
       </div>;
     }
@@ -62,12 +65,12 @@ class AlbumShow extends React.Component {
       <React.Fragment>
         <MainNav />
         <div className="album-show">
-          {this.edit}
           <div className="album-cover">
             <h1>{title}</h1>
             <h2>{description}</h2>
-          <Link to={`/albums/${id}/edit`}><i className="far fa-edit album-edit"></i></Link>
-          <button onClick={this.delete}>Delete</button>
+          {this.edit()}
+          {/* <Link to={`/albums/${id}/edit`}></Link>
+          <button onClick={this.delete}>Delete</button> */}
           </div>
           <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">
