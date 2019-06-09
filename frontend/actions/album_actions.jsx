@@ -40,11 +40,11 @@ export const updateAlbum = (album, id) => dispatch => {
   });
 };
 
-export const deleteAlbum = albumID => dispatch => {
-  return AlbumApiUtil.deleteAlbum(albumID).then(() => {
+export const deleteAlbum = albumId => dispatch => {
+  return AlbumApiUtil.deleteAlbum(albumId).then(() => {
     return dispatch({
       type: REMOVE_ALBUM,
-      albumID
+      albumId
     });
   });
 };

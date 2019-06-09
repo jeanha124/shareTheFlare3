@@ -39,7 +39,7 @@ class AlbumShow extends React.Component {
   }
   delete(e) {
     e.preventDefault();
-    this.props.deleteAlbum(this.props.match.params.albumId).then(this.props.history.push('/albums'));
+    this.props.deleteAlbum(this.props.album.id).then(this.props.history.push('/albums'));
   }
   edit(e) {
     if (this.props.currentUser.id === this.props.album.owner_id){
@@ -67,6 +67,7 @@ class AlbumShow extends React.Component {
             <h1>{title}</h1>
             <h2>{description}</h2>
           <Link to={`/albums/${id}/edit`}><i className="far fa-edit album-edit"></i></Link>
+          <button onClick={this.delete}>Delete</button>
           </div>
           <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">

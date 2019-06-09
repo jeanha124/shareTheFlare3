@@ -56,7 +56,7 @@ class AlbumUpdate extends React.Component {
     if (!this.picture.includes(id)) {
       this.picture.push(id);
     } else {
-      this.picture.splice(this.picture.indexOf(id), 1)
+      this.picture.splice(this.picture.indexOf(id), 1);
     }
     this.setState({ picture: this.picture });
   }
@@ -67,10 +67,10 @@ class AlbumUpdate extends React.Component {
     return (
       <div className='album-create'>
         <div className='album-create-content'>
-          <form className='album-form' onClick={this.save}>
-            <input className='album-title' type='text' placeholder='new album' onChange={this.update('title')}/>
-            <textarea className='album-description' onChange={this.update('body')}/>
-            <input className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='save' type='submit' />
+          <form className='album-form'>
+            <input className='album-title' type='text' placeholder={this.props.album.title} onChange={this.update('title')}/>
+            <textarea className='album-description' placeholder={this.props.album.description} onChange={this.update('description')}/>
+            <input onClick={this.save} className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='save' type='submit' />
             <button className='album-cancel'>Cancel</button>
           </form>
           <div className='album-container'>

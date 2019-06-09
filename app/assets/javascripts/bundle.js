@@ -148,12 +148,12 @@ var updateAlbum = function updateAlbum(album, id) {
     });
   };
 };
-var deleteAlbum = function deleteAlbum(albumID) {
+var deleteAlbum = function deleteAlbum(albumId) {
   return function (dispatch) {
-    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumID).then(function () {
+    return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function () {
       return dispatch({
         type: REMOVE_ALBUM,
-        albumID: albumID
+        albumId: albumId
       });
     });
   };
@@ -1049,7 +1049,7 @@ function (_React$Component) {
     key: "delete",
     value: function _delete(e) {
       e.preventDefault();
-      this.props.deleteAlbum(this.props.match.params.albumId).then(this.props.history.push('/albums'));
+      this.props.deleteAlbum(this.props.album.id).then(this.props.history.push('/albums'));
     }
   }, {
     key: "edit",
@@ -1095,7 +1095,9 @@ function (_React$Component) {
         to: "/albums/".concat(id, "/edit")
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "far fa-edit album-edit"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this["delete"]
+      }, "Delete")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
       }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
@@ -1267,17 +1269,18 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "album-create-content"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
-        className: "album-form",
-        onClick: this.save
+        className: "album-form"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         className: "album-title",
         type: "text",
-        placeholder: "new album",
+        placeholder: this.props.album.title,
         onChange: this.update('title')
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
         className: "album-description",
-        onChange: this.update('body')
+        placeholder: this.props.album.description,
+        onChange: this.update('description')
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        onClick: this.save,
         className: this.state.picture.length === 0 ? 'album-no-save' : 'album-save',
         value: "save",
         type: "submit"
