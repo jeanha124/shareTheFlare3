@@ -1093,7 +1093,9 @@ function (_React$Component) {
         className: "album-cover"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "/albums/".concat(id, "/edit")
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-edit album-edit"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
       }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
@@ -1191,7 +1193,9 @@ function (_React$Component) {
     _classCallCheck(this, AlbumUpdate);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumUpdate).call(this, props));
-    _this.picture = [];
+    _this.picture = _this.props.album.photos.map(function (photo) {
+      return photo.id;
+    });
     _this.state = {
       title: _this.props.album.title,
       description: _this.props.album.description,
@@ -1218,11 +1222,13 @@ function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      var formData = new FormData();
-      formData.append('album[title]', this.state.title);
-      formData.append('album[photo_ids]', this.state.picture);
-      this.props.editAlbum(formData, this.props.album.id).then(function (action) {
-        return _this3.props.history.push("/albums/".concat(action.album.id));
+      var album = new FormData();
+      album.append('album[id', this.props.album.id);
+      album.append('album[title]', this.state.title);
+      album.append('album[description]', this.state.description);
+      album.append('album[photo_ids]', this.state.picture);
+      this.props.editAlbum(album, this.props.album.id).then(function (res) {
+        return _this3.props.history.push("/albums/".concat(res.album.id));
       });
     }
   }, {

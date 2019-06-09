@@ -28,7 +28,7 @@ const mdp = dispatch => {
 class AlbumUpdate extends React.Component {
   constructor(props) {
     super(props);
-    this.picture = [];
+    this.picture = this.props.album.photos.map(photo => photo.id);
     this.state = {
       title: this.props.album.title,
       description: this.props.album.description,
@@ -43,10 +43,12 @@ class AlbumUpdate extends React.Component {
   }
   save(e) {
     e.preventDefault();
-    let formData = new FormData();
-    formData.append('album[title]', this.state.title);
-    formData.append('album[photo_ids]', this.state.picture);
-    this.props.editAlbum(formData, this.props.album.id).then(action => this.props.history.push(`/albums/${action.album.id}`));
+    let album = new FormData();
+    album.append('album[id', this.props.album.id);
+    album.append('album[title]', this.state.title);
+    album.append('album[description]', this.state.description);
+    album.append('album[photo_ids]', this.state.picture);
+    this.props.editAlbum(album, this.props.album.id).then(res => this.props.history.push(`/albums/${res.album.id}`));
   }
   togglePicture(e) {
     e.preventDefault();

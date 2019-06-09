@@ -66,7 +66,7 @@ class AlbumShow extends React.Component {
           <div className="album-cover">
             <h1>{title}</h1>
             <h2>{description}</h2>
-          <Link to={`/albums/${id}/edit`}></Link>
+          <Link to={`/albums/${id}/edit`}><i className="far fa-edit album-edit"></i></Link>
           </div>
           <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">
