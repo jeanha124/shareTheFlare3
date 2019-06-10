@@ -733,13 +733,6 @@ function (_React$Component) {
         value: "SAVE",
         type: "submit"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this4.save;
-        }
-      }, "Callback"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "test-submit"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "album-cancel"
       }, "CANCEL"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-container"
@@ -2381,23 +2374,7 @@ function (_React$Component) {
           className: "submit-btn",
           type: "submit",
           value: "Comment"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "tags-container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "tag-list"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-          className: "tag-form",
-          onSubmit: this.addTag
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
-          placeholder: "tags",
-          onChange: this.update('title'),
-          value: this.state.t_title
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          className: "text-btn",
-          type: "submit",
-          value: "Tag"
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"

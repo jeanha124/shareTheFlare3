@@ -135,15 +135,15 @@ class PhotoShow extends React.Component {
               </form>
             </div>
           </div>
-          <div className='tags-container'>
+          {/* <div className='tags-container'>
               <div className='tag-list'>
-                {/* {tagList} */}
+                {tagList}
               </div>
               <form className='tag-form' onSubmit={this.addTag}>
                 <input type='text' placeholder='tags' onChange={this.update('title')} value={this.state.t_title} />
                 <input className='text-btn' type='submit' value='Tag' />
               </form>
-          </div>
+          </div> */}
           <Footer />
         </React.Fragment>
       );

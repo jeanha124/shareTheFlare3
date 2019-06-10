@@ -83,8 +83,6 @@ class AlbumForm extends React.Component {
             <textarea className='album-description' onChange={this.update('description')}/>
             <div className='album-btns'>
               <input id='save' onClick={this.save} className={this.state.picture.length === 0 ? 'album-no-save' : 'album-save'} value='SAVE' type='submit' />
-              <button onClick={() => this.save}>Callback</button>
-              <input type='submit' value='test-submit' />
               <button className='album-cancel'>CANCEL</button>
             </div>
           </form>
