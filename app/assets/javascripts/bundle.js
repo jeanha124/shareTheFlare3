@@ -150,9 +150,9 @@ var updateAlbum = function updateAlbum(album, id) {
 };
 var deleteAlbum = function deleteAlbum(albumId) {
   return function (dispatch) {
-    debugger;
+    // debugger
     return _util_album_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteAlbum"](albumId).then(function (albumId) {
-      debugger;
+      // debugger
       return dispatch({
         type: REMOVE_ALBUM,
         albumId: albumId
@@ -1062,7 +1062,8 @@ function (_React$Component) {
   }, {
     key: "edit",
     value: function edit() {
-      // debugger
+      debugger;
+
       if (this.props.currentUser.id === this.props.album.owner_id) {
         // debugger
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1185,8 +1186,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var msp = function msp(state, ownProps) {
   var currentUser = state.entities.users[state.session.id];
   var album = state.entities.albums[ownProps.match.params.albumId];
-  var allPhotos = Object.values(state.entities.photos);
-  debugger;
+  var allPhotos = Object.values(state.entities.photos); // debugger
+
   return {
     currentUser: currentUser,
     album: album,
@@ -1196,7 +1197,7 @@ var msp = function msp(state, ownProps) {
 };
 
 var mdp = function mdp(dispatch) {
-  debugger;
+  // debugger
   return {
     receiveAlbum: function receiveAlbum(id) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAlbum"])(id));
@@ -1238,7 +1239,7 @@ function (_React$Component) {
   _createClass(AlbumUpdate, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.receiveAllPhotos();
     }
   }, {
@@ -1260,8 +1261,8 @@ function (_React$Component) {
       album.append('album[id', this.props.album.id);
       album.append('album[title]', this.state.title);
       album.append('album[description]', this.state.description);
-      album.append('album[photo_ids]', this.state.picture);
-      debugger;
+      album.append('album[photo_ids]', this.state.picture); // debugger
+
       this.props.updateAlbum(album, this.props.album.id).then(function (res) {
         return _this3.props.history.push("/albums/".concat(res.album.id));
       });
@@ -1287,7 +1288,7 @@ function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      debugger;
+      // debugger
       var photoArray = this.props.allPhotos.map(function (photo) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
           className: _this4.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not',

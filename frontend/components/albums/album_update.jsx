@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   const album = state.entities.albums[ownProps.match.params.albumId];
   const allPhotos = Object.values(state.entities.photos);
-  debugger
+  // debugger
   return {
     currentUser: currentUser,
     album,
@@ -18,7 +18,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => {
-  debugger
+  // debugger
   return {
     receiveAlbum: id => dispatch(receiveAlbum(id)),
     receiveAllPhotos: () => dispatch(receiveAllPhotos()),
@@ -42,7 +42,7 @@ class AlbumUpdate extends React.Component {
     this.togglePicture = this.togglePicture.bind(this);
   }
   componentDidMount() {
-    debugger
+    // debugger
     this.props.receiveAllPhotos();
   }
   update(field) {
@@ -55,7 +55,7 @@ class AlbumUpdate extends React.Component {
     album.append('album[title]', this.state.title);
     album.append('album[description]', this.state.description);
     album.append('album[photo_ids]', this.state.picture);
-    debugger
+    // debugger
     this.props.updateAlbum(album, this.props.album.id).then(res => this.props.history.push(`/albums/${res.album.id}`));
   }
   togglePicture(e) {
@@ -69,7 +69,7 @@ class AlbumUpdate extends React.Component {
     this.setState({ picture: this.picture });
   }
   render() {
-    debugger
+    // debugger
     const photoArray = this.props.allPhotos.map(photo => <li className={this.picture.includes(photo.id) ? 'album-photo-selected' : 'album-photo-not'} id={photo.id} onClick={this.togglePicture}>
       <img className='album-photo' src={photo.photoUrl} />
     </li>);

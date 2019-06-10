@@ -41,9 +41,9 @@ export const updateAlbum = (album, id) => dispatch => {
 };
 
 export const deleteAlbum = albumId => dispatch => {
-  debugger
+  // debugger
   return AlbumApiUtil.deleteAlbum(albumId).then(albumId => {
-    debugger
+    // debugger
     return dispatch({
       type: REMOVE_ALBUM,
       albumId

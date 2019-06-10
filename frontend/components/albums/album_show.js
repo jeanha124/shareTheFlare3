@@ -44,7 +44,7 @@ class AlbumShow extends React.Component {
     this.props.deleteAlbum(this.props.album.id).then(() => this.props.history.push('/albums'));
   }
   edit() {
-    // debugger
+    debugger
     if (this.props.currentUser.id === this.props.album.owner_id){
       // debugger
       return <div className="edit-album">
