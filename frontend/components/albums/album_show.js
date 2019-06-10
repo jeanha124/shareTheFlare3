@@ -37,6 +37,7 @@ class AlbumShow extends React.Component {
   }
   componentDidMount(){
     this.props.receiveAlbum(this.props.match.params.albumId);
+    this.props.receivePhotos();
   }
   delete(e) {
     e.preventDefault();

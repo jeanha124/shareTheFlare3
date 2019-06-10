@@ -1055,6 +1055,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.receiveAlbum(this.props.match.params.albumId);
+      this.props.receivePhotos();
     }
   }, {
     key: "delete",

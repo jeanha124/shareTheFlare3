@@ -17,7 +17,7 @@
 div.album-create-content {
   margin: 50px 0 0 0;
   height: 100%;
-  width: 100%;
+  // width: 100%;
   display: flex;
 }
 
@@ -124,7 +124,7 @@ div.album-create-content {
 
 .album-show {
   height: 100%;
-  width: 100%;
+  // width: 100%;
 }
 
 .album-cover {
@@ -135,7 +135,7 @@ div.album-create-content {
   flex-direction: column;
   justify-content: center;
   height: 400px;
-  width: 100%;
+  // width: 100%;
 }
 
 .album-cover > h1 {
@@ -149,7 +149,7 @@ div.album-create-content {
 }
 .album-contain {
   height: 100%;
-  width: 100%;
+  // width: 100%;
 }
 
 .album-divs,
@@ -186,11 +186,13 @@ div.album-create-content {
   justify-content: center;
 }
 
-.album-edit {
-  float: right;
+.edit-album {
+  width: 900px;
+  display: flex;
+  cursor: pointer;
   font-size: 30px;
-  color: darkred;
-  font-weight: 700;
+  justify-content: flex-end;
   position: relative;
-  top: 140px;
+  top: 125px;
+  left: 1000px;
 }
