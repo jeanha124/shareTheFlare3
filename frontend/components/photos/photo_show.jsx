@@ -21,6 +21,7 @@ class PhotoShow extends React.Component {
     this.deleteTag = this.deleteTag.bind(this);
   }
   componentDidMount(){
+    debugger
     this.props.receivePhoto(parseInt(this.props.match.params.photoId));
   }
   update(field) {

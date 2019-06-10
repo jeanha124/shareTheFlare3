@@ -11,6 +11,7 @@ import AlbumUpdate from './album_update';
 
 const msp = (state, ownProps) => {
   const album = state.entities.albums[ownProps.match.params.albumId];
+  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     album,
@@ -19,6 +20,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => {
+  // debugger
   return {
     receiveAlbum: id => dispatch(receiveAlbum(id)),
     deleteAlbum: id => dispatch(deleteAlbum(id)),
@@ -32,28 +34,39 @@ const mdp = dispatch => {
 class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-    this.edit = this.edit.bind(this);
+    // this.edit = this.edit.bind(this);
+    this.state = {
+      currentUser: this.props.currentUser,
+      album: this.props.album,
+      photos: this.props.photos,
+    };
     this.delete = this.delete.bind(this);
   }
   componentDidMount(){
+    // debugger
     this.props.receiveAlbum(this.props.match.params.albumId);
     this.props.receivePhotos();
   }
+  // componentDidUpdate(prevProps){
+  //   debugger
+  //   this.setState({currentUser: this.props.currentUser, album: this.props.album, photos: this.props.photos});
+  // }
   delete(e) {
     e.preventDefault();
     this.props.deleteAlbum(this.props.album.id).then(() => this.props.history.push('/albums'));
   }
-  edit() {
-    debugger
-    if (this.props.currentUser.id === this.props.album.owner_id){
-      // debugger
-      return <div className="edit-album">
-        <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}><i className="far fa-edit album-edit"></i></Link>
-        <i className="fas fa-trash delete-album" onClick={this.delete}></i>
-      </div>;
-    }
-  }
+  // edit() {
+  //   debugger
+  //   if (this.props.currentUser.id === this.props.album.owner_id){
+  //     // debugger
+  //     return <div className="edit-album">
+  //       <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}><i className="far fa-edit album-edit"></i></Link>
+  //       <i className="fas fa-trash delete-album" onClick={this.delete}></i>
+  //     </div>;
+  //   }
+  // }
   render() {
+    debugger
     const {title, description, id, photos} = this.props.album;
     const images = [];
     this.props.photos.map(photo => {
@@ -61,6 +74,14 @@ class AlbumShow extends React.Component {
         images.push(<PhotoIndexItem key={photo.id} currentUser={this.props.currentUser} photo={photo} receivePhoto = {this.props.receivePhoto}/>);
       }
     });
+    let edit;
+    if (this.props.currentUser.id === this.props.album.owner_id){
+      // debugger
+      edit = <div className="edit-album">
+        <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}><i className="far fa-edit album-edit"></i></Link>
+        <i className="fas fa-trash delete-album" onClick={this.delete}></i>
+      </div>;
+    }
     // debugger
     return (
       <React.Fragment>
@@ -70,7 +91,7 @@ class AlbumShow extends React.Component {
           <div className="album-cover" style={{display: 'flex', backgroundImage: `url(${photos[0].photoUrl}) no-repeat`, opacity: '0.5', margin: '45px 0 0 0', flexDirection: 'column', justifyContent: 'center', height: '400px'}}>
             <h1>{title}</h1>
             <h2>{description}</h2>
-          {this.edit()}
+          {edit}
           {/* <Link to={`/albums/${id}/edit`}></Link>
           <button onClick={this.delete}>Delete</button> */}
           </div>

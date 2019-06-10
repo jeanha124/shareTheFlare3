@@ -999,7 +999,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 var msp = function msp(state, ownProps) {
-  var album = state.entities.albums[ownProps.match.params.albumId];
+  var album = state.entities.albums[ownProps.match.params.albumId]; // debugger
+
   return {
     currentUser: state.entities.users[state.session.id],
     album: album,
@@ -1008,6 +1009,7 @@ var msp = function msp(state, ownProps) {
 };
 
 var mdp = function mdp(dispatch) {
+  // debugger
   return {
     receiveAlbum: function receiveAlbum(id) {
       return dispatch(Object(_actions_album_actions__WEBPACK_IMPORTED_MODULE_3__["receiveAlbum"])(id));
@@ -1037,8 +1039,13 @@ function (_React$Component) {
 
     _classCallCheck(this, AlbumShow);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumShow).call(this, props));
-    _this.edit = _this.edit.bind(_assertThisInitialized(_this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AlbumShow).call(this, props)); // this.edit = this.edit.bind(this);
+
+    _this.state = {
+      currentUser: _this.props.currentUser,
+      album: _this.props.album,
+      photos: _this.props.photos
+    };
     _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1046,9 +1053,14 @@ function (_React$Component) {
   _createClass(AlbumShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // debugger
       this.props.receiveAlbum(this.props.match.params.albumId);
       this.props.receivePhotos();
-    }
+    } // componentDidUpdate(prevProps){
+    //   debugger
+    //   this.setState({currentUser: this.props.currentUser, album: this.props.album, photos: this.props.photos});
+    // }
+
   }, {
     key: "delete",
     value: function _delete(e) {
@@ -1058,32 +1070,23 @@ function (_React$Component) {
       this.props.deleteAlbum(this.props.album.id).then(function () {
         return _this2.props.history.push('/albums');
       });
-    }
-  }, {
-    key: "edit",
-    value: function edit() {
-      debugger;
+    } // edit() {
+    //   debugger
+    //   if (this.props.currentUser.id === this.props.album.owner_id){
+    //     // debugger
+    //     return <div className="edit-album">
+    //       <Link className="edit-album-page" to={`/albums/${this.props.album.id}/edit`}><i className="far fa-edit album-edit"></i></Link>
+    //       <i className="fas fa-trash delete-album" onClick={this.delete}></i>
+    //     </div>;
+    //   }
+    // }
 
-      if (this.props.currentUser.id === this.props.album.owner_id) {
-        // debugger
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "edit-album"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
-          className: "edit-album-page",
-          to: "/albums/".concat(this.props.album.id, "/edit")
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-edit album-edit"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-trash delete-album",
-          onClick: this["delete"]
-        }));
-      }
-    }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
+      debugger;
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
           description = _this$props$album.description,
@@ -1099,7 +1102,24 @@ function (_React$Component) {
             receivePhoto: _this3.props.receivePhoto
           }));
         }
-      }); // debugger
+      });
+      var edit;
+
+      if (this.props.currentUser.id === this.props.album.owner_id) {
+        // debugger
+        edit = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "edit-album"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+          className: "edit-album-page",
+          to: "/albums/".concat(this.props.album.id, "/edit")
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "far fa-edit album-edit"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-trash delete-album",
+          onClick: this["delete"]
+        }));
+      } // debugger
+
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
@@ -1123,7 +1143,7 @@ function (_React$Component) {
           justifyContent: 'center',
           height: '400px'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), this.edit()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), edit), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"
@@ -2232,6 +2252,7 @@ function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      debugger;
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
     }
   }, {
