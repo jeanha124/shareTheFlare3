@@ -11,7 +11,8 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    drop: () => document.getElementById('dropdown').classList.toggle('show')
+    hide: () => document.getElementById('dropdown').classList.toggle('show'),
+   
   };
 };
 

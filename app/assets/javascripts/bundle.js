@@ -1533,7 +1533,7 @@ var mainNav = function mainNav(props) {
     className: "avatar-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "avatar",
-    onClick: props.drop
+    onClick: props.hide
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     id: "dropdown",
     className: "profile-dropdown"
@@ -1576,7 +1576,7 @@ var mdp = function mdp(dispatch) {
     logout: function logout() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
     },
-    drop: function drop() {
+    hide: function hide() {
       return document.getElementById('dropdown').classList.toggle('show');
     }
   };

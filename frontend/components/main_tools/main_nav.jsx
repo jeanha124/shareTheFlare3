@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
+
 const mainNav = (props) => (
   <React.Fragment>
       <nav className="left-nav absolute z-index-2">
@@ -12,7 +15,7 @@ const mainNav = (props) => (
           <input className="main-search" type="text" placeholder="Photos..." ></input>
           <Link to='/photos/upload'><i className="fas fa-cloud-upload-alt cloud"></i></Link>
           <div className="avatar-drop">
-            <div className="avatar" onClick={props.drop}></div>
+            <div className="avatar" onClick={props.hide}></div>
             <ul id="dropdown" className="profile-dropdown">
               <li><h1 id="hello-display">Hello, {props.currentUser.display_name}!</h1></li>
               <li><button className="nav-logout" onClick={props.logout}>Log Out</button></li>
