@@ -54,7 +54,7 @@ class AlbumShow extends React.Component {
     }
   }
   render() {
-    const {title, description, id} = this.props.album;
+    const {title, description, id, photos} = this.props.album;
     const images = [];
     this.props.photos.map(photo => {
       if (photo.owner_id === this.props.currentUser.id) {
@@ -66,14 +66,14 @@ class AlbumShow extends React.Component {
       <React.Fragment>
         <MainNav />
         <div className="album-show">
-          <div className="album-cover">
+          <Link to={'/albums'}><h2 style={{margin: '70px 0 0 0', fontSize: '20px'}}><i className="fas fa-arrow-left"></i> Back to Albums</h2></Link>
+          <div className="album-cover" style={{display: 'flex', backgroundImage: `url(${photos[0].photoUrl}) no-repeat`, opacity: '0.5', margin: '45px 0 0 0', flexDirection: 'column', justifyContent: 'center', height: '400px'}}>
             <h1>{title}</h1>
             <h2>{description}</h2>
           {this.edit()}
           {/* <Link to={`/albums/${id}/edit`}></Link>
           <button onClick={this.delete}>Delete</button> */}
           </div>
-          <Link to={'/albums'}>Back to Albums</Link>
           <div className="album-contain">
             <ul className="album-divs">
               {images}

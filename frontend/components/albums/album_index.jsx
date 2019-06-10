@@ -50,15 +50,14 @@ class AlbumIndex extends React.Component {
             <li id="faves" className="padding">Faves</li> */}
         </ul>
       <div style ={{backgroundColor:'#f2f5f6'}}>
-        <div className='album-content photo-div'>
-          <Link className='back-to-stream' to={`/photos/~/${this.props.currentUser.display_name}`}>Back to Photostream</Link>
-          <Link className='create-album' to={`/${this.props.currentUser.display_name}/new_album`}>+ New Album</Link>
+        <div className='album-content'>
+          <Link className='create-album' to={`/${this.props.currentUser.display_name}/new_album`}><i className="far fa-images"></i> New Album</Link>
             <ul className='album-index-content'>
               {filteredAlbums.map(album =>
               <li className='album-item' id={`${album.id}`} key={`${album.id}`}>
-                <p className='album-title2'>{album.title}</p>
                 <span className='album-line1'></span>
                 <span className='album-line2'></span> 
+                <p className='album-title2'>{album.title}</p>
                 <Link to={`/albums/${album.id}`}>
                   <img className='album-image' src={album.photos[0].photoUrl}/>
                 </Link>

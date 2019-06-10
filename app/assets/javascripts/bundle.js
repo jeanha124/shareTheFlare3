@@ -913,27 +913,26 @@ function (_React$Component) {
           backgroundColor: '#f2f5f6'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "album-content photo-div"
+        className: "album-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        className: "back-to-stream",
-        to: "/photos/~/".concat(this.props.currentUser.display_name)
-      }, "Back to Photostream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "create-album",
         to: "/".concat(this.props.currentUser.display_name, "/new_album")
-      }, "+ New Album"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "far fa-images"
+      }), " New Album"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-index-content"
       }, filteredAlbums.map(function (album) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "album-item",
           id: "".concat(album.id),
           key: "".concat(album.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-          className: "album-title2"
-        }, album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "album-line1"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "album-line2"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "album-title2"
+        }, album.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/albums/".concat(album.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "album-image",
@@ -1087,7 +1086,8 @@ function (_React$Component) {
       var _this$props$album = this.props.album,
           title = _this$props$album.title,
           description = _this$props$album.description,
-          id = _this$props$album.id;
+          id = _this$props$album.id,
+          photos = _this$props$album.photos;
       var images = [];
       this.props.photos.map(function (photo) {
         if (photo.owner_id === _this3.props.currentUser.id) {
@@ -1102,11 +1102,27 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "album-cover"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), this.edit()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
-      }, "Back to Albums"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        style: {
+          margin: '70px 0 0 0',
+          fontSize: '20px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-arrow-left"
+      }), " Back to Albums")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "album-cover",
+        style: {
+          display: 'flex',
+          backgroundImage: "url(".concat(photos[0].photoUrl, ") no-repeat"),
+          opacity: '0.5',
+          margin: '45px 0 0 0',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          height: '400px'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, description), this.edit()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-contain"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-divs"
