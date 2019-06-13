@@ -188,8 +188,9 @@ div.album-create-content {
 }
 
 .album-item {
-  width: 400px;
-  height: 300px;
+  margin: 12px 26px 0 0;
+  width: 300px;
+  height: 231px;
 }
 
 .album-image {
@@ -197,12 +198,19 @@ div.album-create-content {
   height: 200px;
 }
 
+
 .album-title2 {
+  color: #fff;
   font-size: 22px;
   position: relative;
   top: 145px;
-  width: 300px;
+  width: 173px;
 }
+
+.album-item:hover .album-title2 {
+  color: gray;
+}
+
 
 .album-content {
   margin: 0 215px;
@@ -231,4 +239,8 @@ div.album-create-content {
   color: black;
   top: 125px;
   left: 977px;
+}
+
+.create-album:hover {
+  color: gray;
 }

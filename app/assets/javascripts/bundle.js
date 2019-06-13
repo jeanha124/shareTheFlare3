@@ -2161,13 +2161,15 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "curr-photo-over"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "curr-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/photos/~/".concat(this.currentUser.display_name, "/").concat(this.photo.id)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "curr-photo-img",
         src: this.photo.photoUrl
-      })));
+      }))));
     }
   }]);
 
@@ -2252,7 +2254,7 @@ function (_React$Component) {
   _createClass(PhotoShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
+      // debugger
       this.props.receivePhoto(parseInt(this.props.match.params.photoId));
     }
   }, {
