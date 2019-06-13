@@ -29,16 +29,16 @@ export const receivePhoto = (id) => {
 
 export const createPhoto = (photo) => {
   return dispatch => {
-    return PhotoApiUtil.createPhoto(photo).then(photo => {
-      return dispatch({type: RECEIVE_PHOTO, photo});
+    return PhotoApiUtil.createPhoto(photo).then(payload => {
+      return dispatch({type: RECEIVE_PHOTO, payload});
     });
   }; 
 };
 
 export const updatePhoto = (photo) => {
   return dispatch => {
-    return PhotoApiUtil.updatePhoto(photo).then(photo => {
-      return dispatch({type: RECEIVE_PHOTO, photo});
+    return PhotoApiUtil.updatePhoto(photo).then(payload => {
+      return dispatch({type: RECEIVE_PHOTO, payload});
     });
   }; 
 };

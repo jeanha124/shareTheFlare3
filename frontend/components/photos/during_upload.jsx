@@ -26,6 +26,7 @@ class DuringUpload extends React.Component {
     return <input type="file" onChange={this.handleFile} className="form-file" />;
   }
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
@@ -39,9 +40,11 @@ class DuringUpload extends React.Component {
     }.bind(this));
   }
   stopEnter(e) {
+    debugger
     e.preventDefault();
   }
   render(){
+    debugger
     let prev, submit, inputTitle, inputDescription;
     prev = this.state.photoUrl ? <img src={this.state.photoUrl} style={{maxHeight: '300px', maxWidth: '300px'}}/> : null;
     submit = this.handleSubmit;

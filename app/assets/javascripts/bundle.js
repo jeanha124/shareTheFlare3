@@ -255,20 +255,20 @@ var receivePhoto = function receivePhoto(id) {
 };
 var createPhoto = function createPhoto(photo) {
   return function (dispatch) {
-    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["createPhoto"](photo).then(function (photo) {
+    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["createPhoto"](photo).then(function (payload) {
       return dispatch({
         type: RECEIVE_PHOTO,
-        photo: photo
+        payload: payload
       });
     });
   };
 };
 var updatePhoto = function updatePhoto(photo) {
   return function (dispatch) {
-    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["updatePhoto"](photo).then(function (photo) {
+    return _util_photo_api_util__WEBPACK_IMPORTED_MODULE_0__["updatePhoto"](photo).then(function (payload) {
       return dispatch({
         type: RECEIVE_PHOTO,
-        photo: photo
+        payload: payload
       });
     });
   };
@@ -1791,6 +1791,7 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      debugger;
       e.preventDefault();
       var formData = new FormData();
       formData.append('photo[title]', this.state.title);
@@ -1808,11 +1809,13 @@ function (_React$Component) {
   }, {
     key: "stopEnter",
     value: function stopEnter(e) {
+      debugger;
       e.preventDefault();
     }
   }, {
     key: "render",
     value: function render() {
+      debugger;
       var prev, submit, inputTitle, inputDescription;
       prev = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.photoUrl,
@@ -3492,6 +3495,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var photosReducer = function photosReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  debugger;
 
   switch (action.type) {
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_PHOTOS"]:
@@ -3926,11 +3930,11 @@ var fetchPhoto = function fetchPhoto(id) {
     url: "api/photos/".concat(id)
   });
 };
-var createPhoto = function createPhoto(photo) {
+var createPhoto = function createPhoto(formData) {
   return $.ajax({
     method: 'POST',
     url: "api/photos",
-    data: photo,
+    data: formData,
     contentType: false,
     processData: false
   });

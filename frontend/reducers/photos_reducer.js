@@ -2,6 +2,7 @@ import { RECEIVE_ALL_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO } from '../actions/phot
 import merge from 'lodash/merge';
 
 const photosReducer = (state = {}, action) => {
+  debugger
   switch (action.type) {
     case RECEIVE_ALL_PHOTOS:
       return action.photos;

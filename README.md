@@ -12,7 +12,7 @@ Users can create, delete comments within the photos.
 - Authentication
   - Users can login or signup
   - Demo User available
-  
+![Login Modal Page](Login-pic.png)  
 - Photos
   - Users can post photos
   - User index page shows all the photos uploaded by the user
