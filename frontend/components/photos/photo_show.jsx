@@ -102,7 +102,7 @@ class PhotoShow extends React.Component {
         <React.Fragment>
           <MainNav />
           <div className="pic-container">
-            {/* <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link> */}
+            <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link>
             <div className='pads center'>
               <img className='superfun-image'
               src= {
