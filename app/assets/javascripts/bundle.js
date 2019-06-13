@@ -3764,15 +3764,15 @@ document.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  }
+  } // window.store = store;
+  // window.login = ApiUtil.login;
+  // window.signup = ApiUtil.signup;
+  // window.logout = ApiUtil.logout;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.receiveAllUsers = receiveAllUsers;
 
-  window.store = store;
-  window.login = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["login"];
-  window.signup = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["signup"];
-  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__["logout"];
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.receiveAllUsers = _actions_user_actions__WEBPACK_IMPORTED_MODULE_5__["receiveAllUsers"];
+
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), root);

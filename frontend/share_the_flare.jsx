@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   
-  window.store = store;
-  window.login = ApiUtil.login;
-  window.signup = ApiUtil.signup;
-  window.logout = ApiUtil.logout;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.receiveAllUsers = receiveAllUsers;
+  // window.store = store;
+  // window.login = ApiUtil.login;
+  // window.signup = ApiUtil.signup;
+  // window.logout = ApiUtil.logout;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.receiveAllUsers = receiveAllUsers;
   
   
 
