@@ -8,11 +8,27 @@ Users can upload photos and look at photos of the users they follow.
 Users can create, edit, delete an album.
 Users can create, delete comments within the photos.
 
-## Features
-- Authentication
-  - Users can login or signup
-  - Demo User available
-![Login Modal Page](Login-pic.png)  
+
+# Technologies
+#### Backend
+ - Ruby on Rails
+ - PostgreSQL
+ - AJAX with JSON api
+
+#### Frontend
+ - React
+ - Redux
+ - BCrypt
+ 
+# Features
+
+## User Authentication
+
+With Rails as the backend, a password digest is stored into the database when using BCrypt in order to have the content encrypted. When logging in, the email and password will be compared to data within the database.
+
+![Login Modal Page](Login-pic.png)
+
+## 
 - Photos
   - Users can post photos
   - User index page shows all the photos uploaded by the user

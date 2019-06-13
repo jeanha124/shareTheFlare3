@@ -1791,7 +1791,7 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      debugger;
+      // debugger
       e.preventDefault();
       var formData = new FormData();
       formData.append('photo[title]', this.state.title);
@@ -1809,13 +1809,13 @@ function (_React$Component) {
   }, {
     key: "stopEnter",
     value: function stopEnter(e) {
-      debugger;
+      // debugger
       e.preventDefault();
     }
   }, {
     key: "render",
     value: function render() {
-      debugger;
+      // debugger
       var prev, submit, inputTitle, inputDescription;
       prev = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.photoUrl,
@@ -3495,8 +3495,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var photosReducer = function photosReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  debugger;
 
+  // debugger
   switch (action.type) {
     case _actions_photo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_PHOTOS"]:
       return action.photos;
