@@ -7,6 +7,7 @@
   - Create, edit, and destroy Photos
   - Create, edit, and destroy Albums
   - Create and delete Comments
+  
 - Coming Soon
   - Tags
   - Favorites
