@@ -13,6 +13,7 @@ Users can create, delete comments within the photos.
 #### Backend
  - Ruby on Rails
  - PostgreSQL
+ - AWS S3
  - AJAX with JSON api
 
 #### Frontend
@@ -28,7 +29,49 @@ With Rails as the backend, a password digest is stored into the database when us
 
 ![Login Modal Page](Login-pic.png)
 
+## User Photos
+
+When a user uploads a photo, it will show up on their profile page. When entering into the photo, the user can edit or even delete the photo through the association between Users and Photos.
+
 ![User PhotoStream](photostream.gif)
+
+![Photo Delete](photo-delete.gif)
+
+## Comments
+
+Within a photo, a user can create and delete comments.
+
+Create
+![Comment Create](comment-create.gif)
+
+Delete
+![Comment Delete](comment-delete.gif)
+
+
+## Creating an Album
+
+When creating an album, joins associations are used to create an album with multiple photos by the same user.
+
+![Album Create](album-create.gif)
+
+
+## Albums
+
+Album index page shows all of the albums uploaded by the user
+Album show page shows all of the photos within the selected album
+Album edit page opens the edit form to add more photos.
+Album delete button deletes the album
+![Album Index](album-index.gif)
+
+Show
+![Album Show](album-show.gif)
+
+Edit
+![Album Edit](album-edit.gif)
+
+Delete
+![Album Delete](album-delete.gif)
+
 
 ## 
 - Photos
