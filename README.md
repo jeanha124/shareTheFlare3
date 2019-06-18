@@ -28,6 +28,8 @@ With Rails as the backend, a password digest is stored into the database when us
 
 ![Login Modal Page](Login-pic.png)
 
+![User PhotoStream](photostream.gif)
+
 ## 
 - Photos
   - Users can post photos
