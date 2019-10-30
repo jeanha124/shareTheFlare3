@@ -466,6 +466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _albums_album_show__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./albums/album_show */ "./frontend/components/albums/album_show.js");
 /* harmony import */ var _albums_album_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./albums/album_index */ "./frontend/components/albums/album_index.jsx");
 /* harmony import */ var _albums_album_update__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./albums/album_update */ "./frontend/components/albums/album_update.jsx");
+/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -483,6 +484,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -519,7 +521,10 @@ function (_React$Component) {
           display: 'flex',
           flexDirection: 'column'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modals_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__["AuthRoute"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+        path: "/",
+        component: _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modals_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_1__["AuthRoute"], {
         exact: true,
         path: "/",
         component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -576,8 +581,7 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
-/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -597,7 +601,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
  // import PhotoIndexItem from '../photos/photo_index_item';
@@ -708,7 +711,7 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-create-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "album-form"
@@ -738,7 +741,7 @@ function (_React$Component) {
         className: "album-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-photos"
-      }, photoArray))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, photoArray))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
@@ -808,8 +811,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_album_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/album_actions */ "./frontend/actions/album_actions.jsx");
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
-/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -827,7 +829,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -878,7 +879,7 @@ function (_React$Component) {
       var url = this.props.match.url;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-index"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cover"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-photo"
@@ -938,7 +939,7 @@ function (_React$Component) {
           className: "album-image",
           src: album.photos[0].photoUrl
         })));
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
     }
   }]);
 
@@ -966,9 +967,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _photos_photo_index_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../photos/photo_index_container */ "./frontend/components/photos/photo_index_container.js");
 /* harmony import */ var _photos_photo_index_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../photos/photo_index_item */ "./frontend/components/photos/photo_index_item.jsx");
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
-/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
-/* harmony import */ var _album_update__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./album_update */ "./frontend/components/albums/album_update.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
+/* harmony import */ var _album_update__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./album_update */ "./frontend/components/albums/album_update.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -986,7 +986,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -1121,7 +1120,7 @@ function (_React$Component) {
       } // debugger
 
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "album-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: '/albums'
@@ -1150,8 +1149,8 @@ function (_React$Component) {
       }, images))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
         exact: true,
         path: "/albums/".concat(id, "/edit"),
-        render: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_update__WEBPACK_IMPORTED_MODULE_9__["default"], this.props)
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+        render: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_update__WEBPACK_IMPORTED_MODULE_8__["default"], this.props)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_7__["default"], null));
     }
   }]);
 
@@ -1369,7 +1368,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _photos_photo_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../photos/photo_index_item */ "./frontend/components/photos/photo_index_item.jsx");
 /* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1387,7 +1385,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -1426,7 +1423,7 @@ function (_React$Component) {
           receivePhoto: _this2.props.receivePhoto
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "sub-nav absolute z-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "activity active"
@@ -1537,20 +1534,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mainNav = function mainNav(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "left-nav absolute z-index-2"
+var mainNav = function mainNav(_ref) {
+  var currentUser = _ref.currentUser,
+      logout = _ref.logout,
+      hide = _ref.hide,
+      openModal = _ref.openModal;
+  var navLinks = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "splitright"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "left"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "main-logo"
-  }, "Share The Flare")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/photos/~/".concat(props.currentUser.display_name)
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "you"
-  }, "You"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "right"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "main-search",
@@ -1564,16 +1555,47 @@ var mainNav = function mainNav(props) {
     className: "avatar-drop"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "avatar",
-    onClick: props.hide
+    onClick: hide
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     id: "dropdown",
     className: "profile-dropdown"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "hello-display"
-  }, "Hello, ", props.currentUser.display_name, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Hello, ", currentUser.display_name, "!")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "nav-logout",
-    onClick: props.logout
-  }, "Log Out")))))));
+    onClick: logout
+  }, "Log Out")))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "splitright"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "right"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "login",
+    onClick: function onClick() {
+      return openModal('login');
+    }
+  }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "signup",
+    onClick: function onClick() {
+      return openModal('signup');
+    }
+  }, "Sign Up")));
+  var user = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "userProf"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/photos/~/".concat(currentUser.display_name)
+  }, "You")) : null;
+  var color = currentUser ? "color1" : "color2";
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: color
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "personal"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "main-logo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/"
+  }, "Share The Flare")), user), navLinks));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (mainNav); // className = "header-btn"
@@ -1592,6 +1614,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _main_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main_nav */ "./frontend/components/main_tools/main_nav.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -1609,6 +1633,9 @@ var mdp = function mdp(dispatch) {
     },
     hide: function hide() {
       return document.getElementById('dropdown').classList.toggle('show');
+    },
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
     }
   };
 };
@@ -1938,8 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _photo_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./photo_index_item */ "./frontend/components/photos/photo_index_item.jsx");
 /* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
-/* harmony import */ var _albums_album_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../albums/album_index */ "./frontend/components/albums/album_index.jsx");
+/* harmony import */ var _albums_album_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../albums/album_index */ "./frontend/components/albums/album_index.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -1959,7 +1985,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -2002,7 +2027,7 @@ function (_React$Component) {
       var latestPhotos = photos.reverse();
       var path = this.props.location.pathname;
       var url = this.props.match.url;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cover"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-profile-photo"
@@ -2052,7 +2077,7 @@ function (_React$Component) {
         exact: true,
         path: "/albums",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_albums_album_index__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, _this.props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_albums_album_index__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, _this.props, {
             allPhotos: photos
           }));
         }
@@ -2200,8 +2225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/es/index.js");
-/* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
-/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2221,7 +2245,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -2374,7 +2397,7 @@ function (_React$Component) {
       // }); 
 
       if (this.state.edit === false) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/photos/~/".concat(this.props.currentUser.display_name),
@@ -2422,9 +2445,9 @@ function (_React$Component) {
           className: "submit-btn",
           type: "submit",
           value: "Comment"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainNav, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "superfun-image",
@@ -2445,7 +2468,7 @@ function (_React$Component) {
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "edit-update",
           onClick: this.handleSubmit
-        }, "Update"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+        }, "Update"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
       }
     }
   }]);
@@ -3088,65 +3111,17 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // const items = ["https://s3.amazonaws.com/share-the-flare-dev/bench2.jpg", "https://s3.amazonaws.com/share-the-flare-dev/amanda.jpg", "https://s3.amazonaws.com/share-the-flare-dev/amber.jpg"];
-      // let settings = {
-      //   dots: false,
-      //   infinity: true,
-      //   autoplay: true,
-      //   arrows: false,
-      // };
-      // const content1 = {
-      //   margin: 'auto',
-      //   paddingBottom: '12px',
-      //   width: '560px',
-      //   color: 'white',
-      //   fontSize: '60px',
-      //   textShadow: '1px 1px black',
-      // };
-      // const content2 = {
-      //   margin: 'auto',
-      //   paddingBottom: '15px',
-      //   color: 'white',
-      //   fontWeight: '500',
-      //   width: '500px',
-      //   fontSize: '26px',
-      //   textAlign: 'center',
-      //   textShadow: '1px 1px black',
-      // };
-      // const contentSignup = {
-      //   display: 'black',
-      //   margin: '0 auto',
-      //   fontSize: '24px',
-      //   background: 'whitesmoke',
-      //   color: 'black',
-      //   borderRadius: '5px',
-      //   padding: '16px 58px'
-      // };
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "splash-auth"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "logo",
-        style: {
-          color: '#fff',
-          margin: "0 30px"
-        }
-      }, "Share The Flare")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "splash-losi"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "login",
-        onClick: function onClick() {
-          return _this.props.openModal('login');
-        }
-      }, "Log In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "signup",
-        onClick: function onClick() {
-          return _this.props.openModal('signup');
-        }
-      }, "Sign Up"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "launch-body"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "image1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "image2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "image3"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "image4"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "content-h1"
@@ -3157,34 +3132,14 @@ function (_React$Component) {
         onClick: function onClick() {
           return _this.props.openModal('signup');
         }
-      }, "Sign Up"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
   return Splash;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // class CarouselPhoto extends React.Component {
-//   render() {
-//     const { item } = this.props;
-//     return (
-//       <React.Fragment>
-//         <img src={`${item}`} style={{width: '100%', maxHeight: '1150px'}}/>
-//       </React.Fragment>
-//     );
-//   }
-// }
-// return (
-//   this.props.currentUser ? mainNav() : sessionLinks()
-//   );
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-
-/* harmony default export */ __webpack_exports__["default"] = (Splash); // <Switch>
-// <Route path='/' component={HomepageContainer} />
-// </Switch>
-
-/*<nav className="sub-nav">
-<h1 className="activity">All Activity</h1>
-</nav>*/
-//<input type="text" placeholder="Photos" className="search"/>
+/* harmony default export */ __webpack_exports__["default"] = (Splash);
 
 /***/ }),
 

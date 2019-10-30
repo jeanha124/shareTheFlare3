@@ -4,27 +4,47 @@ import { Link } from 'react-router-dom';
 
 
 
-const mainNav = (props) => (
-  <React.Fragment>
-      <nav className="left-nav absolute z-index-2">
-        <div className="left">
-          <Link to='/'><h1 className="main-logo">Share The Flare</h1></Link>
-          <Link to={`/photos/~/${props.currentUser.display_name}`}><h2 className="you">You</h2></Link>
-        </div>
-        <div className="right">
+const mainNav = ({ currentUser, logout, hide, openModal }) => {
+  const navLinks = currentUser ? (
+    <ul className="splitright">
+      <div className="right">
           <input className="main-search" type="text" placeholder="Photos..." ></input>
           <Link to='/photos/upload'><i className="fas fa-cloud-upload-alt cloud"></i></Link>
           <div className="avatar-drop">
-            <div className="avatar" onClick={props.hide}></div>
+            <div className="avatar" onClick={hide}></div>
             <ul id="dropdown" className="profile-dropdown">
-              <li><h1 id="hello-display">Hello, {props.currentUser.display_name}!</h1></li>
-              <li><button className="nav-logout" onClick={props.logout}>Log Out</button></li>
+              <li><h1 id="hello-display">Hello, {currentUser.display_name}!</h1></li>
+              <li><button className="nav-logout" onClick={logout}>Log Out</button></li>
             </ul>
           </div>
         </div>
+    </ul>
+  ) : (
+    <ul className="splitright">
+      <div className="right">
+          <button className="login" onClick= {() => openModal('login') }>Log In</button>
+          <button className="signup" onClick= {() => openModal('signup') }>Sign Up</button>
+      </div>
+    </ul>
+  );
+
+  const user = currentUser ? (<h2 className="userProf"><Link to={`/photos/~/${currentUser.display_name}`}>You</Link></h2>) : (null);
+
+  let color = currentUser ? "color1" : "color2";
+
+  return (
+    <header className={color}>
+      <nav className="navbar">
+        <div className="personal">
+          <h1 className="main-logo"><Link to='/'>Share The Flare</Link></h1>
+          {user}
+        </div>
+        {navLinks}
       </nav>
-  </React.Fragment>
-);
+    </header>
+  );
+}
+
 
 
 export default mainNav;

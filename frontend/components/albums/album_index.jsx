@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter, Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { receiveAlbums } from '../../actions/album_actions';
-import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
 
 const msp = (state, ownProps) => {
@@ -32,7 +31,6 @@ class AlbumIndex extends React.Component {
     const {match: {url}} = this.props;
     return (
       <div className='album-index'>
-      <MainNav />
       <div className="cover">
           <div className="user-profile-photo">
             <h1 className="fullName">{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</h1>

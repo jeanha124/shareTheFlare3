@@ -11,12 +11,14 @@ import AlbumForm from './albums/album_form_container';
 import AlbumShow from './albums/album_show';
 import AlbumIndex from './albums/album_index';
 import AlbumUpdate from './albums/album_update';
+import MainNav from './main_tools/main_nav_container';
 
 class App extends React.Component {
   render () {
     const path = window.location.hash;
     return (
       <div className="main-container" style={{display: 'flex', flexDirection: 'column'}}>
+        <Route path="/" component={MainNav} />
         <Modal />
         <AuthRoute exact path='/' component={Splash} />
         <ProtectedRoute exact path='/' component={Homepage} />

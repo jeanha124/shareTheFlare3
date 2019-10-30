@@ -1,5 +1,4 @@
 import React from 'react';
-import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
 // import PhotoIndexItem from '../photos/photo_index_item';
 
@@ -73,7 +72,6 @@ class AlbumForm extends React.Component {
     // debugger
     return (
       <div className='album-create'>
-        <MainNav />
         <div className='album-create-content'>
           <form className='album-form' >
             <div className='album-preview-photo'>

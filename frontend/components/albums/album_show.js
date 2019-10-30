@@ -5,7 +5,6 @@ import { receiveAlbum, deleteAlbum, updateAlbum } from '../../actions/album_acti
 import { withRouter, Link, Route } from 'react-router-dom';
 import PhotoIndex from '../photos/photo_index_container';
 import PhotoIndexItem from '../photos/photo_index_item';
-import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
 import AlbumUpdate from './album_update';
 
@@ -85,7 +84,6 @@ class AlbumShow extends React.Component {
     // debugger
     return (
       <React.Fragment>
-        <MainNav />
         <div className="album-show">
           <Link to={'/albums'}><h2 style={{margin: '70px 0 0 0', fontSize: '20px'}}><i className="fas fa-arrow-left"></i> Back to Albums</h2></Link>
           <div className="album-cover" style={{display: 'flex', backgroundImage: `url(${photos[0].photoUrl}) no-repeat`, opacity: '0.5', margin: '45px 0 0 0', flexDirection: 'column', justifyContent: 'center', height: '400px'}}>

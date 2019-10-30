@@ -1,3 +1,79 @@
 // Place all the styles related to the Api::Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: -1;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image1, .image2, .image3, .image4 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.image1 {
+  background-image: image_url("bench.jpg");
+  background-size: cover;
+  animation: first 20s infinite;
+  z-index: -2;
+}
+.image2 {
+  background-image: image_url("amanda.jpg");
+  background-size: cover;
+  animation: second 20s infinite;
+  z-index: -2;
+}
+.image3 {
+  background-image: image_url("amber.jpg");
+  background-size: cover;
+  animation: third 20s infinite;
+  z-index: -2;
+}
+.image4 {
+  background-image: image_url("friend1.jpg");
+  background-size: cover;
+  animation: fourth 20s infinite;
+  z-index: -2;
+}
+
+@keyframes first {
+  0% { opacity: 1 }
+  25% { opacity: 0 }
+  50% { opacity: 0 }
+  75% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@keyframes second {
+  0% { opacity: 0 }
+  25% { opacity: 1 }
+  50% { opacity: 0 }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes third {
+  0% { opacity: 0 }
+  25% { opacity: 0 }
+  50% { opacity: 1 }
+  75% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@keyframes fourth {
+  0% { opacity: 0 }
+  25% { opacity: 0 }
+  50% { opacity: 0 }
+  75% { opacity: 1 }
+  100% { opacity: 0 }
+}

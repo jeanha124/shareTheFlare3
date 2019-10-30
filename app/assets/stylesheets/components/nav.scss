@@ -4,19 +4,7 @@ html, body {
   overflow-x: hidden;
 }
 
-.launch-body {
-  color: white;
-  background: image-url('amber.jpg')no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow: hidden;
-  height: 93vh;
-  font-family: Proxima Nova, helvetica nueue, helvetica, arial, sans-serif;
-  position: inherit;
-  top: -64px;
-}
+
 
 .splash-auth {
   display: flex;
@@ -64,12 +52,16 @@ html, body {
   font-size: 16px;
   font-weight: 700;
 }
-.signup:hover {
+.signup:hover, .signup-2:hover {
   color: grey;
 }
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  top: 50%;
+  top: 20%;
   transform: translateY(-50%);
 }
 

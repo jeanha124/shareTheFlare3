@@ -1,7 +1,6 @@
 import React from 'react';
 import PhotoIndexItem from '../photos/photo_index_item';
 import Footer from '../main_tools/footer';
-import MainNav from '../main_tools/main_nav_container';
 
 class Homepage extends React.Component {
   constructor(props){
@@ -17,7 +16,6 @@ class Homepage extends React.Component {
     });
    return (
     <React.Fragment>
-      <MainNav />
       <nav className="sub-nav absolute z-index">
           <h1 className="activity active">All Activity</h1>
       </nav>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, NavLink, Route } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
 import Footer from '../main_tools/footer';
-import MainNav from '../main_tools/main_nav_container';
 import AlbumIndex from '../albums/album_index';
 
 class PhotoIndex extends React.Component {
@@ -24,7 +23,6 @@ class PhotoIndex extends React.Component {
     const {match: {url}} = this.props;
     return (
       <React.Fragment>
-        <MainNav />
         <div className="cover">
           <div className="user-profile-photo">
             <h1 className="fullName">{`${this.props.currentUser.fname} ${this.props.currentUser.lname}`}</h1>

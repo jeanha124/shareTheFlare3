@@ -1,26 +1,42 @@
 
-.left-nav {
-  background: #212124;
-  color: white;
-  font-family: Proxima Nova, helvetica nueue, helvetica, arial, sans-serif;
+// .left-nav {
+//   background: #212124;
+//   color: white;
+//   font-family: Proxima Nova, helvetica nueue, helvetica, arial, sans-serif;
+//   height: 50px;
+//   font-size: 17px;
+//   justify-items: baseline;
+//   align-items: center;
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+// .left {
+//   display: flex;
+//   width: 592px;
+//   justify-content: space-around;
+// }
+.color1 {
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, .90);
   height: 50px;
-  font-size: 17px;
-  justify-items: baseline;
-  align-items: center;
-  display: flex;
-  justify-content: space-around;
+  padding: 0 24px;
+  z-index: 2;
 }
 
-.left {
-  display: flex;
-  width: 592px;
-  justify-content: space-around;
+.color2 {
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, .50);
+  height: 50px;
+  padding: 0 24px;
+  z-index: 1;
 }
-
 .right {
   display: flex;
-  width: 850px;
-  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
 }
 
 .sub-nav {
@@ -35,11 +51,31 @@
 }
 
 .main-logo {
-  text-align: end;
   font-size: 21px;
   font-weight: 700;
+  margin-right: 40px;
+  width: 200px;
+  color: white;
 }
+.personal {
+  display: flex;
 
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+.splitright {
+  width: 500px;
+  justify-content: space-between;
+  
+}
+.userProf {
+  width: 50px;
+  color: white;
+  padding: 6px 6px;
+}
 .main-search {
   background: #ccc;
   width: 184px;
@@ -53,6 +89,7 @@
 }
 .cloud {
   font-size: 32px;
+  color:  white;
 }
 
 .main-logo:hover, .you:hover, .explore:hover, .cloud:hover {

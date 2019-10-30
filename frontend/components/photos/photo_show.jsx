@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
 import { Redirect } from 'react-router';
-import MainNav from '../main_tools/main_nav_container';
 import Footer from '../main_tools/footer';
 
 class PhotoShow extends React.Component {
@@ -100,7 +99,6 @@ class PhotoShow extends React.Component {
     if (this.state.edit === false){
       return (
         <React.Fragment>
-          <MainNav />
           <div className="pic-container">
             <Link to={`/photos/~/${this.props.currentUser.display_name}`} className="back"><i className="fas fa-arrow-left"></i> Back to Photostream</Link>
             <div className='pads center'>
