@@ -24,7 +24,6 @@ class Homepage extends React.Component {
           <ul className="photo-index">{photos}</ul>
         </div>
       </div>
-      <Footer />
     </React.Fragment>
    );
   }

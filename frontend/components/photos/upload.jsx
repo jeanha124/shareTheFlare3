@@ -31,7 +31,6 @@ class Upload extends React.Component {
           <Route exact path='/photos/upload' component={BeforeUpload} />
           <Route path='/photos/upload/new' component={DuringUpload} />
         </Switch>
-        <Footer />
       </React.Fragment>
     ); 
   }

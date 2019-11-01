@@ -100,7 +100,6 @@ class AlbumShow extends React.Component {
           </div>
         </div>
         <Route exact path={`/albums/${id}/edit`} render={<AlbumUpdate {...this.props}/>}/>
-        <Footer />
       </React.Fragment>
     );
   }

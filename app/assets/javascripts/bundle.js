@@ -467,6 +467,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _albums_album_index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./albums/album_index */ "./frontend/components/albums/album_index.jsx");
 /* harmony import */ var _albums_album_update__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./albums/album_update */ "./frontend/components/albums/album_update.jsx");
 /* harmony import */ var _main_tools_main_nav_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./main_tools/main_nav_container */ "./frontend/components/main_tools/main_nav_container.jsx");
+/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -484,6 +485,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -559,6 +561,9 @@ function (_React$Component) {
         exact: true,
         path: "/albums",
         component: _albums_album_index__WEBPACK_IMPORTED_MODULE_11__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+        path: "/",
+        component: _main_tools_footer__WEBPACK_IMPORTED_MODULE_14__["default"]
       }));
     }
   }]);
@@ -741,7 +746,7 @@ function (_React$Component) {
         className: "album-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "album-photos"
-      }, photoArray))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, photoArray))));
     }
   }]);
 
@@ -939,7 +944,7 @@ function (_React$Component) {
           className: "album-image",
           src: album.photos[0].photoUrl
         })));
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+      })))));
     }
   }]);
 
@@ -1150,7 +1155,7 @@ function (_React$Component) {
         exact: true,
         path: "/albums/".concat(id, "/edit"),
         render: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_album_update__WEBPACK_IMPORTED_MODULE_8__["default"], this.props)
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+      }));
     }
   }]);
 
@@ -1437,7 +1442,7 @@ function (_React$Component) {
         className: "photo-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "photo-index"
-      }, photos))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, photos))));
     }
   }]);
 
@@ -2081,7 +2086,7 @@ function (_React$Component) {
             allPhotos: photos
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }));
     }
   }]);
 
@@ -2445,7 +2450,7 @@ function (_React$Component) {
           className: "submit-btn",
           type: "submit",
           value: "Comment"
-        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+        })))));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainNav, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "pic-container"
@@ -2468,7 +2473,7 @@ function (_React$Component) {
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "edit-update",
           onClick: this.handleSubmit
-        }, "Update"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+        }, "Update"))));
       }
     }
   }]);
@@ -2638,7 +2643,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/photos/upload/new",
         component: _during_upload_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+      })));
     }
   }]);
 
@@ -3071,8 +3076,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _main_tools_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main_tools/footer */ "./frontend/components/main_tools/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3092,8 +3095,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-
- // import Slider from 'react-slick';
 
 var Splash =
 /*#__PURE__*/
@@ -3132,7 +3133,7 @@ function (_React$Component) {
         onClick: function onClick() {
           return _this.props.openModal('signup');
         }
-      }, "Sign Up")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_main_tools_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, "Sign Up")));
     }
   }]);
 

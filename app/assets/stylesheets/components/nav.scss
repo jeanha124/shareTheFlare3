@@ -70,7 +70,7 @@ html, body {
   padding-bottom: 12px;
   width: 560px;
   font-size: 60px;
-  
+  color: white;
   text-shadow: 1px 1px black;
 }
 
@@ -81,6 +81,7 @@ html, body {
   width: 580px;
   font-size: 26px;
   text-align: center;
+  color: white;
   text-shadow: 1px 1px black;
 }
 
@@ -168,7 +169,8 @@ html, body {
 .profile-dropdown {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 116%;
+  right: -20px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

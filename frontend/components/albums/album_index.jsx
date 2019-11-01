@@ -63,7 +63,6 @@ class AlbumIndex extends React.Component {
             </ul>
         </div>
       </div>  
-      <Footer />
       </div>
     );
   }

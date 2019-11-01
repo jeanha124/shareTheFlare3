@@ -46,7 +46,6 @@ class PhotoIndex extends React.Component {
         </div>} />
         <Route exact path={`/albums`} render={() => <AlbumIndex {...this.props} allPhotos={photos} />} />
         {/* <Route exact path={`/albums/${this.props.photo.albums.id}`} render={() => <AlbumUpdate {...this.props} allPhotos={photos}/>} /> */}
-        <Footer />
       </React.Fragment>
     );
   }

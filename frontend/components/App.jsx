@@ -12,6 +12,7 @@ import AlbumShow from './albums/album_show';
 import AlbumIndex from './albums/album_index';
 import AlbumUpdate from './albums/album_update';
 import MainNav from './main_tools/main_nav_container';
+import Footer from './main_tools/footer';
 
 class App extends React.Component {
   render () {
@@ -29,6 +30,7 @@ class App extends React.Component {
         <ProtectedRoute exact path='/albums/:albumId/edit' component={AlbumUpdate} />
         <ProtectedRoute exact path='/albums/:albumId' component={AlbumShow} />
         <ProtectedRoute exact path='/albums' component={AlbumIndex} />
+        <Route path="/" component={Footer} />
       </div>
     );
   }

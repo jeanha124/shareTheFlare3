@@ -90,7 +90,6 @@ class AlbumForm extends React.Component {
             </ul>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

@@ -143,7 +143,6 @@ class PhotoShow extends React.Component {
                 <input className='text-btn' type='submit' value='Tag' />
               </form>
           </div> */}
-          <Footer />
         </React.Fragment>
       );
     } else {
@@ -177,7 +176,6 @@ class PhotoShow extends React.Component {
                <button className="edit-update" onClick={this.handleSubmit}>Update</button>
             </div>
           </content>
-          <Footer />
         </React.Fragment>
       );
     }

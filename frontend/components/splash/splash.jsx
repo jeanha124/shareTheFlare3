@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Footer from '../main_tools/footer';
-// import Slider from 'react-slick';
 
 class Splash extends React.Component {
   constructor (props){
@@ -19,7 +16,6 @@ class Splash extends React.Component {
         <h2 className="content-h2">Join the Share the Flare community, home to tens of billions of photos and 2 million groups.</h2>
         <button className='signup-2' onClick={() => this.props.openModal('signup')}>Sign Up</button>
       </div>
-      <Footer />
     </div>
     );
 
